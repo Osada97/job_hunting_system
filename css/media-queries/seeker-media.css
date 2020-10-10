@@ -1,0 +1,203 @@
+@media screen and (max-width: 1167px){
+	.add-list .all-ads{
+		width: 100%;
+	}
+	.add-list .all-ads .row{
+		width: 100%;
+		box-sizing: border-box;
+		height: 156px;
+		margin: 15px auto;
+	}
+	.add-list .all-ads .row .column2{
+		width: 66%;
+	}
+	.add-list .all-ads .row .column2 .row2{
+		width: 100%;
+	}
+}
+@media screen and (max-width: 991px){
+	.add-list .all-ads .row .column2{
+		width: 60%;
+	}
+	.add-list .row .next-link .next-content ul
+}
+@media screen and (max-width: 919px){
+	.add-list .row .next-link .next-content ul {
+		width: 80%;
+	}
+	.add-list .row .next-link .next-content ul li{
+		margin: 0 29px; 
+	}
+}
+@media screen and (max-width: 872px){
+	.add-list .all-ads .row .column2{
+		width: 55%;
+	}
+	.add-list .row .next-link .next-content ul {
+		width: 90%;
+	}
+	.add-list .row .next-link .next-content ul li{
+		margin: 0 29px; 
+	}
+}
+@media screen and (max-width: 790px){
+	.add-list .all-ads .row .column2{
+		width: 55%;
+	}
+	.add-list .row .next-link .next-content ul {
+		width: 95%;
+	}
+	.add-list .row .next-link .next-content ul li{
+		margin: 0 29px; 
+	}
+}
+@media screen and (max-width: 768px){
+	.add-list .all-ads .row{
+		width: 450px;
+		height: auto;
+	}
+	.add-list .all-ads .row .column1{
+		width: 110px;
+		overflow: auto;
+		margin: 15px auto;
+		float: none;
+	}
+	.add-list .all-ads .row .column2{
+		width: 90%;
+		margin: 20px auto;
+		float: none;
+	}
+	.add-list .all-ads .row .column3{
+		width: 90%;
+		margin: 20px auto;
+		float: none;
+		text-align: center;
+	}
+	.add-list .all-ads .row .column2 .row1{
+		width: 100%;
+		margin-bottom: 15px;
+		text-align: center;
+	}
+	.add-list .all-ads .row .column2 .row2{
+		text-align: center;
+	}
+	.add-list .all-ads .row .column2 .row2 h2{
+		display: block;
+	}
+	.add-list .row .next-link{
+		margin: 70px 0px; 
+	}
+	.add-list .row .next-link .next-content ul {
+		width: 95%;
+	}
+	.add-list .row .next-link .next-content ul li{
+		margin: 0 29px; 
+	}
+}
+@media screen and (max-width: 618px){
+	.add-list .row .next-link .next-content ul {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.add-list .row .next-link .next-content ul li{
+		margin: 0 20px; 
+	}
+}
+
+@media screen and (max-width: 519px){
+	.add-list .row .next-link .next-content ul li{
+		margin: 0 15px; 
+	}
+}
+@media screen and (max-width: 469px){
+	.add-list .all-ads .row{
+		width: 90%;
+		height: auto;
+	}
+	.add-list .row .next-link .next-content ul li{
+		margin: 0 10px; 
+	}
+}
+@media screen and (max-width: 410px){
+	.add-list .row .next-link .next-content ul li{
+		margin: 0 5px; 
+	}
+}
+@media screen and (max-width: 410px){
+	.add-list .row .next-link .next-content ul li{
+		font-size: 10px; 
+	}
+	.add-list .row .next-link .next-content ul li a{
+		font-size: 10px; 
+	}
+}
+
+/*seekerdashboardprofilesettings.css*/
+
+@media screen and (max-width: 1160px){
+
+	.section{
+		width: 80%;
+	}
+	.section .account-settings-content .row2 .imj-canvas canvas{
+		margin-left: 25px;
+	}
+}
+@media screen and (max-width: 812px){
+	.section .account-settings-content .row2 .imj-canvas canvas{
+		max-width: 435px;
+		max-height: 290px;
+	}
+}
+@media screen and (max-width: 730px){
+
+	.section .account-settings-content .row3 p{
+		width: 90%;
+	}
+}
+@media screen and (max-width: 665px){
+	.section .account-settings-content .row2 .imj-canvas canvas{
+		max-width: 355px;
+		max-height: 190px;
+	}
+}
+@media screen and (max-width: 569px){
+	.section .account-settings-content .row2 .imj-canvas canvas{
+		max-width: 311px;
+		max-height: 173px;
+		margin-left: 10px;
+	}
+}
+@media screen and (max-width: 500px){
+	.section .account-settings-content .row2 .imj-canvas canvas{
+		max-width: 100%;
+		max-height: auto;
+		margin-left: 0px;
+	}
+}
+@media screen and (max-width: 439px){
+
+	.section .account-settings-content .row3 p{
+		width: 100%;
+	}
+	.section .account-settings-content .row3 p input{
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.section .account-settings-content  .e-pro-but input{
+		width: 95%;
+	}
+}
+@media screen and (max-width: 346px){
+	.section .account-settings-content .header h1{
+		font-size: 28px;
+	}
+	.section .account-settings-content h2{
+		font-size: 22px;
+	}
+	.section .account-settings-content .row2 .upload-pro-pic label{
+		width: 100%;
+		padding: 5px;
+		box-sizing: border-box;
+	}
+}

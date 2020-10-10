@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+.main{
+	width: 800px;
+	margin: 100px auto 150px;
+	font-family:  'IBM Plex Sans', sans-serif;;
+}
+.main .row1{
+	text-align: center;
+	font-size: 25px;
+	margin-bottom: 60px;
+}
+.main .row2{
+	padding: 10px;
+}
+.main .row2 label{
+	font-size: 18px;
+	color: #00000085;
+}
+.main .row2 input{
+	display: block;
+	width: 100%;
+	padding: 13px 3px;
+	margin: 10px 0;
+	box-sizing: border-box;
+	border: 1px solid #3c3c3c73;
+	border-radius: 5px;
+	outline: none;
+}
+.main .row2 input:hover{
+	border-color: #ff8a00;
+	transition: 0.5s ease 0s;
+}
+.main .row2 input[type=text]:focus{
+	border-color: #ff8a00;
+	transition: 0.5s ease 0s;
+}.main .row2 input[type=password]:focus{
+	border-color: #ff8a00;
+	transition: 0.5s ease 0s;
+}
+.main .row2 .errors{
+	border-left: 2px solid red;
+	padding-left: 10px;
+	color: #0000008a;
+	margin-bottom: 15px;
+
+}
+.main .row3{
+	padding: 10px;
+}
+.main .row3 input{
+	width: 280px;
+	padding: 8px;
+	border: none;
+	background-color: #ff8a00;
+	color: white;
+	font-size: 15px;
+	cursor: pointer;
+	float: left;
+	border-radius: 5px;
+	outline: none;
+}
+.main .row3 p:nth-child(2){
+	float: right;
+}
+.main .row3 input:hover{
+	background-color: #e1800e;
+	transition: 0.5s ease-out 0s;
+}

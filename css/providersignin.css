@@ -1,0 +1,86 @@
+.main{
+	width: 800px;
+	margin: 120px auto;
+}
+.main .row1{
+	text-align: center;
+	font-size: 25px;
+	margin:30px;
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+.main .row2{
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	margin-top: 40px;
+	padding: 20px;
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+.main .row2 .err{
+	border-left: 2px solid red;
+	margin-right: 2px;
+	font-size: 13px;
+	margin-bottom: 22px;
+}
+.main .row2 .err p{
+	margin-left: 3px;
+	margin-bottom: 5px;
+	color: #890808;
+	font-size: 14px;
+}
+.main .row2 label{
+	display: block;
+	margin-bottom: 10px;
+	font-size: 19px;
+	color: #696262e3;
+}
+.main .row2 input{
+	width: 700px;
+	padding: 10px;
+	margin-bottom: 8px;
+	border: 1px solid #eee;
+	border-radius: 8px;
+	font-size: 14px;
+	outline: none;
+}
+.main .row2 input:hover{
+	border-color: #ff8a00;
+	transition: 0.5s ease 0s;
+}
+.main .row2 input[type=text]:focus{
+	border-color: #ff8a00;
+	transition: 0.5s ease 0s;
+}
+.main .row2 input[type=password]:focus{
+	border-color: #ff8a00;
+	transition: 0.5s ease 0s;
+}
+.main .s_but{
+	margin-top: 10px;
+	border: 1px solid #eee;
+	border-radius: 9px;
+	overflow: auto;
+}
+.main .s_but input{
+	float: left;
+	margin: 15px;
+	width: 270px;
+	padding: 8px;
+	border: none;
+	border-radius: 5px;
+	background-color: #ff8a00;
+	color: white;
+	cursor: pointer;
+	font-size: 15px;
+	outline: none;
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+.main .s_but input:hover{
+	background-color: #ed8509;
+	transition: 0.3s ease-out 0s;
+}
+.main .s_but p{
+	float: right;
+	margin: 20px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 16px;
+}

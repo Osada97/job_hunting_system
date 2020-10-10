@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Ubuntu:wght@300&display=swap');
+.section .view-add{
+	padding: 50px;
+}
+.section .view-add .row1 {
+	font-size: 17px;
+	font-family: 'Raleway', sans-serif;
+}
+.section .view-add .row2{
+	margin: 45px;
+}
+.section .view-add .row2 table{
+	width: 100%;
+	border-collapse: collapse;
+	font-family: 'Raleway', sans-serif;
+}
+.section .view-add .row2 table th{
+	background-color: #ddd6;
+	padding: 8px;
+	text-align: left;
+	font-size: 15px;
+}
+.section .view-add .row2 table tr button{
+	background: none;
+	border: none;
+	font-size: 14px;
+	outline: none;
+	cursor: pointer;
+	color: #ff8a00;
+}
+.section .view-add .row2 table tr button:hover{
+	color: #000;
+}
+.section .view-add .row2 table tr td{
+	padding: 10px;
+	font-size: 13px;
+	border: 1px solid #eee;
+	text-align: center;
+}
+.section .view-add .row2 table tr td:nth-child(4){
+	color: #39c400;
+	font-weight: bold;
+}
+.section .view-add .row2 table tr td p{
+	margin-bottom: 5px;
+	margin-top: 3px;
+	text-align: left;
+}
+.section .view-add .row2 table tr td p:first-child{
+	color: #e36105;
+	font-weight: bold;
+}
+.section .view-add .row2 table tr td p:nth-child(2){
+	color: #74706e;
+
+}
+.section .view-add .row2 table tr td p:last-child{
+	color: #74706e;
+
+}
+
+/*nect link pagination*/
+.section .row .next-link{
+	margin: 25px;
+	overflow: auto;
+}
+.section .row .next-link .next-content{
+	text-align: center;
+}
+.section .row .next-link .next-content ul{
+	width: 767px;
+	margin: 0 auto;
+	padding: 5px;
+	border: 2px solid #eeeeee;
+}
+.section .row .next-link .next-content ul li{
+	display: inline-block;
+	list-style: none;
+	margin:0 45px;
+	cursor: pointer;
+	padding: 5px 13px;
+	border-radius: 5px;
+}
+.section .row .next-link .next-content ul li:nth-child(3){
+	cursor: default;
+	font-family:sans-serif;
+	font-weight: 600;
+	font-size: 13px;
+	background-color: #ff8a00;
+	color: #fff;
+}
+.section .row .next-link .next-content ul li a{
+	font-size: 13px;
+	text-decoration: none;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	text-transform: capitalize;
+	color: black;
+}
+.section .row .next-link .next-content ul li:hover{
+	background-color: #ff8a00;
+	transition: 0.9s ease 0s;
+}
+.section .row .next-link .next-content ul li:hover a{
+	color: white;
+	transition: 0.9s ease 0s;
+}
+.section .row .next-link .next-content ul li.active{
+	background-color: #ff8a00;
+	transition: 0.9s ease 0s;
+}
+.section .row .next-link .next-content ul li.active a{
+	color: white;
+	transition: 0.9s ease 0s;
+}
+.section .row .next-link .next-content .empty{
+	font-family: 'Raleway', sans-serif;
+	font-size: 25px;
+	margin-bottom: 25px;
+}

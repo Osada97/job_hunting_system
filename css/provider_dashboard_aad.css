@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+.section .add-content{
+	padding: 60px;
+	overflow: auto;
+}
+.section .add-content .error{
+	padding-left: 15px;
+	border-left: 2px solid red;
+	margin:25px 20px;
+	text-transform: capitalize;
+	font-family: 'Nunito', sans-serif;
+	color: #6f6868;
+}
+.section .add-content .row1 .header{
+	font-size: 24px;
+	text-align: center;
+	margin-bottom: 35px;
+	font-family: 'Nunito', sans-serif;
+}
+.section .add-content .row2{
+	margin: 10px;
+	font-family: 'Nunito', sans-serif;
+}
+.section .add-content .row2 p label{
+	display: block;
+	font-size: 17px;
+	font-weight: 600;
+	color: #484646d4;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+.section .add-content .row2 .radio{
+	padding: 15px 0;
+}
+.section .add-content .row2 .radio p{
+	display: inline;
+	margin-left: 50px;
+}
+.section .add-content .row2 .radio p label{
+	display: inline;
+}
+.section .add-content .row2 .radio p input{
+	width: auto;
+}
+.section .add-content .row2 p input{
+	margin-bottom: 12px;
+	margin-left: 15px;
+	width: 95%;
+	padding: 10px;
+	font-size: 15px;
+	font-weight: normal;
+	outline-color: orange;
+	border: 1px solid #c3c1c1cf;
+	border-radius: 5px;
+	color: #403e3ebf;
+}
+.section .add-content .row2 p input:hover{
+	border-color: #ff8a00;
+	transition: 0.5s ease 0s;
+}
+.section .add-content .row2 p select{
+	margin-bottom: 12px;
+	margin-left: 15px;
+	width: 97%;
+	padding: 10px;
+	font-size: 15px;
+	font-weight: normal;
+	outline-color: orange;
+	border: 1px solid #c3c1c1cf;
+	border-radius: 5px;
+	outline: none;
+	overflow: auto;
+	color: #403e3ebf
+}
+.section .add-content .row2 p textarea{
+	margin-bottom: 12px;
+	margin-left: 15px;
+	width: 95%;
+	padding: 10px;
+	font-size: 15px;
+	font-weight: normal;
+	outline-color: orange;
+	border: 1px solid #c3c1c1cf;
+	border-radius: 5px;
+	color: #403e3ebf;
+}
+.section .add-content .row2 p textarea:hover{
+	border-color: #ff8a00;
+	transition: 0.5s ease 0s;
+}
+.section .add-content .row3 p input{
+	margin-top: 20px;
+	padding: 10px;
+	border: none;
+	float: left;
+	margin-right: 150px;
+	width: 300px;
+	outline: none;
+	color: white;
+	font-weight: 600;
+	background-color: #ff8a00;
+	border-radius: 5px;
+	font-size: 15px;
+	cursor: pointer;
+}.section .add-content .row3 p:last-child input{
+	float: right;
+	margin-right: 0;
+}
+.section .add-content .row3 p input:hover{
+	background-color: #e67d00;
+	transition: 0.5s ease-in 0.1s;
+}

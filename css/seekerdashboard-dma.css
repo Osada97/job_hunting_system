@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+.section .delete-content{
+	padding: 50px;
+	overflow: auto;
+}
+.section .delete-content:hover{
+	background-color: #ffa5000a;
+	transition: 0.6s ease-in 0s;
+}
+.section .delete-content .row1{
+	text-align:center;
+	margin:10px 0;
+	font-size: 18px;
+	color: #6f6f6f;
+	font-family: "Muli";
+}
+.section .delete-content .row2{
+	margin: 50px 0 15px;
+	overflow: auto;
+}
+.section .delete-content .row2 p{
+	font-size: 19px;
+	margin: 5px 0 15px;
+	font-family: "Muli";
+	text-transform: capitalize;
+}
+.section .delete-content .row2 p span{
+	color: #ff7600;
+	font-weight: 600;
+}
+.section .delete-content .row2 p label{
+	display: block;
+	text-indent: 45px;
+	color: #686262;
+}
+.section .delete-content .row2 p input{
+	margin-left: 45px;
+	margin-top: 18px;
+	padding: 9px;
+	outline: none;
+	width: 870px;
+	font-size: 15px;
+	border: 1px solid #aaaaaab5;
+	border-radius: 3px;
+}
+.section .delete-content .row2 p input[type=password]:focus{
+	border-color: #ff7600;
+}
+.section .delete-content .row2 p input:hover{
+	border-color: #ff7600;
+	transition: 0.9s ease 0s;
+}
+.section .delete-content .row3 input{
+	background-color: #ff8a00;
+	color: white;
+	font-size: 16px;
+	padding: 8px;
+	border: none;
+	cursor: pointer;
+	width: 220px;
+	border-radius: 5px;
+	margin-top: 15px;
+}
+.section .delete-content .row3 input:hover{
+	background-color: #e76c00;
+	transition: 0.9s;
+	outline: none;
+}
+.section .error{
+	padding-left: 10px;
+	font-size: 17px;
+	border-left: 2px solid red;
+	font-family: "Muli";
+}

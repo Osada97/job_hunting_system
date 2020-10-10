@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Ubuntu:wght@300&display=swap');
+.section{
+	border:none;
+}
+.section:hover{
+	box-shadow: none;
+}
+.section .view-add{
+	padding: 20px;
+}
+.section .view-add .row1{
+	margin:20px 0;
+}
+.section .view-add .row2{
+	overflow: auto;
+}
+.section .view-add .row2 .column a{
+	text-decoration: none;
+	cursor: default;
+}
+.section .view-add .row2 .column{
+	border: 1px solid #ddd;
+	width: 300px;
+	height: 410px;
+	float: left;
+	text-align: center;
+	margin: 35px 25px;
+	overflow: hidden;
+	cursor: default;
+	padding: 6px;
+	transition: 0.3s;
+}
+.section .view-add .row2 .column:hover{
+	box-shadow: 0px 0px 17px 5px #ddd;
+	transform: scale(1.03);
+	transition: 0.8s ease 0s;
+}
+.section .view-add .row2 .column .img-set{
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	margin: 45px auto 25px;
+	border-radius: 50%;
+}
+.section .view-add .row2 .column .img-set img{
+	width: 100px;
+	height: 100px;
+}
+.section .view-add .row2 .column .ad-content .ad-title{
+	margin: 15px 0;
+	font-size: 24px;
+	text-transform: capitalize;
+
+}
+.section .view-add .row2 .column .ad-content .ad-title h4{
+	color: #000000ad;
+	font-weight: 600;
+	font-family: 'Raleway', sans-serif;
+
+}
+.section .view-add .row2 .column .ad-content .ad-company{
+	margin: 8px 0;
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #f96700;
+	font-family: 'Ubuntu', sans-serif;
+
+}
+.section .view-add .row2 .column .ad-content .ad-salary{
+	margin: 12px 0;
+	font-size: 15px;
+	text-transform: capitalize;
+	color: #77797bc4;
+	font-family: 'Ubuntu', sans-serif;
+
+}
+.section .view-add .row2 .column .ad-content .ad-location{
+	margin: 12px 0;
+	font-size: 14px;
+	text-transform: capitalize;
+	color: #77797bc4;
+	font-family: 'Ubuntu', sans-serif;
+
+}
+.section .view-add .row2 .column .ad-content i{
+	margin-right: 5px;
+	font-size: 10px;
+
+}
+.section .view-add .row2 .column .ad-content .ad-catogery{
+	margin: 10px 0;
+	font-size: 14px;
+	text-transform: capitalize;
+	color: #77797bc4;
+	font-family: 'Ubuntu', sans-serif;
+
+}
+.section .view-add .row2 .column .ad-content .ad-type{
+	margin: 15px 0;
+	font-size: 14px;
+	text-transform: capitalize;
+	color: #00b900;
+	font-family: 'Ubuntu', sans-serif;
+
+}
+.section .view-add .row2 .column .ad-content .hr{
+	border:0.5px solid #ddd;
+	margin-top: 5px;
+}
+.section .view-add .row2 .column .ad-content .ad-time{
+	text-align: right;
+	margin: 15px 0;
+	font-size: 14px;
+	text-transform: capitalize;
+	color: #838383;
+	font-family: 'Ubuntu', sans-serif;
+
+}
+/*next link*/
+.section .row .next-link{
+	margin: 25px;
+	overflow: auto;
+}
+.section .row .next-link .next-content{
+	text-align: center;
+}
+.section .row .next-link .next-content ul{
+	width: 767px;
+	margin: 0 auto;
+	padding: 5px;
+	border: 2px solid #eeeeee;
+}
+.section .row .next-link .next-content ul li{
+	display: inline-block;
+	list-style: none;
+	margin:0 45px;
+	cursor: pointer;
+	padding: 5px 13px;
+	border-radius: 5px;
+}
+.section .row .next-link .next-content ul li:nth-child(3){
+	cursor: default;
+	font-family:sans-serif;
+	font-weight: 600;
+	font-size: 13px;
+	background-color: #ff8a00;
+	color: #fff;
+}
+.section .row .next-link .next-content ul li a{
+	font-size: 13px;
+	text-decoration: none;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	text-transform: capitalize;
+	color: black;
+}
+.section .row .next-link .next-content ul li:hover{
+	background-color: #ff8a00;
+	transition: 0.9s ease 0s;
+}
+.section .row .next-link .next-content ul li:hover a{
+	color: white;
+	transition: 0.9s ease 0s;
+}
+.section .row .next-link .next-content ul li.active{
+	background-color: #ff8a00;
+	transition: 0.9s ease 0s;
+}
+.section .row .next-link .next-content ul li.active a{
+	color: white;
+	transition: 0.9s ease 0s;
+}
+.section .row .next-link .next-content .empty{
+	font-family: 'Raleway', sans-serif;
+	font-size: 25px;
+	margin-bottom: 25px;
+}
+
+/*option field*/
+.section .column .option .dropdown{
+	float: right;
+}
+.section .column .option .dropdown .dropbtn{
+	padding: 5px;
+	background: none;
+	border: none;
+	outline: none;
+}
+.section .column .option .dropdown .dropdown-content{
+	position: absolute;
+	display: none;
+	right: 0;
+	width: 120px;
+	border:1px solid #ddd;
+	background-color: #f8f8f8ad;
+	opacity: 95%;
+	transition:0.3s;
+}
+.section .column .option .dropdown .dropdown-content a{
+	display: block;
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+	margin-bottom: 12px;
+	padding: 10px 14px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 600;
+}
+.section .column .option .dropdown .dropdown-content a:hover{
+	color: white;
+	background-color: #f96700ba;
+	transition: 0.5s;
+}
+.section .column .option .dropdown:hover .dropdown-content{
+	display: block;
+	transition: 0.9s;
+}

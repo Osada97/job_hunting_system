@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+.main{
+	width: 850px;
+	margin: 30px auto;
+	padding: 10px;
+}
+.main .row1{
+	margin: 30px;
+	text-align: center;
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+.main .row1 h1{
+	font-size: 35px;
+}
+.main .row2{
+	padding: 30px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+}
+.main .row2 .errmsg{
+	border-left:2px solid  red; 
+	background-color: #eeeeee42;
+}
+.main .row2 .errmsg p{
+	margin-left: 2px;
+	margin-bottom: 2px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 15px;
+	color:#6e0303;
+}
+.main .row2 label{
+	display: block;
+	font-size: 18px;
+	margin: 10px 0;
+	font-family: 'IBM Plex Sans', sans-serif;
+	color: #313131d4;
+}
+.main .row2 input{
+	width: 770px;
+	padding: 8px;
+	margin-bottom: 5px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	border: 1px solid #79707054;
+	outline: none;
+}
+.main .row2 input:hover{
+	border-color: #ff8a00;
+	transition: 0.5s ease-out 0s;
+}
+.main .row2 input[type=text]:focus{
+	border-color: #ff8a00;
+	transition: 0.5s ease-out 0s;
+}
+.main .row2 input[type=password]:focus{
+	border-color: #ff8a00;
+	transition: 0.5s ease-out 0s;
+}
+.main .row3{
+	padding: 30px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	margin: 10px 0;
+	overflow: auto;
+}
+.main .row3 .c_but input{
+	width: 250px;
+	background: #ff8a00;
+	border: none;
+	padding: 8px;
+	color: #fff;
+	font-size: 15px;
+	float: left;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+} 
+.main .row3 .c_but input:hover{
+	background-color: #df8011;
+	transition: 0.5s ease-out 0s;
+}
+.main .row3 p{
+	float: right;
+	font-size: 16px;
+	font-family: 'IBM Plex Sans', sans-serif;
+}

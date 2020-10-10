@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+.section .change-pw .row1{
+	margin: 30px 25px;
+}
+.section .change-pw .row1 h1{
+	font-size: 25px;
+	color: #4f4f4f;
+	font-family:  'Lato', sans-serif;
+}
+.section .change-pw .row2{
+	margin: 30px 25px;
+}
+.section .change-pw .row2 .content p label{
+	font-family: 'Lato',sans-serif;
+	display: block;
+	margin-bottom: 15px;
+	color: #696762;
+	font-size: 18px;
+}
+.section .change-pw .row2 .content p input{
+	width: 90%;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-family:  'Lato', sans-serif;
+	outline: none;
+}
+.section .change-pw .row2 .content p input:hover{
+	border-color: #ff8a00;
+	transition: 0.5s ease 0s;
+}
+.section .change-pw .row2 .content p input[type=password]:focus{
+	border: none;
+	border-bottom: 1px solid;
+	border-radius: 0;
+	border-color: #ff8a00;
+	transition: 0.3s ease 0s;
+}
+.section .change-pw .row2 .content .but button{
+	margin-top: 15px;
+	margin-bottom: 5px;
+	padding: 8px;
+	font-family: 'Lato', sans-serif;
+	width: 250px;
+	border: none;
+	color: white;
+	background-color: #ff8a00;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.section .change-pw .row2 .content .but button:hover{
+	background-color: #e17b02;
+	transition: 0.5s ease 0s;
+	outline: none;
+}
+.section .change-pw .errors{
+	margin: 15px 25px;
+	border-left: 2px solid red;
+	padding-left: 8px;
+	font-size: 17px;
+	color: #686868;
+	font-family: 'Lato', sans-serif;
+}

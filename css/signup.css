@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+}
+.main{
+	width: 800px;
+	margin: 80px auto;
+}
+.main .row1{
+	text-align: center;
+	padding: 20px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 25px;
+}
+
+.main .row2 .signup_form input{
+	display: block;
+	width: 100%;
+	padding: 13px 3px;
+	box-sizing: border-box;
+	margin: 15px 0;
+	border: none;
+	border: 1px solid #0000004f;
+	border-radius: 5px;
+	font-family: "IBM Plex Sans", sans-serif;
+	outline: none;
+}
+.main .row2 .signup_form label{
+	font-family: 'IBM Plex Sans', sans-serif;
+	color: #00000085;
+	font-weight: 600;
+}
+.main .row2 .signup_form button{
+	padding: 10px ;
+	width: 280px;
+	border: 1px solid #ff8a00;
+	background: none;
+	background-color: #ff8a00;
+	color: white;
+	font-weight: 600;
+	font-family: 'IBM Plex Sans', sans-serif;
+	border-radius: 5px;
+	outline: none;
+}
+.main .row2 .signup_form p span{
+	float: right;
+	font-size: 15px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	color: orange;
+	text-decoration: none;
+}
+.main .errmsg{
+	padding: 12px;
+	font-size: 15px;
+	font-family: "IBM Plex Sans";
+	border: 1px solid #eee;
+	border-left: 2px solid red;
+	margin-bottom: 10px;
+}

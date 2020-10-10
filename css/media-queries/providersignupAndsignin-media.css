@@ -1,0 +1,23 @@
+/*provider signIn*/
+@media screen and (max-width: 800px){
+	.main{
+		width: 80%;
+	}
+	.main .row2 input {
+		width: 100%;
+		box-sizing: border-box;
+	}
+}
+@media screen and (max-width: 365px){
+	.main .s_but input{
+		width: 75%;
+		margin: 20px;
+	}
+}
+
+/*prvider signup*/
+@media screen and (max-width: 351px){
+	.main .row3 .c_but input {
+		width: 100%;
+	}
+}

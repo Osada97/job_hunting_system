@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+.smain{
+	width: 1140px;
+	margin: 50px auto;
+	border-radius: 5px;
+	overflow: auto;
+	background-color: #e7e7e721;
+} 
+.smain .pcv .row1{
+	padding: 35px;
+	background-color: #ffffff;
+	overflow: auto;
+	font-family: 'IBM Plex Sans', sans-serif; 
+}
+.smain .pcv .row1 .column{
+	width: 278.33px;
+	float: left;
+	margin: 0 41px;
+}
+.smain .pcv .row1 .column:nth-child(1){
+	margin: 0;
+	margin-right: 75px;
+}
+.smain .pcv .row1 .column:nth-child(2){
+	text-align: center;
+}
+.smain .pcv .row1 .column:nth-child(3){
+	text-align: right;
+	margin: 0;
+	margin-left: 75px;
+}
+.smain .pcv .row1 .column .content,p{
+	margin: 20px 0;
+}
+.smain .pcv .row1 .column i{
+	margin-left: 5px;
+	color: #ab782c;
+}
+.smain .pcv .row1 .column:nth-child(3) h3{
+	display: inline;
+	font-size: 15px;
+	font-weight: normal;
+}
+.smain .pcv .row1 .column h3 span{
+	font-size: 15px;
+	color: #6f6565;
+	font-weight: normal;
+}
+.smain .hr{
+	width: 1110px;
+	margin: 0 0 5px 10px;
+	border: 2px double #f8b53aa6;
+}
+.smain .pcv .row2{
+	float: left;
+	margin-bottom: 30px;
+} 
+.smain .pcv .row2 .column{
+	width: 470px;
+	height: 200px;
+	float: left;
+	margin: 20px 25px;
+	padding: 24px;
+	border-left:2px solid #a57d3385;
+}
+.smain .pcv .row3 .column{
+	width: 470px;
+	height: 200px;
+	float: left;
+	margin: 20px 25px;
+	padding: 24px;
+	border-left:2px solid #a57d3385;
+}
+.smain .pcv .row2 .column h1{
+	font-size: 25px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: 500;
+}
+.smain .pcv .row2 .column h2{
+	text-transform: capitalize;
+	font-size: 26px;
+	font-family: "IBM Plex Sans",sans-serif;
+	font-weight: normal;
+	color: #df861d;
+	margin-bottom: 8px;
+}
+.smain .pcv .row2 .column h3{
+	font-size: 18px;
+	text-transform: capitalize;
+	font-family: "IBM Plex Sans",sans-serif;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+.smain .pcv .row2 .column h4{
+	font-size: 14px;
+	color: #573800;
+	font-weight: normal;
+	font-family: "IBM Plex Sans",sans-serif;
+}
+.smain .pcv .row2 .column .content{
+	margin-top: 13px;
+	margin-left: 20px;
+}
+.smain .pcv .row2 .column .content h5{
+	font-size: 15px;
+	color: #807777;
+	font-family: "IBM Plex Sans";
+	margin-bottom: 8px;
+}
+.smain .pcv .row3 .column h1{
+	font-size: 25px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: 500;
+}
+.smain .pcv .row3 .column h2{
+	text-transform: capitalize;
+	font-size: 26px;
+	font-family: "IBM Plex Sans",sans-serif;
+	font-weight: normal;
+	color: #df861d;
+	margin-bottom: 8px;
+}
+.smain .pcv .row3 .column h3{
+	font-size: 18px;
+	text-transform: capitalize;
+	font-family: "IBM Plex Sans",sans-serif;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+.smain .pcv .row3 .column h4{
+	font-size: 14px;
+	color: #573800;
+	font-weight: normal;
+	font-family: "IBM Plex Sans",sans-serif;
+}
+.smain .pcv .row3 .column .content h4 span{
+	float: right;
+} 
+.smain .pcv .row3 .column .content h5{
+	font-size: 15px;
+	color: #807777;
+	font-family: "IBM Plex Sans";
+	margin-bottom: 8px;
+}
+.smain .pcv .row3 .column .content{
+	margin-top: 8px;
+	margin-left: 20px;
+}
+.smain .pcv .row3 .column .content .presentagebar{
+	width: 100%;
+	height: 6px;
+	border: 1px solid #eee;
+	border-radius: 10px;
+	background-color: #eee;
+	margin-bottom: 10px;
+	float: left;
+}
+.smain .pcv .row3 .column .content .presentagebar .bar{
+	height: 6px;
+	border-radius: 10px;
+	background-color: orange;
+}

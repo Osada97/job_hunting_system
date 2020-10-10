@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
+.main-row{
+	width: 100%;
+	text-align: center;
+	padding: 45px 0;
+	background-color: #eee;
+	box-sizing: border-box;
+	font-family: 'Baloo Tammudu 2', cursive;
+	font-size: 20px;
+	color: #ff8a00;
+}
+.about-content{
+	width: 1200px;
+	margin: 85px auto 0;
+	font-size: 22px;
+	text-align: justify;
+	text-transform: capitalize;
+	line-height: 31px;
+	font-family: 'Baloo Tammudu 2', cursive;
+}
+.about-content p span{
+	font-size: 24px;
+	color: #ff8a00;
+}
+.main-pic{
+	width: 1000px;
+	margin: 20px auto;
+	text-align: center;
+}
+/*tiles*/
+.tiels{
+	margin: 75px 0;
+}
+.tiels .row{
+	width: 1200px;
+	margin: 0 auto;
+	overflow: auto;
+	padding: 15px;
+}
+.tiels .row .column{
+	width: 350px;
+	float: left;
+	margin-left: 25px;
+	margin-right: 25px;
+	text-align: center;
+	padding:45px 19px 45px;
+	box-sizing: border-box;
+	border:1px solid #eee;
+	font-family: 'Baloo Tammudu 2', cursive;
+}
+.tiels .row .column .icon{
+	font-size: 25px;
+	padding: 12px;
+	background-color: #fff;
+	width: 50px;
+	height: 50px;
+	margin:15px auto;
+	border-radius: 50%;
+	border: 1px solid #eee;
+}
+.tiels .row .column .icon i{
+	line-height: 50px;
+	color: orange;
+}
+.tiels .row .column .content h3{
+	font-size: 20px;
+}
+.tiels .row .column .content p{
+	font-size: 15px;
+	color: #a5a2a2;
+}
+.tiels .row .column:hover{
+	background-color: #ff8a00;
+	transition: 0.9s;
+}
+.tiels .row .column:hover h3{
+	color: #fff;
+	transition: 0.6s ease 0s;
+}
+.tiels .row .column:hover p{
+	color: #fff;
+	transition: 0.6s ease 0s;
+}

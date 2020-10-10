@@ -1,0 +1,47 @@
+@media screen and (max-width: 1219px){
+	.about-content{
+		width: 90%;
+	}
+	.main-pic{
+		width: 80%;
+	}
+	.tiels .row{
+		width: 90%;
+		box-sizing: border-box;
+	}
+	.tiels .row .column{
+		width:28%;
+		box-sizing: border-box;
+	}
+}
+@media screen and (max-width: 1029px){/*iPad Pro*/
+	.main-pic{
+		width: 95%;
+	}
+	.main-pic img{
+		width: 100%;
+	}
+	.tiels .row{
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.tiels .row .column{
+		width:26%;
+		box-sizing: border-box;
+	}
+}
+@media screen and (max-width: 730px){
+	.about-content{
+		font-size: 18px;
+	}
+	.about-content p span{
+		font-size: 18px;
+	}
+	.tiels .row .column{
+		float: none;
+		width: 100%;
+		margin-top: 10px;
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
