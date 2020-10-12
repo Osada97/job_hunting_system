@@ -60,7 +60,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Jobber</title>
 	<link rel="stylesheet" href="css/index.css">
-	<!-- <link rel="stylesheet" href="css/media-queries/index-media.css">media query -->
+	<link rel="stylesheet" href="css/media-queries/index-media.css"><!--media query-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"><!--style sheet for testiminal jquery-->
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /><!--style sheet for scroll animation-->
@@ -90,21 +90,32 @@
 					<li><a href="contactus.php">Contact</a></li>
 				</ul>
 
-				<!--<div class="mob-nav"><!-- this navigation mobile -->
-					<!--<h3><i class="fas fa-bars"></i></h3>
+				<div class="mob-nav"><!-- this navigation mobile -->
+					<h3><i class="fas fa-bars"></i></h3>
 					<ul>
-						<li><a href="index.php" class="active">Home</a></li>
-						<li><a href="aboutus.php">About Us</a></li>
-						<li><a href="contactus.php">Contact</a></li>
+						<li><a href="index.php" class="active">Home</a><i class="fas fa-chevron-down"></i></li>
+						<li><a href="aboutus.php">About Us</a><i class="fas fa-chevron-down"></i></li>
+						<li><a href="contactus.php">Contact</a><i class="fas fa-chevron-down"></i></li>
 					</ul>
 
-				</div>--><!-- this navigation mobile -->
+				</div><!-- this navigation mobile -->
+				<div class="mob-nav2"><!-- this navigation mobile -->
+					<h3><i class="fas fa-bars"></i></h3>
+					<ul>
+						<li><a href="index.php" class="active">Home</a><i class="fas fa-chevron-down"></i></li>
+						<li><a href="aboutus.php">About Us</a><i class="fas fa-chevron-down"></i></li>
+						<li><a href="contactus.php">Contact</a><i class="fas fa-chevron-down"></i></li>
+						<li><a href="userlogin.php"></i>Sign In</a><i class="far fa-user"></i></li>
+						<li><a href="mainsignup.php">Sign Up</a><i class="fas fa-user-plus"></i></li>
+					</ul>
+
+				</div><!-- this navigation mobile -->
 
 			</div>
 
 			<div class="but"  data-aos="fade-down">
-				<a href="userlogin.php"><button><i class="far fa-user"></i>Sign In</button></a>
-				<a href="seekersignup.php"><button><i class="fas fa-user-plus"></i>Sign Up</button></a>
+				<a href="mainlogin.php"><button><i class="far fa-user"></i>Sign In</button></a>
+				<a href="mainsignup.php"><button><i class="fas fa-user-plus"></i>Sign Up</button></a>
 
 			</div>
 
@@ -113,14 +124,12 @@
 		<div class="slider">
 
 				<div class="slide_show" >
-					
-							
 							<!--<img class="img" src="imj/job2.jpg" alt="finr_job">
 							<img class="img" src="imj/job8.jpg" alt="finr_job">-->
-							<picture>
-								<source media="(max-width:375px),(max-width:414px)" srcset="imj/mobile.jpg">
-									<img class="img" src="imj/job12.jpg" alt="finr_job">
-							</picture>
+					<picture>
+						<source media="(max-width:375px),(max-width:414px)" srcset="imj/mobile.jpg">
+							<img class="img" src="imj/job11.jpg" alt="finr_job">
+					</picture>
 
 				</div>
 
@@ -342,10 +351,7 @@
 
 		<div class="pic_get_job" >
 			<div class="pic">
-				<picture>
-					<source media="(max-width:375px),(max-width:414px)" srcset="imj/mobile_start.jpg">
-					<img src="imj/start.jpg" alt="">
-				</picture>
+				
 			</div>
 			<div class="over-text">
 				<h3  data-aos="fade-right">Post OR Get a job</h3>
@@ -425,31 +431,35 @@
 	</div><!--home-->
 
 	<footer>
-		<div class="simple_box">
-				<div class="main_row">
-					<div class="column">
-						<div class="sub_column">
-							<i class="fas fa-users"></i>
-						</div>
-						<div class="sub_column">
-							<h4>Jobseeker</h4>
-							<h1>Looking For Job?</h1>
-							<a href="userlogin.php">Find A Job<i class="fas fa-arrow-right"></i></a>
-						</div>
-					</div>
-					<div class="column">
-						<div class="sub_column">
-							<i class="fas fa-briefcase"></i>
-						</div>
-						<div class="sub_column">
-							<h4>Recruiter</h4>
-							<h1>Are You Recruiting?</h1>
-							<a href="providersignin.php">Post A Job<i class="fas fa-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-		</div>
 		<div class="big_footer">
+			<div class="simple_box">
+					<div class="main_row">
+						<div class="column">
+							<div class="sub_column">
+								<i class="fas fa-users"></i>
+							</div>
+							<div class="sub_column">
+								<div class="sec">
+									<h4>Jobseeker</h4>
+									<h1>Looking For Job?</h1>
+								</div>
+								<a href="userlogin.php">Find A Job<i class="fas fa-arrow-right"></i></a>
+							</div>
+						</div>
+						<div class="column">
+							<div class="sub_column">
+								<i class="fas fa-briefcase"></i>
+							</div>
+							<div class="sub_column">
+								<div class="sec">
+									<h4>Recruiter</h4>
+									<h1>Are You Recruiting?</h1>
+								</div>
+								<a href="providersignin.php">Post A Job<i class="fas fa-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+			</div>
 			<div class="footer_svg">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250"><path fill="#fff" fill-opacity="1" d="M0,192L120,170.7C240,149,480,107,720,112C960,117,1200,171,1320,197.3L1440,224L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path></svg>
 			</div>
@@ -461,16 +471,17 @@
 						<p>Post job free in JObber.Seekers Apply for a job and submit Your CV And connected With Great Companies.Search Jobs All over County Using This site And Apply Online Easily.</p>
 					</div>
 					<div class="column">
+						<h1>Download App</h1>
+						<h3>Download <span>Jobber</span> App Now</h3>
 						<a href="#">
-						
-							<h1>Download App</h1>
-							<h3>Download <span>Jobber</span> App Now</h3>
 							<div class="store-row">
 								<div class="store-icon">
 									<i class="fab fa-google-play"></i>
 								</div>
-								<h3>Download On The</h3>
-								<h3>Google Play</h3>
+								<div class="store-cont">
+									<h3>Download On The</h3>
+									<h3>Google Play</h3>
+								</div>
 							</div>
 						</a>		
 						<a href="#">
@@ -478,8 +489,11 @@
 								<div class="store-icon">
 									<i class="fab fa-apple"></i>
 								</div>
-								<h3>Download On The</h3>
-								<h3>App Store</h3>
+								<div class="store-cont">
+									<h3>Download On The</h3>
+									<h3>App Store</h3>
+								</div>
+								
 							</div>	
 						</a>
 					</div>		
@@ -593,14 +607,12 @@
 			$("header").sticky({
 				topSpacing:0,
 				'zIndex':"100",
+				'height':'90px'
 			});
 
 			$(window).on("scroll",function(){
 				if ($(window).scrollTop()) {
 					$("header").css("overflow", "visible");
-				}
-				else{
-					$("header").css("overflow", "auto");
 				}
 
 			});
@@ -617,15 +629,7 @@
     });
   </script>
 
-  <script>
-  	//for mobile navigation
-  	$(document).ready(function(){
-  		$('.mob-nav h3').click(function(){
-  			$('.mob-nav ul').toggle(400);
-  		});
-
-  	});
-  </script>
+  <script src='js/mobilenav.js'>//for mobile navigation </script>
 
 	<script>
 		//loader
@@ -640,7 +644,6 @@
 				document.querySelector('.txt h1').textContent = remcontent;
 
 				if(remindex == 1){
-					console.log(remcontent);
 					index =0;
 				}
 			}

@@ -22,3 +22,20 @@
 		order: 3;
 	}
 }
+@media screen and (max-width: 436px){
+	fieldset .skills .sk_row{
+		flex-direction: column;
+	}
+	.model_page .crop_area{
+		width: 90%;
+	}
+}
+@media screen and (max-width: 254px){
+	.main .row3 .cvbut input[type='submit']{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.main .row2 fieldset legend{
+		margin-left: 0;
+	}
+}

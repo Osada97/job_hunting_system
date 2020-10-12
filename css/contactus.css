@@ -14,11 +14,14 @@
 .contact-tiles .contact-row{
 	width: 1200px;
 	margin:0 auto;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
 }
 .contact-tiles .contact-row .column{
-	width: 250px;
+	flex: 1;
 	height: 260px;
-	float: left;
 	margin: 10px 25px;
 	text-align: center;
 	padding: 45px 15px 20px;
@@ -49,16 +52,15 @@
 }
 .contact-tiles .contact-row .column .icon{
 	border:1px solid #eee;
-	padding: 15px;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	margin: 0 auto;
 	border-radius: 50%;
 	margin-bottom: 25px;
 	background-color: #fff;
 }
 .contact-tiles .contact-row .column .icon i{
-	line-height: 42px;
+	line-height: 50px;
 	font-size: 25px;
 	color: #ff8a00;
 }
@@ -82,9 +84,9 @@
 	display: inline-block;
 }
 .contact-form .contact-form-content .form-feild p input{
-	width: 550px;
+	width: 580px;
 	padding: 15px 12px;
-	margin-right: 20px;
+	margin-right: 10px;
 	margin-bottom: 25px;
 	outline: none;
 	border-radius: 5px;

@@ -1,68 +1,39 @@
-@media screen and (max-width: 1282px){
+@media screen and (max-width:1200px){
+	.contact-tiles .contact-row{
+		width: 100%;
+	}
 	.contact-form .contact-form-content{
-		width: 80%;
+		width: 100%;
+	}
+	.contact-form .contact-form-content .form-feild{
+		padding: 0 10px;
 	}
 	.contact-form .contact-form-content .form-feild p input{
-		width: 93%;
+		width: 98%;
 	}
 	.contact-form .contact-form-content .form-feild p{
 		width: 49%;
 	}
 }
-@media screen and (max-width: 1202px){
-	.contact-tiles .contact-row{
-		width: 100%;
-		overflow: auto;
-	}
+@media screen and (max-width:960px){
 	.contact-tiles .contact-row .column{
-		width: 20%;
+		flex: none;
+		width: 40%;
 	}
 }
-@media screen and (max-width: 1202px){
+@media screen and (max-width:500px){
+	
 	.contact-tiles .contact-row .column{
-		margin: 10px 20px;
+		width: 90%;
 	}
 }
-@media screen and (max-width: 939px){
-	.contact-tiles .contact-row .column h2{
-		font-size: 20px;
-	}
-	.contact-form .contact-form-content{
-		width: 95%;
-	}
-	.contact-form .contact-form-content .form-feild p input{
-		width: 93%;
-		margin-right:0;
-	}
-	.contact-form .contact-form-content .form-feild textarea{
-		width: 96.5%;
-	}
-}
-@media screen and (max-width: 796px){
-	.contact-tiles .contact-row .column{
-		width: 44%;
-	}
-}
-@media screen and (max-width: 666px){
-	.contact-tiles .contact-row .column{
-		float: none;
-		margin: 10px 0;
-		width: 100%;
-	}
-	.contact-form .contact-form-content .form-header{
-		font-size: 12px;
-	}
+@media screen and (max-width:420px){
 	.contact-form .contact-form-content .form-feild p{
-		display: block;
 		width: 100%;
 	}
-	.contact-form .contact-form-content .form-feild p input{
-		width: 100%;
-		box-sizing: border-box;
-		margin-right:0;
-		font-size: 11px;
-	}
-	.contact-form .contact-form-content .form-feild textarea{
-		width: 92.5%;
+}
+@media screen and (max-width:260px){
+	.contact-form .contact-form-content .contact-but button{
+		width: 95%;
 	}
 }

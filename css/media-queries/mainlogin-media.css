@@ -1,0 +1,43 @@
+@media screen and (max-width:815px){
+    section{
+        width: 95%;
+    }
+}
+@media screen and (max-width:488px){
+    section .main_row:nth-child(2) .con_pannel fieldset .ac_type{
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width:451px){
+    section .main_row:nth-child(2) .con_pannel fieldset .ac_type{
+        flex-direction: column;
+    }
+    section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column{
+        width: 80%;
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+    section .main_row:nth-child(2) .con_form .subbut{
+        flex-wrap: wrap;
+    }
+    section .main_row:nth-child(2) .con_form .subbut .subcolumn:nth-child(2){
+        margin-right: 0;
+    }
+    section .main_row:nth-child(2) .con_form .sec:nth-child(4) .radio{
+        flex-wrap: wrap;
+    }
+    section .main_row:nth-child(2) .con_form .sec:nth-child(4) .radio label{
+        margin-right: 10px;
+    }
+}
+@media screen and (max-width:276px){
+    section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column{
+        width: 100%;
+    }
+    section{
+        width: 100%;
+    }
+    section .main_row:nth-child(2) .con_pannel fieldset{
+        padding: 15px 0;
+    }
+}

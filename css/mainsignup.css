@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section{
+    margin: 100px auto;
+    width: 800px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+section .main_row:first-child{
+    width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 17px;
+}
+section .main_row:nth-child(2){
+    width: 100%;
+}
+section .main_row:nth-child(2) .con_pannel fieldset{
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    padding:15px;
+}
+section .main_row:nth-child(2) .con_pannel fieldset legend{
+    font-size: 15px;
+    color: #8d8d8d;
+    font-weight: 600;
+}
+section .main_row:nth-child(2) .con_pannel fieldset .ac_type{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column{
+    flex: 1;
+    overflow: hidden;
+    border: 2px solid #afafaf;
+    border-radius: 2px;
+    margin: 0px 9px;
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column .column{
+    margin-right: 20px;
+}
+section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column .column img{
+    width: 55px;;
+}
+section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column .column p{
+    font-size: 13px;
+}
+section .main_row:nth-child(2) form{
+    transition:0.4s;
+    transition-property: opacity;
+}
+section .main_row:nth-child(2) .con_form{
+    margin-top: 40px;
+}
+section .main_row:nth-child(2) .con_form label{
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+section .main_row:nth-child(2) .con_form .sec{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section .main_row:nth-child(2) .con_form .sec p{
+    flex: 1;
+}
+section .main_row:nth-child(2) .con_form .sec p:first-child{
+    margin-right: 25px;;
+}
+section .main_row:nth-child(2) .con_form .sec:nth-child(3) p {
+    margin-right: 0;
+}
+section .main_row:nth-child(2) .con_form .sec input{
+    width: 100%;
+    padding: 10px 5px;
+    margin-bottom: 30px;
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+    outline: none;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+section .main_row:nth-child(2) .con_form .sec input:hover{
+    border-color: #ff8a00;
+}
+section .main_row:nth-child(2) .con_form .sec input:focus{
+    border-color: #ff8a00;
+}
+section .main_row:nth-child(2) .con_form .sec:nth-child(4){
+    flex-direction: column;
+    align-items: flex-start;
+}
+section .main_row:nth-child(2) .con_form .sec:nth-child(4) label:first-child{
+    margin-bottom: 25px;
+}
+section .main_row:nth-child(2) .con_form .sec:nth-child(4) .radio{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 35px;;
+}
+section .main_row:nth-child(2) .con_form .sec:nth-child(4) .radio label{
+    width: auto;
+    margin: 0;
+    font-weight: normal;
+}
+section .main_row:nth-child(2) .con_form .sec:nth-child(4) .radio input{
+    width: auto;
+    margin: 0;
+}
+section .main_row:nth-child(2) .con_form .subbut{
+    display: flex;
+    justify-content: space-between;
+}
+section .main_row:nth-child(2) .con_form .subbut .subcolumn{
+    flex: 1;
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+}
+section .main_row:nth-child(2) .con_form .subbut .subcolumn input{
+    width: 100%;
+    padding: 9px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #fff;
+    background-color: #ff8a00;
+    border-radius: 3px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+section .main_row:nth-child(2) .con_form .subbut .subcolumn input:hover{
+    background-color: #e97e03;
+}
+section .main_row:nth-child(2) .con_form .subbut .subcolumn p{
+    font-size: 14px;
+}
+section .main_row:nth-child(2) .con_form .subbut .subcolumn p a{
+    color: #ff8a00;
+}
+
+.ac_active{
+    border-color: #ff8a00 !important;
+    color: #ff8a00;
+}
+.form_hide{
+    opacity: 0;
+}

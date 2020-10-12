@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section{
+    margin: 100px auto;
+    width: 800px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+section .main_row:first-child{
+    width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 17px;
+}
+section .main_row:nth-child(2){
+    width: 100%;
+}
+section .main_row:nth-child(2) .con_pannel fieldset{
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    padding:15px;
+}
+section .main_row:nth-child(2) .con_pannel fieldset legend{
+    font-size: 15px;
+    color: #8d8d8d;
+    font-weight: 600;
+}
+section .main_row:nth-child(2) .con_pannel fieldset .ac_type{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column{
+    flex: 1;
+    overflow: hidden;
+    border: 2px solid #afafaf;
+    border-radius: 2px;
+    margin: 0px 9px;
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column .column{
+    margin-right: 20px;
+}
+section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column .column img{
+    width: 55px;;
+}
+section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column .column p{
+    font-size: 13px;
+}
+section .main_row:nth-child(2) form{
+    transition:0.4s;
+    transition-property: opacity;
+}
+section .main_row:nth-child(2) .con_form{
+    margin-top: 40px;
+}
+section .main_row:nth-child(2) .con_form label{
+    display: block;
+    margin-bottom: 12px;
+    letter-spacing: 1.2px;
+    font-size: 16px;
+}
+section .main_row:nth-child(2) .con_form p{
+    position: relative;
+}
+section .main_row:nth-child(2) .con_form input{
+    margin-bottom: 15px;
+    padding: 12px 5px;
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    outline: none;
+    font-size: 15px;
+    color: #2c2b2b;
+}
+section .main_row:nth-child(2) .con_form input:hover{
+    border-color: #ff8a00;
+}
+section .main_row:nth-child(2) .con_form input:focus{
+    border-color: #ff8a00;
+}
+section .main_row:nth-child(2) .con_form span{
+    position: absolute;
+    top: 33px;
+    right: 3px;
+    width:40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: inherit;
+}
+section .main_row:nth-child(2) .con_form span:hover{
+    color: orangered;
+}
+section .main_row:nth-child(2) .con_form .subbut {
+    margin-top: 40px;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section .main_row:nth-child(2) .con_form .subbut .subcolumn{
+    flex: 1;
+    margin: 0 20px 0 0;
+}
+section .main_row:nth-child(2) .con_form .subbut input{
+    width: 100%;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    font-weight: 600;
+    background-color: #ff8a00;
+    cursor: pointer;
+}
+section .main_row:nth-child(2) .con_form .subbut input:hover{
+    background-color: #e67d06;
+    transition: border 0.6s ease-in 0s;
+}
+section .main_row:nth-child(2) .con_form .subbut p{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+section .main_row:nth-child(2) .con_form .subbut p a{
+    color: #f08205;
+}
+
+.ac_active{
+    border-color: #ff8a00 !important;
+    color: #ff8a00;
+}
+.form_hide{
+    opacity: 0;
+}
