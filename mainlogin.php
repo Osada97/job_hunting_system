@@ -3,17 +3,26 @@
 <?php require_once("inc/connection.php"); ?>
 
 <?php 
-    $errors =array();
 
-	if (isset($_POST["submit"])) {
-		
-		if (empty(trim($_POST["username_email"]))) {
+    $errors = array();
+    $errors1 = array();
+
+    if(isset($_POST["ussubmit"])){
+        /*validation goes in here*/
+        if (empty(trim($_POST["username_email"]))) {
 			$errors[]="Enter User Name Or Email";
 		}
 		if (empty(trim($_POST["password"]))) {
 			$errors[]="Enter Your Password";		
-		}
-		if (empty($errors)) {
+        }
+        if (strlen((trim($_POST["username_email"]))) >100) {
+			$errors[]="Username Field Must Be Less Than 100 Characters";		
+        }
+        if (strlen((trim($_POST["password"]))) >16) {
+			$errors[]="Password Field Must Be Less Than 16 Characters";		
+        }
+        
+        if (empty($errors)) {
 			$username_email=mysqli_real_escape_string($connection,$_POST["username_email"]);
 			$password=mysqli_real_escape_string($connection,$_POST["password"]);
 			$hased_password=sha1($password);
@@ -36,6 +45,52 @@
 				else{
 					$errors[]="Invalid Username/Email Or Password Invalied";
 				}
+			}
+		}
+        
+    }
+    if (isset($_POST["prsubmit"])) {
+		
+		if (empty(trim($_POST["company_email"]))) {
+			$errors1[]="Company Email Required";
+		}
+		if (empty(trim($_POST["password"]))) {
+			$errors1[]="Password Required";
+        }
+        if (strlen((trim($_POST["company_email"]))) >300) {
+			$errors1[]="Comapny Email Field Must Be Less Than 100 Characters";		
+        }
+        if (strlen((trim($_POST["password"]))) >16) {
+			$errors1[]="Password Field Must Be Less Than 16 Characters";		
+        }
+		if (empty($errors1)) {
+			
+			$company_email=mysqli_real_escape_string($connection,$_POST["company_email"]);
+			$password=mysqli_real_escape_string($connection,$_POST["password"]);
+
+			$hashed_password = sha1($password);
+
+			$query = "SELECT * FROM provider WHERE company_email = '{$company_email}' AND password='{$hashed_password}' AND is_deleted=0 LIMIT 1";
+
+			$result = mysqli_query($connection , $query);
+
+			if ($result) {
+				if (mysqli_num_rows($result)==1) {
+
+					$pro=mysqli_fetch_assoc($result);
+
+					$_SESSION["company_registration_number"]=$pro["company_registration_number"];
+					$_SESSION["company_name"]=$pro["company_name"];
+					$_SESSION["is_image_pro"]=$pro["is_image"];
+
+					header("location:providerdashboard-ea.php?crn=" . $pro["company_registration_number"]);
+				}
+				else{
+					$errors1[]="Company Email Or Password Invalied";
+				}
+			}
+			else{
+				$errors1[]="query error";
 			}
 		}
 	}
@@ -93,14 +148,25 @@
                 </fieldset>
             </div>
             <div class="con_form">
-                <form action="mainlogin.php" method='POST'>
+                <div class="errors">
+                </div>
+                <form action="mainlogin.php?ac=se" method='POST'>
+                    <div class="errors">
+                        <?php
+                            if(!empty($errors)){
+                                foreach($errors as $err){
+                                    echo "<p>".$err."</p>";
+                                }
+                            }
+                        ?>
+                    </div>
                     <p>
 						<label for="">Seeker Username</label>
 						<input type="text" name="username_email" placeholder="Enter Username/Email" autofocus>
 					</p>
 					<p>
 						<label for="">Seeker Password</label>
-                        <input type="password" name="password" placeholder="Enter Password">
+                        <input type="password" name="password" placeholder="Enter Password" id="input">
                         <span id="showhide" title="Show Password"><i class="far fa-eye"></i></span>
                     </p>
                     <div class="subbut">
@@ -113,15 +179,24 @@
                         </div>
                     </div>
                 </form>
-                <form action="mainlogin.php" method='POST' style="display:none">
+                <form action="mainlogin.php?ac=pr" method='POST' style="display:none">
+                    <div class="errors">
+                        <?php
+                            if(!empty($errors1)){
+                                foreach($errors1 as $err){
+                                    echo "<p>".$err."</p>";
+                                }
+                            }
+                        ?>
+                    </div>
                     <p>
-						<label for="">Provider Username</label>
-						<input type="text" name="username_email" placeholder="Enter Username/Email" autofocus>
+						<label for="">Company Email</label>
+						<input type="text" name="company_email" placeholder="Enter Username/Email" autofocus>
 					</p>
 					<p>
 						<label for="">Provider Password</label>
-                        <input type="password" name="password" placeholder="Enter Password">
-                        <span id="showhide" title="Show Password"><i class="far fa-eye"></i></span>
+                        <input type="password" name="password" placeholder="Enter Password" id="input1">
+                        <span id="showhide1" title="Show Password"><i class="far fa-eye"></i></span>
                     </p>
                     <div class="subbut">
                         <div class="subcolumn">
@@ -136,48 +211,6 @@
             </div>
         </div>
     </section>
-
-	<!-- <section>
-		<div class="main">
-				<div class="row1">
-					<h1>Login to Your Account</h1>
-				</div>
-				<div class="row2">
-
-					<div class="errors">
-
-						<p>
-							<?php  
-								/*if (!empty($errors)) {
-									foreach ($errors as $value) {
-										echo $value . "<br>";
-									}
-								}*/
-							?>
-						</p>
-
-					</div>
-					<form action="userlogin.php" method="post">
-						<p>
-							<label for="">Username/Email</label>
-							<input type="text" name="username_email" placeholder="Enter Username/Email">
-						</p>
-						<p>
-							<label for="">Password</label>
-							<input type="password" name="password" placeholder="Enter Password">
-						</p>
-				</div>		
-				<div class="row3">
-						<p>
-							<input type="submit" name="submit">
-						</p>
-						<p>
-							Don't You Have A Account? <a href="seekersignup.php">Sign Up Here</a>
-						</p>
-				</div>
-					</form>
-		</div>
-	</section> -->
 
 <footer>
 	<?php require_once("inc/footer.php"); ?>
@@ -201,8 +234,12 @@
         const type_row2 = document.querySelectorAll('.type_column')[1];
         const forms = document.querySelectorAll('.con_form form');
 
+        //getting url data
+        const url = new URL(window.location.href);
+        let acname = url.searchParams.get('ac');
+
         type_row1.addEventListener('click',()=>{
-            
+        
                 if(type_row1.className!='type_column ac_active'){
                     type_row1.classList.add('ac_active');
                     type_row2.classList.remove('ac_active');
@@ -216,9 +253,19 @@
                 }
             
         });
+
+        if(acname == 'se'){
+            type_row1.classList.add('ac_active');
+            type_row2.classList.remove('ac_active');
+
+            forms[1].classList.add('form_hide');
+            forms[0].style.display = "block";
+            forms[1].style.display = "none";
+            forms[0].classList.remove('form_hide');
+        }
         type_row2.addEventListener('click',()=>{
             
-            if(type_row2.className!='type_column ac_active'){
+            if(type_row2.className!='type_column ac_active' || acname == 'pr'){
                 type_row2.classList.add('ac_active');
                 type_row1.classList.remove('ac_active');
 
@@ -229,8 +276,35 @@
                     forms[1].classList.remove('form_hide');
                 });
             }
-        
-    });
+        });
+        if(acname == 'pr'){
+            type_row2.classList.add('ac_active');
+            type_row1.classList.remove('ac_active');
+
+            forms[0].classList.add('form_hide');
+            forms[1].style.display = "block";
+            forms[0].style.display = "none";
+            forms[1].classList.remove('form_hide');
+        }
+    </script>
+    <script>
+        const eye = document.querySelector('#showhide');
+        let input = document.querySelector('#input');
+        const eye1 = document.querySelector('#showhide1');
+        let input1 = document.querySelector('#input1');
+
+        eye.addEventListener('mousedown',()=>{
+            input.setAttribute('type','text');
+        });
+        eye.addEventListener('mouseup',()=>{
+            input.setAttribute('type','password');
+        });
+        eye1.addEventListener('mousedown',()=>{
+            input1.setAttribute('type','text');
+        });
+        eye1.addEventListener('mouseup',()=>{
+            input1.setAttribute('type','password');
+        });
     </script>
 
 </body>

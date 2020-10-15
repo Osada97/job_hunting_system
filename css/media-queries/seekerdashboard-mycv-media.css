@@ -1,199 +1,26 @@
-@media screen and (max-width: 1161px){
-	.section{
-		width: 95%;
-	}
-	.cv-main{
-		width: 100%;
-	}
-	.cv-main .pcv .row1 .column{
-		width: 25%;
-	}
-	.cv-main .hr{
-		width: 98%;
-	}
+@media screen and (max-width: 1020px) {
+  .section {
+    width: 90%;
+  }
 }
-@media screen and (max-width: 1141px){
-	.cv-main .pcv .row1 .column{
-		width: 24%;
-	}
-	.cv-main .pcv .row1 .column{
-		font-size: 12px;
-	}
+@media screen and (max-width: 632px) {
+  .cv-main {
+    flex-wrap: wrap;
+  }
+  .cv-main .cv_col:first-child .row:last-child {
+    width: 100%;
+  }
 }
-@media screen and (max-width: 950px){
-	.cv-main .pcv .row1 .column{
-		width: 23%;
-	}
-	.cv-main .pcv .row1 .column{
-		font-size: 12px;
-	}
-}
-@media screen and (max-width: 923px){
-	.cv-main .pcv .row1{
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.cv-main .pcv .row1 .column{
-		float: none;
-		font-size: 20px;
-	}
-	.cv-main .pcv .row1 .column:nth-child(1){
-		order: 2;
-		width: 53%;
-		margin: 25px auto;
-	}
-	.cv-main .pcv .row1 .column h3{
-		font-size: 25px;
-		margin-bottom: 8px;
-	}
-	.cv-main .pcv .row1 .column h3 span{
-		font-size: 24px;
-	}
-	.cv-main .pcv .row1 .column:nth-child(2){
-		order: 1;
-		width: 53%;
-		margin: 25px auto;
-	}
-	.cv-main .pcv .row1 .column:nth-child(3){
-		order: 3;
-		text-align: left;
-		width: 53%;
-		margin: 25px auto;
-	}
-	.cv-main .pcv .row1 .column:nth-child(3) h3{
-		display: block;
-		font-size: 25px; 
-	}
-	.cv-main .pcv .row1 .column:nth-child(3) i{
-		text-align: left; 
-	}
-	.cv-main .pcv .row2 .column{
-		width: 95%;
-		height: 300px;
-		box-sizing: border-box;
-	}
-	.cv-main .pcv .row2 .column h1{
-		font-size: 30px !important;
-	}
-	.cv-main .pcv .row2 .column h2{
-		font-size: 29px !important;
-	}
-	.cv-main .pcv .row3 .column{
-		width: 95%;
-		height: 300px;
-		box-sizing: border-box;
-	}
-	.cv-main .pcv .row3 .column h1{
-		font-size: 30px !important;
-	}
-	.cv-main .pcv .row3 .column h2{
-		font-size: 29px !important;
-	}
-}
-@media screen and (max-width: 514px){
-	.cv-main .pcv .row1{
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.cv-main .pcv .row1 .column{
-		float: none;
-		font-size: 20px;
-	}
-	.cv-main .pcv .row1 .column:nth-child(1){
-		order: 2;
-		width: 100%;
-		margin: 25px auto;
-	}
-	.cv-main .pcv .row1 .column h3{
-		font-size: 25px;
-		margin-bottom: 8px;
-	}
-	.cv-main .pcv .row1 .column h3 span{
-		font-size: 24px;
-	}
-	.cv-main .pcv .row1 .column:nth-child(2){
-		order: 1;
-		width: 53%;
-		margin: 25px auto;
-	}
-	.cv-main .pcv .row1 .column:nth-child(3){
-		order: 3;
-		text-align: left;
-		width: 100%;
-		margin: 25px auto;
-	}
-}
-@media screen and (max-width: 514px){
-	.cv-main .hr{
-		width: 95%;
-	}
-	.cv-main .pcv .row1{
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.cv-main .pcv .row1 .column{
-		float: none;
-		font-size: 20px;
-	}
-	.cv-main .pcv .row1 .column:nth-child(1){
-		order: 2;
-		width: 100%;
-		margin: 25px auto;
-	}
-	.cv-main .pcv .row1 .column h3{
-		font-size: 18px;
-		margin-bottom: 8px;
-	}
-	.cv-main .pcv .row1 .column h3 span{
-		font-size: 15px;
-	}
-	.cv-main .pcv .row1 .column:nth-child(2){
-		order: 1;
-		width: 100%;
-		margin: 25px auto;
-	}
-	.cv-main .pcv .row1 .column:nth-child(3){
-		order: 3;
-		text-align: left;
-		width: 100%;
-		margin: 25px auto;
-	}
-	.cv-main .pcv .row1 .column:nth-child(3) h3{
-		display: block;
-		font-size: 15px; 
-	}
-	.cv-main .pcv .row2 .column{
-		width: 90%;
-		height: 300px;
-		box-sizing: border-box;
-	}
-	.cv-main .pcv .row2 .column h1{
-		font-size: 22px !important;
-	}
-	.cv-main .pcv .row2 .column h2{
-		font-size: 19px !important;
-	}
-	.cv-main .pcv .row2 .column h2{
-		font-size: 19px !important;
-	}
-	.cv-main .pcv .row2 .column h3{
-		font-size: 15px !important;
-	}
-	.cv-main .pcv .row3 .column{
-		width: 90%;
-		height: 300px;
-		box-sizing: border-box;
-	}
-	.cv-main .pcv .row3 .column h1{
-		font-size: 22px !important;
-	}
-	.cv-main .pcv .row3 .column h2{
-		font-size: 19px !important;
-	}
-	.cv-main .pcv .row2 .column h2{
-		font-size: 19px !important;
-	}
-	.cv-main .pcv .row3 .column h3{
-		font-size: 15px !important;
-	}
+@media screen and (max-width: 261px) {
+  .cv-main .cv_col:first-child {
+    width: 100%;
+    margin: 0;
+  }
+  .cv-main .cv_col:first-child .row .cv-pic {
+    width: 150px;
+    height: 150px;
+  }
+  .cv-main .cv_col:last-child {
+    padding-left: 0;
+  }
 }

@@ -274,20 +274,20 @@
 
 	<div class="search-bar">
 		<div class="content-pic">
-			<picture>
-				<source media="(max-width:525px)" srcset="imj/search_mobile.jpg">
-				<img src="imj/search.jpg" alt="">
-			</picture>
+
 		</div>
 		<div class="search-content">
 			<form action="seekerdashboard-search.php" method="GET">
 				<p>
 					<i class="fas fa-search"></i><input type="text" placeholder="What?" name="what-search">
-					<i class="fas fa-search"></i><input type="text" placeholder="Where?" name="where-search">
-					<i class="fas fa-search"></i><input type="text" placeholder="Company?" name="company-name">
 				</p>
 				<p>
-					<i class="fas fa-search"></i><input type="submit" name="find" value="Find Job">
+					<i class="fas fa-search"></i><input type="text" placeholder="Where?" name="where-search">
+				</p>
+				<p>
+					<i class="fas fa-search"></i><input type="text" placeholder="Company?" name="company-name">
+				</p>
+				<p><input type="submit" name="find" value="Find Job">
 				</p>
 			</form>
 		</div>

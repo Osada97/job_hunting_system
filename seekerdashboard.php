@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <?php require_once("inc/connection.php"); ?>
 <?php session_start(); ?>
 <?php 
@@ -300,20 +301,23 @@
 
 	<div class="search-bar">
 		<div class="content-pic">
-			<picture>
+			<!--<picture>
 				<source media="(max-width:525px)" srcset="imj/search_mobile.jpg">
 				<img src="imj/search.jpg" alt="">
-			</picture>
+			</picture>-->
 		</div>
 		<div class="search-content">
 			<form action="seekerdashboard-search.php" method="GET">
 				<p>
 					<i class="fas fa-search"></i><input type="text" placeholder="What?" name="what-search">
-					<i class="fas fa-search"></i><input type="text" placeholder="Where?" name="where-search">
-					<i class="fas fa-search"></i><input type="text" placeholder="Company?" name="company-name">
 				</p>
 				<p>
-					<i class="fas fa-search"></i><input type="submit" name="find" value="Find Job">
+					<i class="fas fa-search"></i><input type="text" placeholder="Where?" name="where-search">
+				</p>
+				<p>
+					<i class="fas fa-search"></i><input type="text" placeholder="Company?" name="company-name">
+				</p>
+				<p><input type="submit" name="find" value="Find Job">
 				</p>
 			</form>
 		</div>
@@ -321,6 +325,11 @@
 	</div>
 
 	<div class="add-list">
+		<div class="sort_row">
+			<div class="sort_column">
+				<h3>Showing <?php echo $start+1 ."-".$rows_per_page*$page_number?> Of <span><?php echo $total_number_of_rows ?> Jobs</span></h3>
+			</div>
+		</div>
 		<div class="all-ads">
 
 			<?php  
@@ -341,7 +350,7 @@
 											echo '<div class="row2">';
 												echo '<h2><i class="fas fa-home"></i>' . $ad["company_name"]  . '</h2>';
 												echo '<h2><i class="fas fa-map-marker-alt"></i>' . $ad["location"] . '</h2>';
-												echo '<h2>' . $ad["job_category"] . '</h2>';
+												echo '<h2><i class="far fa-building" aria-hidden="true"></i>' . $ad["job_category"] . '</h2>';
 												echo '<h2><i class="fas fa-coins"></i>RS:'. $ad["monthly_salary"] . '</h2>';
 											echo  '</div>';
 										echo '</div>';
@@ -429,6 +438,7 @@
 		});
 
 	</script>
+	
 
 </body>
 <?php mysqli_close($connection); ?>

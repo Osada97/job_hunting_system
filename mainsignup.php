@@ -12,7 +12,7 @@
 
 	//checking is filds are set
 
-	if (isset($_POST["submit"])) {
+	if (isset($_POST["ussubmit"])) {
 
 		//Save enter Filds
 
@@ -42,7 +42,7 @@
 			$errors[]="Please Enter Password";
 		}
 		if (empty(trim($_POST["con_password"]))) {
-			$errors[]="Please Reenter Password";
+			$errors[]="Please Enter Confirm Password";
 		}
 		//checking max width
 
@@ -97,8 +97,7 @@
 				$seeker_id=mysqli_fetch_assoc($result);
 
 				//Query is Sucessfull
-				
-					header("location:cv.php?seeker_id=" . $seeker_id["seeker_id"] . "&add_user=true");
+				header("location:cv.php?seeker_id=" . $seeker_id["seeker_id"] . "&add_user=true");
 				
 			}
 			else{
@@ -108,6 +107,104 @@
 		}
 
 	}
+?>
+<?php  
+
+$errors1 =array();
+$company_name="";
+$company_registration_number="";
+$company_phone_number="";
+$company_email="";
+
+if (isset($_POST["cosubmit"])) {
+
+	$company_name=$_POST["company_name"];
+	$company_registration_number=$_POST["company_registration_number"];
+	$company_phone_number=$_POST["company_phone_number"];
+	$company_email=$_POST["company_email"];
+
+
+	if (empty(trim($_POST["company_name"]))) {
+		$errors1[]="Company Name is Required";
+	}
+	if (empty(trim($_POST["company_registration_number"]))) {
+		$errors1[]="Company Registraion Number is Required";
+	}
+	if (empty(trim($_POST["company_phone_number"]))) {
+		$errors1[]="Company Phone Number is Required";
+	}
+	if (empty(trim($_POST["company_email"]))) {
+		$errors1[]="Company Email is Required";
+	}
+	if (empty(trim($_POST["password"]))) {
+		$errors1[]="Password is Required";
+	}
+	if (empty(trim($_POST["c_passwrd"]))) {
+		$errors1[]="Please Enter Confirm Password";
+	}
+
+	//checkin maxmium filds
+
+	$max_len_fields=array("company_name"=>50,"company_registration_number"=>50,"company_phone_number"=>20,"company_email"=>50,"password"=>10,"c_passwrd"=>10);
+
+	foreach ($max_len_fields as $max => $value) {
+		
+		if (strlen(trim($_POST[$max])) > $value) {
+			$errors1[]=$max . " Must Be Less Than " . $value . "Characters";	
+		}
+	}
+	//check password is correct
+	if ($_POST["password"] != $_POST["c_passwrd"]) {
+		$errors1[]="Password Does Not Match";
+	}
+
+	//checking Email address and Company registration Number is already Exists
+	if(empty($errors1)){
+		$query="SELECT company_registration_number,company_email,company_name FROM provider WHERE company_registration_number='{$company_registration_number}' OR company_email='{$company_email}' OR company_name='{$company_name}'";
+
+		$result = mysqli_query($connection,$query);
+
+		if($result){
+			$qe=mysqli_fetch_assoc($result);
+
+				if ($company_registration_number==$qe["company_registration_number"]) {
+					$errors1[]= $company_registration_number . " Is Already Exsits";
+				}
+				if ($company_name==$qe["company_name"]) {
+					$errors1[]= $company_name . " Is Already Exsits";
+				}
+				if ($company_email==$qe["company_email"]) {
+					$errors1[]= $company_email . " Is Already Exsits";
+				}
+		}
+	}
+	
+	//update query
+	if (empty($errors1)) {
+		
+		$company_name=mysqli_real_escape_string($connection,$_POST["company_name"]);
+		$company_registration_number=mysqli_real_escape_string($connection,$_POST["company_registration_number"]);
+		$company_phone_number=mysqli_real_escape_string($connection,$_POST["company_phone_number"]);
+		$company_email=mysqli_real_escape_string($connection,$_POST["company_email"]);
+		$password=$_POST["password"];
+
+		$hased_password=sha1($password);
+
+		$query="INSERT INTO provider (company_name,company_registration_number,company_email,company_phone_number,password,is_deleted,is_image) VALUES ('{$company_name}','{$company_registration_number}','{$company_email}','{$company_phone_number}','{$hased_password}',0,0)";
+
+		$result = mysqli_query($connection ,$query);
+
+		if ($result) {
+			header("location:mainlogin.php?ac=pr");
+		}
+		else{
+			$errors1[]= "Query false";
+			//to check what is query error
+			printf("error: %s\n", mysqli_error($connection));
+		}
+	}
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -147,7 +244,7 @@
                             </div>
                             <div class="column">
                                 <h3>Job Seeker</h3>
-                                <p>Login as seeker</p>
+                                <p>I Want Discover Companies</p>
                             </div>
                         </div>
                         <div class="type_column">
@@ -156,14 +253,23 @@
                             </div>
                             <div class="column">
                                 <h3>Job Provider</h3>
-                                <p>Login as provider</p>
+                                <p>I want Find Best Employees</p>
                             </div>
                         </div>        
                     </div>
                 </fieldset>
             </div>
             <div class="con_form">
-                <form action="mainsignup.php" method='POST'>
+                <form action="mainsignup.php?ac=se" method='POST'>
+						<div class="errors">
+							<?php
+								if(!empty($errors)){
+									foreach($errors as $err){
+										echo "<p>".$err."</p>";
+									}
+								}
+							?>
+						</div>
                         <div class="sec">
                             <p>
                                 <label for="">First Name</label>
@@ -225,25 +331,34 @@
                         </div>
                     </div>
                 </form>
-                <form action="mainsignup.php" method='POST' style="display:none">
+				<form action="mainsignup.php?ac=pr" method='POST' style="display:none">
+						<div class="errors">
+							<?php
+								if(!empty($errors1)){
+									foreach($errors1 as $err){
+										echo "<p>".$err."</p>";
+									}
+								}
+							?>
+						</div>
                         <div class="sec">
                             <p>
                                 <label for="">Company Name</label>
-                                <input type="text" name="company_name">
+                                <input type="text" name="company_name" value="<?php echo $company_name ?>">
                             </p>
                             <p>
-                                <label for="">Company Registraion Number</label>
-					            <input type="text" name="company_registration_number">
+                                <label for="">Company Registration Number</label>
+					            <input type="text" name="company_registration_number" value="<?php echo $company_registration_number ?>">
                             </p>
 						</div>
 						<div class="sec">
                             <p>
                                 <label for="">Company Phone Number</label>
-					            <input type="text" name="company_phone_number">
+					            <input type="text" name="company_phone_number" value="<?php echo $company_phone_number ?>">
                             </p>
                             <p>
                                 <label for="">Company Email</label>
-					            <input type="Email" name="company_email">
+					            <input type="Email" name="company_email" value="<?php echo $company_email ?>">
                             </p>
 						</div>
 						<div class="sec">
@@ -344,6 +459,10 @@
         const type_row2 = document.querySelectorAll('.type_column')[1];
         const forms = document.querySelectorAll('.con_form form');
 
+		//getting url data
+        const url = new URL(window.location.href);
+        let acname = url.searchParams.get('ac');
+
         type_row1.addEventListener('click',()=>{
             
                 if(type_row1.className!='type_column ac_active'){
@@ -362,6 +481,15 @@
                 }
             
         });
+		if(acname == 'se'){
+            type_row1.classList.add('ac_active');
+            type_row2.classList.remove('ac_active');
+
+            forms[1].classList.add('form_hide');
+            forms[0].style.display = "block";
+            forms[1].style.display = "none";
+            forms[0].classList.remove('form_hide');
+        }
         type_row2.addEventListener('click',()=>{
             
             if(type_row2.className!='type_column ac_active'){
@@ -382,6 +510,15 @@
             }
         
     });
+	if(acname == 'pr'){
+        type_row2.classList.add('ac_active');
+        type_row1.classList.remove('ac_active');
+
+        forms[0].classList.add('form_hide');
+        forms[1].style.display = "block";
+        forms[0].style.display = "none";
+        forms[1].classList.remove('form_hide');
+    }
     </script>
 
 	<script>

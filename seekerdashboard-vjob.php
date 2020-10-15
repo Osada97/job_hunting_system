@@ -44,20 +44,23 @@
 				$qulification_level=$ad_details["qulification_level"];
 				$experience=$ad_details["minimum_qualification"];
 				$description=$ad_details["description"];
-
-
-				$company_query ="SELECT description,facebook,twitter,linked_in FROM provider WHERE company_registration_number ='{$ad_details["company_registration_number"]}' AND is_deleted=0 LIMIT 1" ;
-
+				
+				
+				$company_query ="SELECT company_phone_number,description,facebook,twitter,linked_in,address,company_website FROM provider WHERE company_registration_number ='{$ad_details["company_registration_number"]}' AND is_deleted=0 LIMIT 1" ;
+				
 				$result=mysqli_query($connection,$company_query);
-
+				
 				if ($result) {
 					
 					$result=mysqli_fetch_assoc($result); 
-
+					
+					$address = $result["address"];
 					$caompany_description = $result["description"];
 					$facebook = $result["facebook"];
 					$twitter = $result["twitter"];
 					$linked_in = $result["linked_in"];
+					$curl = $result["company_website"];
+					$phone_number = $result["company_phone_number"];
 				}
 				else{
 					printf(mysqli_error($connection));
@@ -198,12 +201,12 @@
 			if (mysqli_num_rows($button_result)==1) {
 				echo "<form action=\"seekerdashboard-vjob.php?ad-no=$ad_no&p=$page_number\" method=\"POST\" >";
 				echo "<input type=\"text\" name=\"ad_no\" value=\"{$ad_no}\" hidden>";
-				echo  "<a><button id='button' class=\"cancel\" name=\"cancel\">Cancel</button></a>";
+				echo  "<a><button id='button' class=\"cancel\" name='cancel' onclick=\"return confirm('Remove Job Application?')\"><i class='far fa-meh'></i>Cancel</button></a>";
 				echo "</form>";
 			}
 			else{
 
-				echo  "<a href=\"seekerdashboard-apply-ad.php?ad-no={$ad_no}&crn={$company_registration_number}&p={$page_number}\" ><button id='button'>apply</button></a>";
+				echo  "<a href=\"seekerdashboard-apply-ad.php?ad-no={$ad_no}&crn={$company_registration_number}&p={$page_number}\" ><button id='button' onclick=\"return confirm('Apply For A Job?')\"><i class='far fa-paper-plane'></i>Apply</button></a>";
 			}
 		}
 		else{
@@ -233,11 +236,10 @@
 	<link rel="stylesheet" href="css/seekerdashboard.css">
 	<link rel="stylesheet" href="css/seekerdashboard-vjob.css">
 	<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
-
+	
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/media-queries/seekerdashboardheader.css"><!--media query-->
 	<link rel="stylesheet" href="css/media-queries/seekerdashboard-vjob-media.css"><!--media query-->
-
 </head>
 <body>
 	
@@ -286,92 +288,137 @@
 	</section>
 
 	<div class="job-content">
-
-		<div class="main-details">
-			<div class="job-main-details">
-				<div class="j-title">
-					<h1><?php echo $job_title; ?></h1>
+		<div class="job_row">
+			<div class="job_column">
+				<div class="job_pic">
+					<?php echo provider_profile_picture($ad_details["company_registration_number"],$connection); ?>
 				</div>
-				<div class="j-details">
-					<h3><i class="fas fa-home"></i><?php echo $company_name; ?></h3>
-					<h3><i class="fas fa-briefcase"></i><?php echo $job_type; ?></h3>
+			</div>
+			<div class="job_column">
+				<div class="jobc_row">
+					<h2><?php echo $job_title; ?></h2>
+				</div>
+				<div class="jobc_row">
 					<h3><i class="fas fa-map-marker-alt"></i><?php echo $location; ?></h3>
-					<h3><i class="fas fa-tag"></i><?php echo $job_category; ?></h3>
-					<h3><i class="far fa-clock"></i><?php echo facebook_time_ago($ad_details["ad_time"]); ?></h3>
+					<h3><i class="fas fa-phone-alt"></i><?php echo $phone_number ?></h3>	
+					<h3><i class="fas fa-briefcase"></i><?php echo $job_type; ?></h3>	
+				</div>
+			</div>
+			<div class="job_column">
+				<div class="apply_but">
+				<?php apply_cancel_button($connection,$_SESSION["seeker_id"],$ad_no,$ad_details["company_registration_number"],$page_number); ?>
+					<p><i class="fas fa-history"></i><?php echo facebook_time_ago($ad_details["ad_time"]); ?></p>
 				</div>
 			</div>
 		</div>
-
-		<div class="ad-details">
-			<div class="row1">
-				<div class="column">
-					<div class="company-logo">
-						<div class="pic">
-							<?php echo provider_profile_picture($ad_details["company_registration_number"],$connection); ?>
+		<div class="job_main_content">
+			<div class="job_details">
+				<div class="q_job_details">
+					<div class="sect">
+						<i class="fas fa-list-ul"></i>
+						<div class="sect_con">
+							<h3>category</h3>
+							<h4><?php echo $job_category; ?></h4>
+						</div>
+					</div>
+					<div class="sect">
+						<i class="fas fa-coins"></i>
+						<div class="sect_con">
+							<h3>Salary</h3>
+							<h4>RS: <?php echo $monthly_salary; ?></h4>
+						</div>
+					</div>
+					<div class="sect">
+						<i class="fas fa-venus-mars"></i>
+						<div class="sect_con">
+							<h3>Gender</h3>
+							<h4><?php echo $gender; ?></h4>
+						</div>	
+					</div>
+					<div class="sect">
+						<i class="fas fa-male"></i>
+						<div class="sect_con">
+							<h3>Age</h3>
+							<h4><?php echo $minimum_age . " > " . $maximum_age; ?></h4>
+						</div>
+					</div>
+					<div class="sect">
+						<i class="fas fa-graduation-cap"></i>
+						<div class="sect_con">
+							<h3>Minimum Years Of Experiencs:</h3>
+							<h4><?php echo $experience; ?></h4>
+						</div>
+					</div>
+					<div class="sect">
+						<i class="fas fa-graduation-cap"></i>
+						<div class="sect_con">
+							<h3>Qualification</h3>
+							<h4><?php echo $qulification_level; ?></h4>
 						</div>
 					</div>
 				</div>
-				<div class="column">
-					<div class="row">
-						<h2><i class="fas fa-tag"></i>catogery</h2>
-						<h3><?php echo $job_category; ?></h3>
-					</div>
-					<div class="row">
-						<h2><i class="fas fa-coins"></i>salary</h2>
-						<h3>RS: <?php echo $monthly_salary; ?></h3>
-					</div>
+				<div class="overview">
+					<?php if(!empty($description)){
+						echo '<h3>Job Description</h3>';
+						echo '<p>'.$description.'</p>';
+					} ?>
 				</div>
-				<div class="column">
-					<div class="row">
-						<h2>company Details</h2>
-						<h3><a href="http://<?php echo $company_url; ?>" target="_blanck"><?php echo $company_name; ?></a></h3>
-						<h3><a><?php echo $email; ?></a></h3>
-						<a href="http://www.facebook.com/<?php echo $facebook; ?>" target="_blanck"><i class="fab fa-facebook"></i></a>
-						<a href="http://www.twitter.com/<?php echo $twitter; ?>" target="_blanck"><i class="fab fa-twitter"></i></a>
-						<a href="http://www.linkedin.com/<?php echo $linked_in; ?>" target="_blanck"><i class="fab fa-linkedin"></i></a>
-					</div>
-					<hr class="hr">
-					<div class="row">
-						<?php apply_cancel_button($connection,$_SESSION["seeker_id"],$ad_no,$ad_details["company_registration_number"],$page_number); ?>
-					</div>
+				<div class="comdis">
+					<?php if(!empty($caompany_description)){
+						echo '<h3>About Company</h3>';
+						echo '<p>'.$caompany_description.'</p>';
+					} ?>
 				</div>
 			</div>
-			<div class="row2">
-					<div class="job-overview">
-						<h2>overview</h2>
-						<p><?php echo $description; ?></p>
-					</div>
-			</div>
-			<div class="row3">
-					<div class="other-details">
-						<div class="column">
-							<h2>gender:</h2>
-							<h2>age:</h2>
-							<h2>minimum qualification:</h2>
-							<h2>minimum years of experiencs:</h2>
-						</div>
-						<div class="column">
-							<h2><?php echo $gender; ?></h2>
-							<h2><?php echo $minimum_age . " > " . $maximum_age; ?></h2>
-							<h2>Need <?php echo $qulification_level; ?></h2>
-							<h2><?php echo $experience; ?></h2>
-						</div>
-					</div>
-			</div>
-			<div class="row4">
-				<div class="about-company">
-					<h2>about company</h2>
-
-					<p><?php echo $caompany_description; ?></p>
-
+			<div class="company_details">
+				<div class="extime">
+					<i class="far fa-clock"></i>
+					<h3>33 Days</h3>
 				</div>
+				<div class="company_conte">
+					<div class="csect"><h3><i class="fas fa-signature"></i><?php echo $company_name; ?></h3></div>
+					<div class="csect"><h3><i class="far fa-envelope"></i><?php echo $email; ?></h3></div>
+					<?php
+						//checking address field is empty
+						if(!empty($address)){
+							echo '<div class="csect"><h3><i class="fas fa-map-pin"></i>'.$address.'</h3></div>';
+						}
+					?>
+					<div class="csect">
+						<!--checking social links are empty or not -->
+						<?php
+							if(!empty($curl)){
+								echo '<a href="http://'.$curl.' title="Company URL"><i class="fas fa-link"></i></a>';
+							}
+						?>
+						<?php
+							if(!empty($facebook)){
+								echo '<a href="http://www.facebook.com/'.$facebook.'" title="Company Facebook Page"><i class="fab fa-facebook-f"></i></a>';
+							}
+						?>
+						<?php
+							if(!empty($twitter)){
+								echo '<a href="http://www.twitter.com/'.$twitter.'" title="Company Twitter Account"><i class="fab fa-twitter"></i></a>';
+							}
+						?>
+						<?php
+							if(!empty($linked_in)){
+								echo '<a href="http://www.linkedin.com/'.$linked_in.'" title="Company LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>';
+							}
+						?>
+					</div>
+				</div>
+				
 			</div>
-		</div><!--add-list-->
+		</div>
+	
 	</div>
 
 <footer>
 	<?php require_once("inc/dashboard-small-footer.php"); ?>
 </footer>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script	script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f86a661f4413dde"></script>
 </body>
 <?php mysqli_close($connection); ?>
 </html>
