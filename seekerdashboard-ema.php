@@ -37,6 +37,7 @@
 				$user_name=$resultseeker["username"];
 				$email=$resultseeker["email"];
 				$phone_number=$resultseeker["phone_number"];
+				$qua = $resultseeker['qualification'];
 
 				$dob=$resultcv["birth_day"];
 				$address=$resultcv["address"];
@@ -282,7 +283,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.1.0/cropper.min.css"><!--croper style-->
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="css/media-queries/seeker-media.css"><!--media-queries>-->
+	<link rel="stylesheet" href="css/media-queries/seekerdashboard-ema-media.css"><!--media-queries>-->
 	<link rel="stylesheet" href="css/media-queries/seekerdashboardheader.css"><!--media-queries>-->
 </head>
 <body>
@@ -337,73 +338,92 @@
 			<div class="header">
 				<h1>Edit My Account</h1>
 			</div>
-			<div class="error">
-				<?php 
-					foreach ($errors as $value) {
-						echo "<p>" . $value . "</p>";
-					}
-				 ?>
-			</div>
-			<div class="row1">
-				<h2>Basic Information</h2>
-			</div>
-			<form action="seekerdashboard-ema.php" method="post" enctype="multipart/form-data">
-
-			<div class="row2">
-
-					<div class="upload-pro-pic">
-						<input type="file" name="upload-pro-pic" id="upload-pro-pic">
-						<label id="Uplod_pic" for="upload-pro-pic">Upload Profile Picture</label>
-					</div>
-
-					<div class="update_pic">
-						
-						<div class="imj-canvas" id="imj-canvas">
-							<canvas id="canvas">
-								
-							</canvas>
-							<button type="button" id="crop">Crop</button>
+			<div class="first_set">
+				<div class="error">
+					<?php 
+						foreach ($errors as $value) {
+							echo "<p>" . $value . "</p>";
+						}
+					 ?>
+				</div>
+				
+				<div class="row1">
+					<h2>Basic Information</h2>
+				</div>
+				<form action="seekerdashboard-ema.php" method="post" enctype="multipart/form-data">
+	
+				<div class="row2">
+	
+						<div class="upload-pro-pic">
+							<input type="file" name="upload-pro-pic" id="upload-pro-pic">
+							<label id="Uplod_pic" for="upload-pro-pic">Upload Profile Picture</label>
 						</div>
-						<div class="croped_pic">
+	
+						<div class="update_pic">
 							
+							<div class="imj-canvas" id="imj-canvas">
+								<canvas id="canvas">
+									
+								</canvas>
+								<button type="button" id="crop">Crop</button>
+							</div>
+							<div class="croped_pic">
+								
+							</div>
+	
+							<!-- getting file name and file -->
+							<input type="hidden" name="up_pic_nmae" id="up_pic_nmae">
+							<input type="hidden" name="up_pic" id="up_pic">
+							<input type="hidden" name="up_pic_size" id="up_pic_size">
+	
+						</div><!-- update_pic -->
+	
+						<div class="incont">
+							<p>
+								<label for="">Your First Name</label>
+								<input type="text" name="first_name" value="<?php echo $first_name; ?>" >
+							</p>
+							<p>
+								<label for="">Your Last Name</label>
+								<input type="text" name="last_name"value="<?php echo $last_name; ?>" >
+							</p>
+							<p>
+								<label for="">Your User Name</label>
+								<input type="text" name="username"value="<?php echo $seeker_username; ?>">
+							</p>
+							<p>
+								<label for="">Date Of Birth</label>
+								<input type="date" name="dob"value="<?php echo $dob; ?>" >
+							</p>
+							<div class="radi">
+								<label for="">Qualification</label>
+								<div class="rad_but">
+									<label for="ol">O/L</label>
+									<input type="radio" name="qualifi" id="ol" value="o/l" <?php if($qua=='o/l'){echo 'checked';} ?>>
+									<label for="al">A/L</label>
+									<input type="radio" name="qualifi" id="al" value="a/l" <?php if($qua=='a/l'){echo 'checked';} ?>>
+									<label for="deg">Degree</label>
+									<input type="radio" name="qualifi" id="deg" value="degree" <?php if($qua=='degree'){echo 'checked';} ?>>
+									<label for="no">No Minimum Qualification</label>
+									<input type="radio" name="qualifi" id="no" value="no" <?php if($qua=='no'){echo 'checked';} ?> >
+								</div>	
+							</div>
+							<p>
+								<label for="">Email</label>
+								<input type="email" name="email"value="<?php echo $email; ?>" >
+							</p>
+							<p>
+								<label for="">Phone Number</label>
+								<input type="text" name="phone_number"value="<?php echo $phone_number; ?>">
+							</p>
+							<p>
+								<label for="">Address</label>
+								<input type="text" name="address"value="<?php echo $address; ?>" >
+							</p>
 						</div>
-
-						<!-- getting file name and file -->
-						<input type="hidden" name="up_pic_nmae" id="up_pic_nmae">
-						<input type="hidden" name="up_pic" id="up_pic">
-						<input type="hidden" name="up_pic_size" id="up_pic_size">
-
-					</div><!-- update_pic -->
-
-					<p>
-						<label for="">Your First Name</label>
-						<input type="text" name="first_name" value="<?php echo $first_name; ?>">
-					</p>
-					<p>
-						<label for="">Your Last Name</label>
-						<input type="text" name="last_name"value="<?php echo $last_name; ?>" >
-					</p>
-					<p>
-						<label for="">Your User Name</label>
-						<input type="text" name="username"value="<?php echo $seeker_username; ?>">
-					</p>
-					<p>
-						<label for="">Email</label>
-						<input type="email" name="email"value="<?php echo $email; ?>" >
-					</p>
-					<p>
-						<label for="">Date Of Birth</label>
-						<input type="date" name="dob"value="<?php echo $dob; ?>" >
-					</p>
-					<p>
-						<label for="">Phone Number</label>
-						<input type="text" name="phone_number"value="<?php echo $phone_number; ?>">
-					</p>
-					<p>
-						<label for="">Address</label>
-						<input type="text" name="address"value="<?php echo $address; ?>" >
-					</p>
+				</div>
 			</div>
+			<div class="second_set">
 				<div class="row3">
 					<div class="header">
 						<h2>Social Links</h2>
@@ -427,6 +447,7 @@
 						</p>
 					</div>
 				</div>
+			</div>
 				<div class="e-pro-but">
 					<input type="submit" name="save" value="Save Settings">
 				</div>

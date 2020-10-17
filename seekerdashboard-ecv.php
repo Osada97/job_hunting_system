@@ -743,7 +743,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	
 	<link rel="stylesheet" href="css/media-queries/seekerdashboardheader.css"><!--media query-->
-	<!-- <link rel="stylesheet" href="css/media-queries/seekerdashboard-ecv-media.css"> --><!--media query-->
+	<link rel="stylesheet" href="css/media-queries/seekerdashboard-ecv-media.css"><!--media query-->
 
 </head>
 <body>
@@ -825,8 +825,13 @@
 					<div class="row1">
 						<div class="column">
 							<input type="hidden" name="seeker_id" value="<?php echo $seeker_id; ?>">
-							<input type="text" name="firstname" placeholder="Eter First Name" value="<?php echo $firstname ?>">
-							<input type="text" name="lastname" placeholder="Eter Last Name" value="<?php echo $lastname ?>">
+							<p>
+								<input type="text" name="firstname" placeholder="Eter First Name" value="<?php echo $firstname ?>">
+
+							</p>
+							<p>
+								<input type="text" name="lastname" placeholder="Eter Last Name" value="<?php echo $lastname ?>">
+							</p>
 							<p>
 							<input type="text" name="title1" placeholder="Eter Title" value="<?php echo $title ?>">
 							</p>
@@ -836,16 +841,18 @@
 						</div>
 						<div class="column">
 							<div class="cv-pic">
-								<?php 
+								<div class="pic">
+									<?php 
 
-									if ($_SESSION["is_image"]==0) {
-										echo "<img src=\"imj/profile_pictures/default.jpg\">";
-									}
-									else{
-										echo "<img src=\"imj/profile_pictures/seekers/" . $_SESSION["seeker_id"] . ".jpg\">";
-									}
+										if ($_SESSION["is_image"]==0) {
+											echo "<img src=\"imj/profile_pictures/default.jpg\">";
+										}
+										else{
+											echo "<img src=\"imj/profile_pictures/seekers/" . $_SESSION["seeker_id"] . ".jpg\">";
+										}
 
-								 ?>
+									?>
+								</div>
 
 								<!-- use for load croped Image -->
 								<div class="croped_pic">
@@ -853,12 +860,12 @@
 									<input type="hidden" name="cv_pic_size" id="cv_pic_size">
 									<input type="hidden" name="cv_pic" id="cv_pic">
 								</div>
-
-							</div>
+								
 								<div class="up-but">
 									<input type="file" name="upload-pic" id="upload-pic">
 									<label for="upload-pic"><i class="fas fa-pencil-alt"></i></label>
 								</div>
+							</div>
 						</div>
 						<div class="column">
 							<p>

@@ -327,7 +327,7 @@ if (isset($_POST["cosubmit"])) {
                             <input type="submit" value="Login" name="ussubmit">
                         </div>
                         <div class="subcolumn">
-                            <p>Already Have An Account? <a href="mainsignup.php">Sign Up Here</a></p>
+                            <p>Already Have An Account? <a href="mainlogin.php">LogIn Here</a></p>
                         </div>
                     </div>
                 </form>
@@ -376,7 +376,7 @@ if (isset($_POST["cosubmit"])) {
                             <input type="submit" value="Login" name="cosubmit">
                         </div>
                         <div class="subcolumn">
-                            <p>Already Have An Account? <a href="mainsignup.php">Sign Up Here</a></p>
+                            <p>Already Have An Account? <a href="mainlogin.php">LogIn Up Here</a></p>
                         </div>
                     </div>
                 </form>

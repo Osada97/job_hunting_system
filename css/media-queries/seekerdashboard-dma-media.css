@@ -1,64 +1,64 @@
-@media screen and (max-width: 1160px){
-	/*style in seeker dma*/
-	.section{
-		width: 85%;
-	}
-	.section .delete-content .row2 p input{
-		width: 90%;
-	}
+@media screen and (max-width: 1160px) {
+  /*style in seeker dma*/
+  .section {
+    width: 85%;
+  }
+  .section .delete-content .row2 p input {
+    width: 90%;
+  }
 }
-@media screen and (max-width: 880px){
-	.section{
-		width: 90%;
-	}
+@media screen and (max-width: 880px) {
+  .section {
+    width: 90%;
+  }
 }
-@media screen and (max-width: 822px){
-	.section{
-		width: 85%;
-	}
-	.section .delete-content .row2 p input{
-		width: 95%;
-		margin-left: 0;
-	}
-	.section .delete-content .row2 p label{
-		text-indent: 0;
-	}
+@media screen and (max-width: 822px) {
+  .section {
+    width: 85%;
+  }
+  .section .delete-content .row2 p input {
+    width: 95%;
+    margin-left: 0;
+  }
+  .section .delete-content .row2 p label {
+    text-indent: 0;
+  }
 }
-@media screen and (max-width: 581px){
-	.section .delete-content .row2 p{
-		font-size: 17px;
-	}
-	.section .delete-content .row2 p input{
-		width: 85%;
-		margin-left: 0;
-	}
-	.section .delete-content .row2 p label{
-		text-indent: 0;
-	}
+@media screen and (max-width: 581px) {
+  .section .delete-content .row2 p {
+    font-size: 17px;
+  }
+  .section .delete-content .row2 p input {
+    width: 85%;
+    margin-left: 0;
+  }
+  .section .delete-content .row2 p label {
+    text-indent: 0;
+  }
 }
-@media screen and (max-width: 371px){
-	.section .delete-content{
-		padding: 25px;
-	}
+@media screen and (max-width: 371px) {
+  .section .delete-content {
+    padding: 25px;
+  }
 }
-@media screen and (max-width: 316px){
-	.section .delete-content{
-		padding: 15px;
-	}
+@media screen and (max-width: 316px) {
+  .section .delete-content {
+    padding: 15px;
+  }
 }
-@media screen and (max-width: 299px){
-	.section .delete-content{
-		padding: 5px;
-	}
+@media screen and (max-width: 299px) {
+  .section .delete-content {
+    padding: 5px;
+  }
 }
-@media screen and (max-width: 270px){
-	.section .delete-content .row1{
-		font-size: 15px;
-	}
-	.section .delete-content{
-		padding: 5px;
-	}
-	.section .delete-content .row3 input{
-		width: 160px;
-	}
+@media screen and (max-width: 270px) {
+  .section .delete-content .row1 {
+    font-size: 15px;
+  }
+  .section .delete-content {
+    padding: 5px;
+  }
+  .section .delete-content .row3 input {
+    width: 160px;
+  }
 }

@@ -6,7 +6,7 @@
     width: 90%;
   }
 }
-@media screen and (max-width: 943px) {
+@media screen and (max-width: 960px) {
   section .navi ul li:last-child {
     float: none;
   }

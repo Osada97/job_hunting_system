@@ -1,191 +1,187 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap");
 
-.section .ed-account{
-	padding: 20px 45px;
+.section .ed-account {
+  padding: 20px 45px;
 }
-.section .ed-account .row1{
-	margin: 15px 0 25px;
-	font-size: 20px;
-	text-align: center;
-	font-family: 'Baloo Da 2', cursive;
-	color: #5a5858;
+.section .ed-account .row1 {
+  margin: 15px 0 25px;
+  font-size: 20px;
+  text-align: center;
+  font-family: "Baloo Da 2", cursive;
+  color: #5a5858;
 }
-.section .ed-account .row2{
-	margin-top: 30px;
-	overflow: auto;
+.section .ed-account .row2 {
+  margin-top: 30px;
+  overflow: auto;
 }
-.section .ed-account  h2{
-	font-size: 24px;
-	font-family: 'Baloo Da 2', cursive;
-	color: #5a5858d4;
+.section .ed-account h2 {
+  font-size: 24px;
+  font-family: "Baloo Da 2", cursive;
+  color: #5a5858d4;
 }
-.section .ed-account .errors{
-	border-left: 2px solid red;
-	padding-left: 8px;
+.section .ed-account .errors {
+  border-left: 2px solid red;
+  padding-left: 8px;
 }
-.section .ed-account .errors p{
-	margin-bottom: 5px;
-	font-size: 15px;
-	font-family: 'Baloo Da 2', cursive;
-	text-transform: capitalize;
+.section .ed-account .errors p {
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-family: "Baloo Da 2", cursive;
+  text-transform: capitalize;
 }
 /* style upload button*/
-.section .ed-account .row2 .upload-pic{
-	margin: 30px 10px;
+.section .ed-account .row2 .upload-pic {
+  margin: 30px 10px;
 }
-.section .ed-account .row2 .upload-pic input[type="file"]{
-	display: none;
+.section .ed-account .row2 .upload-pic input[type="file"] {
+  display: none;
 }
-.section .ed-account .row2 .upload-pic label{
-	background-color: #ff8a00;
-	color: white;
-	padding: 8px;
-	width: 250px;
-	text-align: center;
-	font-size: 18px;
-	font-family:'Baloo Da 2', cursive;
-	border-radius: 5px;
-	cursor: pointer;
-	text-align: center;
+.section .ed-account .row2 .upload-pic label {
+  background-color: #ff8a00;
+  color: white;
+  padding: 8px;
+  width: 250px;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Baloo Da 2", cursive;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
 }
-.section .ed-account .row2 .upload-pic label:hover{
-	background-color: #ec8000;
-	transition: 0.5s ease 0s;
+.section .ed-account .row2 .upload-pic label:hover {
+  background-color: #ec8000;
+  transition: 0.5s ease 0s;
 }
-
 
 /*style input and labels*/
-.section .ed-account .row2  p{
-	display: inline-block;
-	margin-bottom: 15px;
-	margin-right: 45px;
-	width: 478px;
+.section .ed-account .row2 p {
+  display: inline-block;
+  margin-bottom: 15px;
+  margin-right: 45px;
+  width: 478px;
 }
-.section .ed-account .row2 p label{
-	display: block;
-	margin-top: 19px;
-	font-size: 18px;
-	color: #000000ba;
-	font-family: 'Baloo Da 2',cursive;
-	font-weight: 500;
+.section .ed-account .row2 p label {
+  display: block;
+  margin-top: 19px;
+  font-size: 18px;
+  color: #000000ba;
+  font-family: "Baloo Da 2", cursive;
+  font-weight: 500;
 }
-.section .ed-account .row2 p input{
-	width: 92%;
-	padding: 6px;
-	margin-top: 10px;
-	outline-color: orange;
-	border:1px solid #ddd;
-	border-radius: 3px;
-	overflow: auto;
-	color: #423e3e;
+.section .ed-account .row2 p input {
+  width: 92%;
+  padding: 6px;
+  margin-top: 10px;
+  outline-color: orange;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  overflow: auto;
+  color: #423e3e;
 }
-.section .ed-account .row2 p:last-child{
-	width: 94%;
+.section .ed-account .row2 p:last-child {
+  width: 94%;
 }
-.section .ed-account .row2 p textarea{
-	margin-top: 10px;
-	outline-color: orange;
-	font-size: 15px;
-	color: #423e3e;
+.section .ed-account .row2 p textarea {
+  margin-top: 10px;
+  outline-color: orange;
+  font-size: 15px;
+  color: #423e3e;
 }
-.section .ed-account .row2 p:nth-child(6) input{
-	padding: 10px;
+.section .ed-account .row2 p:nth-child(6) input {
+  padding: 10px;
 }
-.section .ed-account .row2 p input:hover{
-	border-color:orange;
-	transition: 0.5s ease 0s;
+.section .ed-account .row2 p input:hover {
+  border-color: orange;
+  transition: 0.5s ease 0s;
 }
-.section .ed-account .row3{
-	overflow: auto;
-	margin: 15px 0;
-	border: 1px solid #ff760073;
-	padding: 15px;
+.section .ed-account .row3 {
+  overflow: auto;
+  margin: 15px 0;
+  border: 1px solid #ff760073;
+  padding: 15px;
 }
-.section .ed-account .row3 p{
-	width: 460px;
-	float: left;
-	margin-right: 45px;
-	margin-bottom: 10px;
+.section .ed-account .row3 p {
+  width: 460px;
+  float: left;
+  margin-right: 45px;
+  margin-bottom: 10px;
 }
-.section .ed-account .row3 p label{
-	margin-top: 15px;
-	display: block;
-	font-size: 18px;
-	color: #000000ba;
-	font-family: 'Baloo Da 2',cursive;
-	font-weight: 500;
+.section .ed-account .row3 p label {
+  margin-top: 15px;
+  display: block;
+  font-size: 18px;
+  color: #000000ba;
+  font-family: "Baloo Da 2", cursive;
+  font-weight: 500;
 }
-.section .ed-account .row3 p input{
-	outline-color: orange;
-	border: 1px solid #ddd;
-	width: 92%;
-	padding: 6px;
-	margin-top: 15px;
-	overflow: auto;
-	color: #423e3e;
-
+.section .ed-account .row3 p input {
+  outline-color: orange;
+  border: 1px solid #ddd;
+  width: 92%;
+  padding: 6px;
+  margin-top: 15px;
+  overflow: auto;
+  color: #423e3e;
 }
-.section .ed-account .row4 input{
-	width: 280px;
-	background-color: #ff8a00;
-	color: white;
-	font-family:'Baloo Da 2',cursive;
-	border: none;
-	padding: 6px;
-	font-size: 17px;
-	border-radius: 8px;
-	cursor: pointer;
-	outline: none;
+.section .ed-account .row4 input {
+  width: 280px;
+  background-color: #ff8a00;
+  color: white;
+  font-family: "Baloo Da 2", cursive;
+  border: none;
+  padding: 6px;
+  font-size: 17px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
 }
-.section .ed-account .row4 input:hover{
-	background-color: #f08200;
-	transition: 0.5s ease 0s;
+.section .ed-account .row4 input:hover {
+  background-color: #f08200;
+  transition: 0.5s ease 0s;
 }
-
-
 
 /*canvas*/
-.section .ed-account .row2 .pro_img_cropper{
-	width: 100%;
-	padding: 10px;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.section .ed-account .row2 .pro_img_cropper {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.section .ed-account .row2 .imj-canvas{
-	width: 500px;
-	padding: 20px;
-	display: none;
+.section .ed-account .row2 .imj-canvas {
+  width: 500px;
+  padding: 20px;
+  display: none;
 }
-.section .ed-account .row2 .imj-canvas canvas{
-	border: 3px solid orange;
-	max-width: 500px;
-	height: 350px;
+.section .ed-account .row2 .imj-canvas canvas {
+  border: 3px solid orange;
+  max-width: 500px;
+  height: 350px;
 }
-.section .ed-account .row2 .imj-canvas button{
-	margin-top: 50px;
-	padding: 5px;
-	border: 1px solid #27279e;
-	background-color: #27279e;
-	border-radius: 30px;
-	color: #fff;
-	width: 100px;
-	outline: none;
-	box-shadow: 0px 0px 10px 12px #eee;
-	cursor: pointer;
+.section .ed-account .row2 .imj-canvas button {
+  margin-top: 50px;
+  padding: 5px;
+  border: 1px solid #27279e;
+  background-color: #27279e;
+  border-radius: 30px;
+  color: #fff;
+  width: 100px;
+  outline: none;
+  box-shadow: 0px 0px 10px 12px #eee;
+  cursor: pointer;
 }
-.section .ed-account .row2 .preview{
-	display: none;
-	max-width: 200px;
-	max-height: 200px;
-	width: 200px;
-	height: 200px;
-	border-radius: 50%;
-	overflow: hidden;
+.section .ed-account .row2 .preview {
+  display: none;
+  max-width: 200px;
+  max-height: 200px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
 }
-.section .ed-account .row2 .preview img{
-	width: 100%;
-	height: 100%;
+.section .ed-account .row2 .preview img {
+  width: 100%;
+  height: 100%;
 }

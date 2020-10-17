@@ -267,12 +267,14 @@
   text-align: center;
   font-size: 13px;
   cursor: pointer;
+  color: #5a5a5a;
 }
 .add-list .row .next-link .next-content ul li a {
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   padding: 5px 15px;
+  color: #5a5a5a;
   transition: 0.5s ease;
 }
 .add-list .row .next-link .next-content ul li a:hover {

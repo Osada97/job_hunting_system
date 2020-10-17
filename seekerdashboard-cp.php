@@ -84,7 +84,7 @@
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/media-queries/seekerdashboardheader.css"><!--media query-->
-	<link rel="stylesheet" href="css/media-queries/seeker-media.css"><!--media query-->
+	<link rel="stylesheet" href="css/media-queries/seekerdashboard-ema-media.css"><!--media query-->
 	
 </head>
 <body>

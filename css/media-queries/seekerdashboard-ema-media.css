@@ -1,0 +1,58 @@
+@media screen and (max-width: 1140px) {
+  .section {
+    width: 95%;
+  }
+  .section .account-settings-content p {
+    width: 48%;
+  }
+  .section .account-settings-content .radi {
+    width: 48%;
+  }
+  .section .account-settings-content .row3 .second p {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 722px) {
+  .section .account-settings-content p:nth-child(odd) {
+    margin-right: 0;
+  }
+  .section .account-settings-content p {
+    width: 100%;
+  }
+  .section .account-settings-content .radi {
+    width: 100%;
+  }
+  .section .account-settings-content .radi {
+    margin: 15px 0;
+  }
+  .section .account-settings-content .row3 .second p {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 392px) {
+  .section .account-settings-content .radi .rad_but {
+    flex-wrap: wrap;
+  }
+  .section .account-settings-content .radi .rad_but label {
+    margin-bottom: 5px;
+  }
+  .section .account-settings-content .radi .rad_but input {
+    margin-bottom: 5px;
+  }
+}
+@media screen and (max-width: 317px) {
+  .section .change-pw .row2 .content .but button {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 231px) {
+  .section .account-settings-content .e-pro-but input {
+    width: 90%;
+  }
+  .section .account-settings-content .row2 .upload-pro-pic {
+    margin: 35px 0;
+  }
+  .section .account-settings-content .row2 .upload-pro-pic label {
+    width: 90%;
+  }
+}

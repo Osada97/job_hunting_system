@@ -6,6 +6,7 @@
 @media screen and (max-width: 632px) {
   .cv-main {
     flex-wrap: wrap;
+    flex-direction: column;
   }
   .cv-main .cv_col:first-child .row:last-child {
     width: 100%;

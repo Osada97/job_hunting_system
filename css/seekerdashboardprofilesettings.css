@@ -1,147 +1,202 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-.section .account-settings-content{
-	padding: 20px;
-	overflow: auto;
-	font-family: 'Lato', sans-serif;
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+.section {
+  width: 1100px;
+  border: none;
 }
-.section .account-settings-content:hover{
-	background-color: #fa8b0105;
-	transition: 0.5s ease-in 0s;
+.section .first_set {
+  border: 2px solid #e6e6e6;
+  padding: 20px;
 }
-.section .account-settings-content .header h1{
-	text-align: center;
-	margin: 25px 0;
-	font-size: 32px;
-	color: #00000094;
+.section .account-settings-content {
+  overflow: auto;
+  font-family: "Lato", sans-serif;
 }
-.section .account-settings-content h2{
-	font-size: 29px;
-	margin: 15px 0;
-	color: #797878;
+.section .account-settings-content .header h1 {
+  text-align: center;
+  margin: 25px 0;
+  font-size: 28px;
+  color: #00000094;
 }
-.section .account-settings-content p{
-	margin: 15px 0 15px 10px;
+.section .account-settings-content h2 {
+  font-size: 22px;
+  margin: 15px 0;
+  color: #000;
 }
-.section .account-settings-content .row3 p{
-	float: left;
-	width: 540px;
+.section .account-settings-content .incont {
+  display: flex;
+  flex-wrap: wrap;
 }
-.section .account-settings-content label{
-	display: block;
-	margin-bottom: 15px;
-	color: #6c6969;
-	font-weight: 600;
+.section .account-settings-content p {
+  margin: 15px 0;
+  width: 515px;
 }
-.section .account-settings-content .row2 input{
-	width: 88%;
-	padding: 10px;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	outline: none;
-	font-size: 14px;
-	font-weight: 500;
-	color: #403e3ebf;
+.section .account-settings-content p:nth-child(odd) {
+  margin-right: 25px;
 }
-.section .account-settings-content .row2 .upload-pro-pic{
-	margin: 35px 0 35px 15px;
+.section .account-settings-content .radi {
+  margin: 15px 25px 15px 0;
+  width: 516px;
 }
-.section .account-settings-content .row2 .upload-pro-pic input[type="file"]{
-	display: none;
+.section .account-settings-content .radi label {
+  margin-bottom: 20px;
 }
-.section .account-settings-content .row2 .upload-pro-pic label{
-	color: white;
-	background-color: #ff8a00;
-	width: 200px;
-	padding: 10px;
-	text-align: center;
-	cursor: pointer;
-	border-radius: 5px;
+.section .account-settings-content .radi .rad_but {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
-.section .account-settings-content .row2 .upload-pro-pic label:hover{
-	background-color: #ec8000;
-	transition: 0.5s ease 0s;
+.section .account-settings-content .radi .rad_but label {
+  margin-bottom: 0;
+  font-size: 13px;
 }
-.section .account-settings-content .row2 input:hover{
-	border-color: #ff8a00;
-	transition: 0.5s;
+.section .account-settings-content .radi .rad_but input {
+  width: auto;
+  margin: 0 15px;
+}
+.section .account-settings-content label {
+  display: block;
+  margin-bottom: 15px;
+  color: #7c7c7c;
+  font-weight: 600;
+  font-size: 14px;
+}
+.section .account-settings-content .row2 input {
+  width: 100%;
+  padding: 13px 10px;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #403e3ebf;
+  font-weight: 600;
+  transition: 0.5s;
+}
+.section .account-settings-content .row2 .upload-pro-pic {
+  margin: 35px 0 35px 15px;
+}
+.section .account-settings-content .row2 .upload-pro-pic input[type="file"] {
+  display: none;
+}
+.section .account-settings-content .row2 .upload-pro-pic label {
+  color: white;
+  background-color: #ff8a00;
+  width: 180px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 300;
+}
+.section .account-settings-content .row2 .upload-pro-pic label:hover {
+  background-color: #ec8000;
+  transition: 0.5s ease 0s;
+}
+.section .account-settings-content .row2 input:hover {
+  border-color: #ff8a00;
+}
+.section .account-settings-content .row2 input:focus {
+  border-color: #ff8a00 !important;
 }
 
-.section .account-settings-content .row3 input{
-	width: 80%;
-	padding: 8px;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	outline: none;
-	font-size: 14px;
-	font-weight: 500;
-	color: #403e3ebf;
+.section .second_set {
+  margin-top: 35px;
+  padding: 20px;
+  border: 2px solid #e6e6e6;
 }
-.section .account-settings-content .row3 input:hover{
-	border-color: #ff8a00;
-	transition: 0.5s;
+.section .account-settings-content .row3 .second {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.section .account-settings-content .e-pro-but input{
-	width: 300px;
-	padding: 8px;
-	background-color: #ff8a00;
-	color: white;
-	border: none;
-	cursor: pointer;
-	margin: 15px 0 15px 10px;
-	border-radius: 5px;
-	outline: none;
+.section .account-settings-content .row3 .second p {
+  width: 515px;
 }
-.section .account-settings-content .e-pro-but input:hover{
-	background-color: #ec8000;
-	transition: 0.5s ease 0s;
+.section .account-settings-content .row3 input {
+  width: 100%;
+  padding: 13px 10px;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #403e3ebf;
+  transition: 0.5s;
 }
-.section .account-settings-content .error{
-	margin-left: 10px;
-	margin-bottom: 15px;
-	border-left: 2px solid red;
-	text-transform: capitalize;
+.section .account-settings-content .row3 input:hover {
+  border-color: #ff8a00;
+}
+.section .account-settings-content .row3 input:focus {
+  border-color: #ff8a00;
+}
+.section .account-settings-content .e-pro-but input {
+  width: 220px;
+  padding: 12px;
+  background-color: #ff8a00;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 15px 0;
+  border-radius: 2px;
+  outline: none;
+  font-weight: 600;
+}
+.section .account-settings-content .e-pro-but input:hover {
+  background-color: #ec8000;
+  transition: 0.5s ease 0s;
+}
+.section .account-settings-content .error {
+  margin-bottom: 15px;
+  border-left: 2px solid red;
+  text-transform: capitalize;
+  font-size: 14px;
+  padding-left: 10px;
+  color: red;
 }
 
 /*canvas*/
 
-.section .account-settings-content .row2 .update_pic{
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.section .account-settings-content .row2 .update_pic {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.section .account-settings-content .row2 .imj-canvas{
-	width: 500px;
-	padding: 20px;
-	display: none;
+.section .account-settings-content .row2 .imj-canvas {
+  width: 500px;
+  padding: 20px;
+  display: none;
 }
-.section .account-settings-content .row2 .imj-canvas canvas{
-	border: 3px solid orange;
-	max-width: 100%;
-	height: 350px;
+.section .account-settings-content .row2 .imj-canvas canvas {
+  border: 3px solid orange;
+  max-width: 100%;
+  height: 350px;
 }
-.section .account-settings-content .row2 .imj-canvas button{
-	margin-top: 50px;
-	padding: 5px;
-	border: 1px solid #27279e;
-	background-color: #27279e;
-	border-radius: 30px;
-	color: #fff;
-	width: 100px;
-	outline: none;
-	box-shadow: 0px 0px 10px 12px #eee;
-	cursor: pointer;
+.section .account-settings-content .row2 .imj-canvas button {
+  margin-top: 50px;
+  padding: 5px;
+  border: 1px solid #27279e;
+  background-color: #27279e;
+  border-radius: 30px;
+  color: #fff;
+  width: 100px;
+  outline: none;
+  box-shadow: 0px 0px 10px 12px #eee;
+  cursor: pointer;
 }
-.section .account-settings-content .row2 .croped_pic{
-	display: none;
-	max-width: 200px;
-	max-height: 200px;
-	width: 200px;
-	height: 200px;
-	border-radius: 50%;
-	overflow: hidden;
+.section .account-settings-content .row2 .croped_pic {
+  display: none;
+  max-width: 200px;
+  max-height: 200px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
 }
-.section .account-settings-content .row2 .croped_pic img{
-	width: 100%;
-	height: 100%;
+.section .account-settings-content .row2 .croped_pic img {
+  width: 100%;
+  height: 100%;
 }

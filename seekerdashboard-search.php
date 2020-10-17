@@ -384,7 +384,7 @@
 
 		</div>
 		<div class="row">
-			<div class="next-link">
+			<!--<div class="next-link">
 				<div class="next-content">
 					<?php 
 						/*if (mysqli_num_rows($result_Set)!=0) {
@@ -397,7 +397,7 @@
 						} */
 					?>
 				</div>
-			</div>
+			</div>-->
 		</div>
 	</div><!--add-list-->
 

@@ -407,18 +407,21 @@
 		</div>
 		<div class="row">
 			<div class="next-link">
-				<div class="next-content">
-					<?php 
-						if (mysqli_num_rows($result_Set)!=0) {
-							echo $page_nav;
+				<?php 
+						if (mysqli_num_rows($result_Set)!=0) { ?>
+							<div class="next-content">
+								<?php 
+									echo $page_nav;
+								?>
+							</div>
+						<?php
 						}
 						else{
 							echo "<div class ='empty'>";
 							echo "You have not posted any ads yet";
 							echo "</div>";
 						} 
-					?>
-				</div>
+				?>
 			</div>
 		</div>
 	</div><!--add-list-->
