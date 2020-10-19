@@ -66,32 +66,41 @@
 
 			 		if ($result) {
 
-			 				$cv_table = "<table>";
-			 				$cv_table .= "<tr><th>No</th><th>Candidate Name</th><th>Status</th></tr>";
+						if(mysqli_num_rows($result)!=0){
+							
+							$cv_table = "<table>";
+							$cv_table .= "<tr><th>No</th><th>Candidate Name</th><th>Status</th></tr>";
+	
+							$no=0;
+	
+							while ($ad=mysqli_fetch_assoc($result)) {
+		
+									$query="SELECT * FROM cv WHERE user_id='{$ad["seeker_id"]}' AND is_deleted = 0";
+		
+									$cv_result_set = mysqli_query($connection,$query);
+		
+										if ($cv_result_set) {
+		
+											if (mysqli_num_rows($cv_result_set)==1) {
+		
+												$seekers = mysqli_fetch_assoc($cv_result_set);
+		
+												$cv_table .="<tr><td>" . ($no+=1) . "</td><td><div class='pro-pic'>" . seeker_profile_picture($ad["seeker_id"],$connection) . "</div><div class='content'><h2>" . $seekers["first_name"] . " " . $seekers["last_name"] . "</h2><p><i class='fas fa-map-marker'></i>" . $seekers["address"] . "</p><p><i class='fas fa-envelope'></i>" . $seekers["email"] . "</p><p><i class='fas fa-phone'></i>" . $seekers["phone_number"] . "</p></div></td><td><a href=\"cvpreview.php?sid={$ad["seeker_id"]}&ad-no={$ad_no}\"><button><i class=\"far fa-eye\"></i></button></a></td></tr>";
+											}
+										}
+										else{
+											printf(mysqli_error($connection));
+										}
+		
+							}
+							$cv_table .= "</table>";
+						}
+						else{
+							$cv_table .= "<div class ='empty'>";
+								$cv_table .= "You have not received the application";
+							$cv_table .= "</div>";
+						}
 
-			 				$no=0;
-
-			 			while ($ad=mysqli_fetch_assoc($result)) {
-
-			 					$query="SELECT * FROM cv WHERE user_id='{$ad["seeker_id"]}' AND is_deleted = 0";
-
-			 					$cv_result_set = mysqli_query($connection,$query);
-
-			 						if ($cv_result_set) {
-
-			 							if (mysqli_num_rows($cv_result_set)==1) {
-
-			 								$seekers = mysqli_fetch_assoc($cv_result_set);
-
-			 								$cv_table .="<tr><td>" . ($no+=1) . "</td><td><div class='pro-pic'>" . seeker_profile_picture($ad["seeker_id"],$connection) . "</div><div class='content'><h2>" . $seekers["first_name"] . " " . $seekers["last_name"] . "</h2><p><i class='fas fa-map-marker'></i>" . $seekers["address"] . "</p><p><i class='fas fa-envelope'></i>" . $seekers["email"] . "</p><p><i class='fas fa-phone'></i>" . $seekers["phone_number"] . "</p></div></td><td><a href=\"cvpreview.php?sid={$ad["seeker_id"]}&ad-no={$ad_no}\"><button><i class=\"far fa-eye\"></i></button></a></td></tr>";
-			 							}
-			 						}
-			 						else{
-			 							printf(mysqli_error($connection));
-			 						}
-
-			 			}
-			 			$cv_table .= "</table>";
 
 			 		}
 			 		else{
@@ -152,6 +161,7 @@
 </head>
 <body>
 	
+	
 	<header>
 		<div class="main">
 			<div class="row">
@@ -168,7 +178,7 @@
 
 						 ?>
 					</div>
-					<div class="pro-pic-edit">
+					<div class="upload-pro-pic">
 						<a href="providerdashboard-ema.php"><button><i class="fas fa-pencil-alt"></i></button></a>
 					</div>
 				</div>

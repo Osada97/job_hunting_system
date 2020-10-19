@@ -226,22 +226,30 @@
 					</div>
 					<div class="row" id="row">
 					
-					<h4><i class="fas fa-envelope"></i><?php echo $email; ?></h4>
-					
-					<h4><i class="fas fa-phone"></i><?php echo $phone; ?></h4>
-					
-					<h4><i class="fas fa-map-marker"></i><?php echo $address; ?></h4>
-	
-					<h4><i class="far fa-calendar-alt"></i><?php echo $dob; ?></h4>
-					
-					<h4><i class="fab fa-linkedin"></i><?php echo $in; ?></h4>
-					
-					<h4><i class="fab fa-facebook"></i><?php echo $fa; ?></h4>
-					
-					<h4><i class="fab fa-twitter"></i><?php echo $twitter; ?></h4>
-					
-					<h4><i class="fab fa-github"></i><?php echo $git; ?></h4>
-	
+						<?php if(!empty($email)){
+							echo '<h4><i class="fas fa-envelope"></i>'.$email.'</h4>';
+						} ?>
+						<?php if(!empty($phone)){
+							echo '<h4><i class="fas fa-phone"></i>'.$phone.'</h4>';
+						} ?>
+						<?php if(!empty($address)){
+							echo '<h4><i class="fas fa-map-marker"></i>'.$address.'</h4>';
+						} ?>
+						<?php if(!empty($dob)){
+							echo '<h4><i class="far fa-calendar-alt"></i>'.$dob.'</h4>';
+						} ?>
+						<?php if(!empty($in)){
+							echo '<h4><i class="fab fa-linkedin"></i>'.$in.'</h4>';
+						} ?>
+						<?php if(!empty($fa)){
+							echo '<h4><i class="fab fa-facebook"></i>'.$fa.'</h4>';
+						} ?>
+						<?php if(!empty($twitter)){
+							echo '<h4><i class="fab fa-twitter"></i>'.$twitter.'</h4>';
+						} ?>
+						<?php if(!empty($git)){
+							echo '<h4><i class="fab fa-github"></i>'.$git.'</h4>';
+						} ?>
 					</div>
 				</div>
 				<div class="column">

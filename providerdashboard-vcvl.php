@@ -196,7 +196,7 @@
 
 						 ?>
 					</div>
-					<div class="pro-pic-edit">
+					<div class="upload-pro-pic">
 						<a href="providerdashboard-ema.php"><button><i class="fas fa-pencil-alt"></i></button></a>
 					</div>
 				</div>
@@ -229,50 +229,52 @@
 
 	<div class="section">
 		<div class="view-add">
+	<?php 
+		if(mysqli_num_rows($result_set)!=0){?>
 			<div class="row1">
 				<h3>Select Advertiestment To View CV List</h3>
 			</div>
 			<div class="row2">
-
+				
 				<div class="tabel">
-					<table>
-						<tr><th>Ad Id</th><th>Job Title</th><th>Upload Time</th><th>CV</th><th>Status</th></tr>
-					<?php 
 
-						while ($add = mysqli_fetch_assoc($result_set)) {
+						<table>
+							<tr><th>Ad Id</th><th>Job Title</th><th>Upload Time</th><th>CV</th><th>Status</th></tr>
+						<?php
 
-							$query="SELECT count(apply_no) as count FROM job_apply WHERE provider_id='{$company_registration_number}' AND ad_no='{$add["ad_no"]}'";
-							$result=mysqli_query($connection,$query);
-
-							$count=mysqli_fetch_assoc($result);
-
-							$count_cv=$count["count"];
-
-							echo "<tr><td>" . $add["ad_no"] . "</td><td><p>" . $add["job_title"] . "</p><p>" . $add["company_name"] . "</p><p>" . $add["email"] . "</p></td><td>" . facebook_time_ago($add["ad_time"]) . "<td class='count'>" . $count_cv . "</td></td><td><a href=\"providerdashboard-vcvl2.php?ad-no={$add["ad_no"]}\".><button><i class=\"far fa-eye\"></i></button></a></tr>";
-						
-						}
-
-
-
-					?>
-					</table>
+							while ($add = mysqli_fetch_assoc($result_set)) {
+	
+								$query="SELECT count(apply_no) as count FROM job_apply WHERE provider_id='{$company_registration_number}' AND ad_no='{$add["ad_no"]}'";
+								$result=mysqli_query($connection,$query);
+	
+								$count=mysqli_fetch_assoc($result);
+	
+								$count_cv=$count["count"];
+	
+								echo "<tr><td>" . $add["ad_no"] . "</td><td><p>" . $add["job_title"] . "</p><p>" . $add["company_name"] . "</p><p>" . $add["email"] . "</p></td><td>" . facebook_time_ago($add["ad_time"]) . "<td class='count'>" . $count_cv . "</td></td><td><a href=\"providerdashboard-vcvl2.php?ad-no={$add["ad_no"]}\".><button><i class=\"far fa-eye\"></i></button></a></tr>";
+							
+							}?>
+							</table>
 				</div>
 			</div>
+	<?php
+		}
+		else{
+			echo "<div class ='empty'>";
+				echo "You have not Posted Any Ads Yet";
+			echo "</div>";
+		} 
+	?>
 		</div>
 		<div class="row">
 			<div class="next-link">
-				<div class="next-content">
-					<?php 
+				<?php 
 						if (mysqli_num_rows($result_set)!=0) {
+							echo '<div class="next-content">';
 							echo $page_nav;
+							echo '</div>';
 						}
-						else{
-							echo "<div class ='empty'>";
-							echo "You have not posted any ads yet";
-							echo "</div>";
-						} 
 					?>
-				</div>
 			</div>
 		</div>
 		

@@ -1,322 +1,45 @@
-@media screen and (max-width: 1159px){
-	.section{
-		width: 85%;
-	}
-	.section .view-add .row2 .column{
-		width: 40%;
-		margin: 38px 30px;
-	}
+@media screen and (max-width: 1140px) {
+  .section {
+    width: 100%;
+  }
 }
-@media screen and (max-width: 980px){
-	.section .row .next-link .next-content ul{
-		width: 100%;
-		box-sizing: border-box;
-	}
-	.section .row .next-link .next-content ul li{
-		margin: 0 35px; 
-	}
+@media screen and (max-width: 1040px) {
+  .section {
+    width: 80%;
+  }
+  .section .row .next-link .next-content ul {
+    width: 100%;
+  }
 }
-@media screen and (max-width: 915px){
-	.section{
-		width: 85%;
-	}
-	.section .view-add .row2 .column{
-		width: 40%;
-		margin: 38px 20px;
-	}
+@media screen and (max-width: 919px) {
+  .section .row .next-link .next-content {
+    width: 100%;
+  }
 }
-@media screen and (max-width: 845px){
-	.section .row .next-link .next-content ul li{
-		margin: 0 25px; 
-	}
+@media screen and (max-width: 767px) {
+  .section .row .next-link .next-content ul {
+    width: 100%;
+  }
 }
-@media screen and (max-width: 752px){
-	.section .row .next-link .next-content ul li{
-		margin: 0 15px; 
-	}
+@media screen and (max-width: 402px) {
+  .section {
+    width: 95%;
+  }
 }
-@media screen and (max-width: 685px){
-	.section{
-		width: 95%;
-	}
-	.section .view-add .row2 .column{
-		width: 40%;
-		margin: 38px 20px;
-	}
+@media screen and (max-width: 373px) {
+  .section .row .next-link .next-content ul li a {
+    font-size: 11px;
+  }
 }
-@media screen and (max-width: 612px){
-	.section{
-		width: 95%;
-	}
-	.section .view-add .row2 .column{
-		width: 90%;
-		height: auto;
-		box-sizing: border-box;
-		float: none;
-		margin: 28px 20px;
-	}
+@media screen and (max-width: 316px) {
+  .section .row .next-link .next-content {
+    width: 150px;
+  }
+  .section .row .next-link .next-content ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .section .row .next-link .next-content ul li {
+    margin-bottom: 10px;
+  }
 }
-@media screen and (max-width: 752px){
-	.section .row .next-link .next-content ul li{
-		margin: 0 5px; 
-	}
-}
-@media screen and (max-width: 434px){
-	.section .row .next-link{
-		margin: 25px 0;
-	}
-	.section .row .next-link .next-content ul li{
-		margin: 0 5px; 
-	}
-}
-@media screen and (max-width: 380px){
-	.section .row .next-link .next-content ul li{
-		margin: 0 0px;
-		font-size: 10px; 
-	}
-	.section .row .next-link .next-content ul li a{
-		font-size: 10px; 
-	}
-}
-
-/*Providerdashboard-aad.php*/
-
-@media screen and (max-width: 1027px){
-	.section .add-content .row3 p input{
-		margin-right: 5px;
-	}
-}
-
-@media screen and (max-width: 971px){
-	.section .add-content .row2 .radio p{
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.section .add-content .row2 p input{
-		box-sizing: border-box;
-		width: 97%;
-	}
-	.section .add-content .row2 .radio p input[type="radio"]{
-		order: 1;
-		margin:3px 5px 0 0;
-	}
-	.section .add-content .row2 .radio p label{
-		order: 2;
-	}
-}
-@media screen and (max-width: 1027px){
-	.section .add-content .row3 p{
-		text-align: center;
-	}
-	.section .add-content .row3 p input{
-		float: none;
-	}
-	.section .add-content .row3 p input:last-child{
-		float: none;
-	}
-}
-@media screen and (max-width: 516px){
-	.section .add-content{
-		padding: 30px;
-	}
-}
-@media screen and (max-width: 431px){
-	.section .add-content{
-		padding: 20px;
-	}
-	.section .add-content .row2 .radio p{
-		margin-left: 30px;
-	}
-	.section .add-content .row2 p textarea{
-		margin-left: 0;
-	}  
-}
-@media screen and (max-width: 355px){
-	.section .add-content{
-		padding: 10px;
-	}
-	.section .add-content .row2 .radio p{
-		margin-left: 0px;
-	} 
-}
-@media screen and (max-width: 332px){
-	.section .add-content .row2 .radio p{
-		margin-left: 0px;
-	} 
-	.section .add-content .row3 p input{
-		width: 90%;
-	}
-}
-@media screen and (max-width: 332px){
-	.section .add-content .row2 p label{
-		font-size: 14px;
-	}
-	.section .add-content .row1 .header{
-		font-size: 20px;
-	}
-}
-@media screen and (max-width: 250px){
-	.section .add-content .row1 .header{
-		font-size: 18px;
-	}
-}
-
-/*Change My password*/
-
-@media screen and (max-width: 311px){
-	.section .change-pw .row2 .content .but button{
-		width: 80%;
-	}
-}
-
-/*deleteMyAccount*/
-
-@media screen and (max-width: 1163px){
-	.section .delete-content .row2 p input{
-		width: 90%;
-	}
-}
-@media screen and (max-width: 880px){
-	.section .delete-content .row2 p input{
-		width: 70%;
-	}
-}
-@media screen and (max-width: 500px){
-	.section .delete-content .row2 p label{
-		text-indent: 10px;
-	}
-	.section .delete-content .row2 p input{
-		margin-left: 10px;
-		width: 80%;
-	}
-}
-@media screen and (max-width: 320px){
-	.section .delete-content {
-		padding: 10px;
-	}
-}
-@media screen and (max-width: 257px){
-	.section .delete-content .row3 input{
-		width: 80%;
-	}
-}
-
-/*Edit My Account*/
-
-@media screen and (max-width: 1154px){
-	.section .ed-account .row2 p{
-		width: 44%;
-	}
-	.section .ed-account .row3 p{
-		width: 44%;
-	}
-	.section .ed-account .row2 .imj-canvas canvas{
-		margin-left: 172px;
-	}
-}
-@media screen and (max-width: 1027px){
-	.section .ed-account .row2 p{
-		width: 42%;
-	}
-	.section .ed-account .row3 p{
-		width: 42%;
-	}
-
-	.section .ed-account .row2 p:last-child{
-		width: 92%;
-	}
-	.section .ed-account .row2 .imj-canvas canvas{
-		margin-left: 0px;
-	}
-}
-@media screen and (max-width: 804px){
-	.section .ed-account .row3 p{
-		width: 40%;
-	}
-}
-@media screen and (max-width: 798px){
-	.section .ed-account .row2 p{
-		width: 100%;
-		margin-right: 0px;
-		box-sizing: border-box;
-	}
-	.section .ed-account .row2 .imj-canvas canvas{
-		max-width: 450px;
-		height: 350px;
-	}
-
-}
-@media screen and (max-width: 600px){
-	.section .ed-account .row3 p{
-		width: 95%;
-	}
-	.section .ed-account .row2 .imj-canvas canvas{
-		max-width: 400px;
-		height: 290px;
-	}
-}
-@media screen and (max-width: 547px){
-	.section .ed-account .row2 .imj-canvas canvas{
-		max-width: 360px;
-		height: 250px;
-	}
-}
-@media screen and (max-width: 547px){
-	.section .ed-account .row2 .imj-canvas canvas{
-		max-width: 100%;
-		height: 250px;
-	}
-}
-@media screen and (max-width: 420px){
-	.section .ed-account .row2 .imj-canvas canvas{
-		max-width: 100%;
-		height: 200px;
-	}
-}
-@media screen and (max-width: 350px){
-	.section .ed-account .row4 input{
-		width: 100%;
-	}
-	@media screen and (max-width: 420px){
-	.section .ed-account .row2 .imj-canvas canvas{
-		max-width: 100%;
-		height: 170px;
-	}
-	.section .ed-account .row2 p{
-		width: 95%;
-	}
-}
-@media screen and (max-width: 313px){
-	.section .ed-account{
-		padding: 20px;
-	}
-	.section .ed-account .row2 .upload-pic label{
-		width: 150px;
-		font-size: 15px;
-	}
-	.section .ed-account .row2 p{
-		width: 96%;
-	}
-}
-@media screen and (max-width: 275px){
-	.section .ed-account .row2 .upload-pic label{
-		font-size: 12px;
-	}
-	.section .ed-account .row2 .imj-canvas canvas{
-		max-width: 100%;
-		height: 146px;
-	}
-}
-@media screen and (max-width: 240px) {
-	.section .ed-account .row2 .imj-canvas canvas{
-		max-width: 100%;
-		height: 110px;
-	}
-}
-@media screen and (max-width: 200px){
-	.section .ed-account{
-		padding: 15px;
-	}
-}
-
-

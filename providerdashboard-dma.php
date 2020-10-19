@@ -65,7 +65,7 @@
 </head>
 <body>
 	
-	<header>
+<header>	
 		<div class="main">
 			<div class="row">
 				<div class="column">
@@ -81,7 +81,7 @@
 
 						 ?>
 					</div>
-					<div class="pro-pic-edit">
+					<div class="upload-pro-pic">
 						<a href="providerdashboard-ema.php"><button><i class="fas fa-pencil-alt"></i></button></a>
 					</div>
 				</div>

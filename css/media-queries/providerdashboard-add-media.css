@@ -1,0 +1,29 @@
+@media screen and (max-width: 1140px) {
+  .section {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .section .add-content .row2 .sect {
+    flex-direction: column;
+  }
+  .section .add-content .row2 .sect .radiom {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 311px) {
+  .section .add-content .row2 .sect .radio {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .section .add-content .row2 .sect .radio p {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .section .add-content .row3 input {
+    width: 100%;
+  }
+}

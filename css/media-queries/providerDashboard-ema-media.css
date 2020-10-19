@@ -1,0 +1,24 @@
+@media screen and (max-width: 1140px) {
+  .section {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 633px) {
+  .section .ed-account .row2 .sect {
+    flex-direction: column;
+  }
+  .section .ed-account .row2 .sect p:nth-child(1) {
+    margin-right: 0;
+  }
+  .section .ed-account .row3 .sect {
+    flex-direction: column;
+  }
+  .section .ed-account .row3 .sect p:nth-child(1) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .section .ed-account .row2 .imj-canvas canvas {
+    width: 90%;
+  }
+}

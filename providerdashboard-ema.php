@@ -227,7 +227,7 @@
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/media-queries/providerDashboard-header-media.css"><!--media query-->
-	<link rel="stylesheet" href="css/media-queries/providerDashboard-main-media.css"><!--media query-->
+	<link rel="stylesheet" href="css/media-queries/providerDashboard-ema-media.css"><!--media query-->
 </head>
 <body>
 	
@@ -318,55 +318,65 @@
 						<input type="hidden" name="up_pic" id="up_pic">
 
 					</div><!-- pro_img_cropper -->
-
-					<p>
-						<label for="">Company Name</label>
-						<input type="text" name="company" value="<?php echo $company ?>">
-					</p>
-					<p>
-						<label for="">Company Registraion Number</label>
-						<input type="text" name="company_registration_number" value="<?php echo $company_registration_number ?>" readonly>
-					</p>
-					<p>
-						<label for="">Date Of Founded</label>
-						<input type="date" name="date_of_founded" value="<?php echo $date_of_founded ?>">
-					</p>
-
-					<p>
-						<label for="">Address</label>
-						<input type="text" name="address" value="<?php echo $address ?>">
-					</p>
-					<p>
-						<label for="">Phone Number</label>
-						<input type="text" name="phone_number" value="<?php echo $phone_number ?>">
-					</p>
-					<p>
-						<label for="">Company Website Url</label>
-						<input type="text" name="company_website" value="<?php echo $company_website ?>">
-					</p>
+					
+					<div class="sect">
+						<p>
+							<label for="">Company Name</label>
+							<input type="text" name="company" value="<?php echo $company ?>">
+						</p>
+						<p>
+							<label for="">Company Registraion Number</label>
+							<input type="text" name="company_registration_number" value="<?php echo $company_registration_number ?>" readonly>
+						</p>
+					</div>
+					<div class="sect">
+						<p>
+							<label for="">Date Of Founded</label>
+							<input type="date" name="date_of_founded" value="<?php echo $date_of_founded ?>">
+						</p>
+	
+						<p>
+							<label for="">Address</label>
+							<input type="text" name="address" value="<?php echo $address ?>">
+						</p>
+					</div>
+					<div class="sect">
+						<p>
+							<label for="">Phone Number</label>
+							<input type="text" name="phone_number" value="<?php echo $phone_number ?>">
+						</p>
+						<p>
+							<label for="">Company Website Url</label>
+							<input type="text" name="company_website" value="<?php echo $company_website ?>">
+						</p>
+					</div>
 					<p><label for="">Description</label>
 						<textarea name="description" id="" cols="121" rows="10"><?php echo $description; ?></textarea>
 					</p>
 				</div>
 				<div class="row3">
 					<h2>Social Links</h2>
-
-					<p>
-						<label for="">Email</label>
-						<input type="email" name="email" value="<?php echo $email ?>">
-					</p>
-					<p>
-						<label for="">Facebook</label>
-						<input type="text" name="facebook" value="<?php echo $facebook ?>">
-					</p>
-					<p>
-						<label for="">Twitter</label>
-						<input type="text" name="twitter" value="<?php echo $twitter ?>">
-					</p>
-					<p>
-						<label for="">Lined In</label>
-						<input type="text" name="linked_in" value="<?php echo $linked_in ?>">
-					</p>
+					
+					<div class="sect">
+						<p>
+							<label for="">Email</label>
+							<input type="email" name="email" value="<?php echo $email ?>">
+						</p>
+						<p>
+							<label for="">Facebook</label>
+							<input type="text" name="facebook" value="<?php echo $facebook ?>">
+						</p>
+					</div>
+					<div class="sect">
+						<p>
+							<label for="">Twitter</label>
+							<input type="text" name="twitter" value="<?php echo $twitter ?>">
+						</p>
+						<p>
+							<label for="">Lined In</label>
+							<input type="text" name="linked_in" value="<?php echo $linked_in ?>">
+						</p>
+					</div>
 				</div>
 				<div class="row4">
 					<div class="s-but">

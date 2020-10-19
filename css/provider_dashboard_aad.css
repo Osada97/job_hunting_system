@@ -1,113 +1,122 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 
-.section .add-content{
-	padding: 60px;
-	overflow: auto;
+.section .add-content {
+  padding: 20px;
 }
-.section .add-content .error{
-	padding-left: 15px;
-	border-left: 2px solid red;
-	margin:25px 20px;
-	text-transform: capitalize;
-	font-family: 'Nunito', sans-serif;
-	color: #6f6868;
+.section .add-content .header {
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+  margin: 15px 0 30px;
+  font-size: 16px;
 }
-.section .add-content .row1 .header{
-	font-size: 24px;
-	text-align: center;
-	margin-bottom: 35px;
-	font-family: 'Nunito', sans-serif;
+.section .add-content .row2 p:first-child {
+  width: 100%;
 }
-.section .add-content .row2{
-	margin: 10px;
-	font-family: 'Nunito', sans-serif;
+.section .add-content .row2 p label {
+  font-family: "Nunito", sans-serif;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000000;
 }
-.section .add-content .row2 p label{
-	display: block;
-	font-size: 17px;
-	font-weight: 600;
-	color: #484646d4;
-	margin-bottom: 10px;
-	text-transform: uppercase;
+.section .add-content .row2 p input,
+select {
+  width: 100%;
+  padding: 14px 8px;
+  margin-bottom: 10px;
+  outline: none;
+  font-size: 13px;
+  color: #716d6d;
+  border-radius: 3px;
+  font-family: sans-serif;
+  border: 1px solid #d4d4d4;
+  transition: 0.6s;
 }
-.section .add-content .row2 .radio{
-	padding: 15px 0;
+.section .add-content .row2 p select option {
+  font-size: 14px;
+  margin: 10px 0;
 }
-.section .add-content .row2 .radio p{
-	display: inline;
-	margin-left: 50px;
+.section .add-content .row2 p input:hover,
+select:hover {
+  border-color: #ff800a;
 }
-.section .add-content .row2 .radio p label{
-	display: inline;
+.section .add-content .row2 p input:focus,
+select:focus {
+  border-color: #ff800a;
 }
-.section .add-content .row2 .radio p input{
-	width: auto;
+.section .add-content .row2 .sect {
+  margin: 20px 0;
+  display: flex;
 }
-.section .add-content .row2 p input{
-	margin-bottom: 12px;
-	margin-left: 15px;
-	width: 95%;
-	padding: 10px;
-	font-size: 15px;
-	font-weight: normal;
-	outline-color: orange;
-	border: 1px solid #c3c1c1cf;
-	border-radius: 5px;
-	color: #403e3ebf;
+.section .add-content .row2 .sect p {
+  flex: 1;
 }
-.section .add-content .row2 p input:hover{
-	border-color: #ff8a00;
-	transition: 0.5s ease 0s;
+.section .add-content .row2 .sect p:nth-child(1) {
+  margin-right: 40px;
 }
-.section .add-content .row2 p select{
-	margin-bottom: 12px;
-	margin-left: 15px;
-	width: 97%;
-	padding: 10px;
-	font-size: 15px;
-	font-weight: normal;
-	outline-color: orange;
-	border: 1px solid #c3c1c1cf;
-	border-radius: 5px;
-	outline: none;
-	overflow: auto;
-	color: #403e3ebf
+.section .add-content .row2 .sect:nth-child(5) p {
+  margin-right: 0;
 }
-.section .add-content .row2 p textarea{
-	margin-bottom: 12px;
-	margin-left: 15px;
-	width: 95%;
-	padding: 10px;
-	font-size: 15px;
-	font-weight: normal;
-	outline-color: orange;
-	border: 1px solid #c3c1c1cf;
-	border-radius: 5px;
-	color: #403e3ebf;
+.section .add-content .row2 .sect .radiom {
+  flex: 1;
+  margin-right: 40px;
 }
-.section .add-content .row2 p textarea:hover{
-	border-color: #ff8a00;
-	transition: 0.5s ease 0s;
+.section .add-content .row2 .sect .radio {
+  margin-top: 20px;
+  display: flex;
 }
-.section .add-content .row3 p input{
-	margin-top: 20px;
-	padding: 10px;
-	border: none;
-	float: left;
-	margin-right: 150px;
-	width: 300px;
-	outline: none;
-	color: white;
-	font-weight: 600;
-	background-color: #ff8a00;
-	border-radius: 5px;
-	font-size: 15px;
-	cursor: pointer;
-}.section .add-content .row3 p:last-child input{
-	float: right;
-	margin-right: 0;
+.section .add-content .row2 .sect .radio p {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.section .add-content .row3 p input:hover{
-	background-color: #e67d00;
-	transition: 0.5s ease-in 0.1s;
+.section .add-content .row2 .sect .radio p label {
+  margin: 0;
+  font-size: 14px;
+  font-size: 13px;
+}
+.section .add-content .row2 .sect .radio p input {
+  margin: 0;
+  width: auto;
+}
+.section .add-content .row2 .sect .radio p:nth-child(1) {
+  margin-right: 0;
+}
+.section .add-content .row3 {
+  margin-top: 25px;
+}
+.section .add-content .row3 input {
+  width: 200px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: #ff800a;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: 0.5s ease;
+}
+.section .add-content .row3 input:hover {
+  background-color: #eb7506;
+}
+.section .add-content .error {
+  margin-bottom: 15px;
+  color: red;
+  font-family: "Nunito", sans-serif;
+}
+.section .add-content .error p {
+  margin-bottom: 8px;
+}
+
+/*multi chooser styling*/
+.chosen-container {
+  margin-left: 0px !important;
+  width: 100% !important;
+}
+.chosen-container-multi .chosen-choices {
+  background-image: none !important;
+  border-radius: 3px !important;
+  padding: 10px 8px !important;
 }

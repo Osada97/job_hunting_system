@@ -202,7 +202,7 @@
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/media-queries/providerDashboard-header-media.css"><!--media query-->
-	<link rel="stylesheet" href="css/media-queries/providerDashboard-main-media.css"><!--media query-->
+	<link rel="stylesheet" href="css/media-queries/providerDashboard-main-media.css"><!-- media query -->
 </head>
 <body>
 	
@@ -222,7 +222,7 @@
 
 						 ?>
 					</div>
-					<div class="pro-pic-edit">
+					<div class="upload-pro-pic">
 						<a href="providerdashboard-ema.php"><button><i class="fas fa-pencil-alt"></i></button></a>
 					</div>
 				</div>
@@ -274,9 +274,11 @@
  												echo "</div>";
  										echo "</div>";
  									echo "</div>";
- 								//echo "<a href=\"index.php\">";
- 									echo "<div class='img-set'>";
- 										echo provider_profile_picture($company_registration_number,$connection);
+								 //echo "<a href=\"index.php\">";
+								 	echo "<div class='img-column'>";
+ 										echo "<div class='img-set'>";
+ 											echo provider_profile_picture($company_registration_number,$connection);
+ 										echo "</div>";
  									echo "</div>";
  									echo "<div class='ad-content'>";
  										echo "<div class='ad-title'>";
@@ -292,16 +294,16 @@
  											echo "<h4><i class='fas fa-map-marker-alt'></i>" . $add["location"] ."</h4>";
  										echo "</div>";
  										echo "<div class='ad-catogery'>";
- 											echo "<h4>" . $add["job_category"]. "</h4>";
+ 											echo "<h4><i class='far fa-building'></i>" . $add["job_category"]. "</h4>";
  										echo "</div>";
  										echo "<div class='ad-type'>";
  											echo "<h4><i class='fas fa-briefcase'></i>" . $add["job_type"] . "</h4>";
  										echo "</div>";
- 										echo "<hr class='hr'>";
+										 echo "</div>";
  										echo "<div class='ad-time'>";
- 											echo "<h4><i class='far fa-clock'></i>" . facebook_time_ago($add["ad_time"]) ."</h4>";
+										 	echo "<h4 title='expiry time'><i class='fas fa-history'></i>00:00:00</h4>";
+											 echo "<h4 title='Ad Posted Date'><i class='far fa-clock'></i>" . facebook_time_ago($add["ad_time"]) ."</h4>";
  										echo "</div>";
- 									echo "</div>";
  								//echo "</a>";
  							echo "</div>";
  						

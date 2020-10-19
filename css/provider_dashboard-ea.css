@@ -1,217 +1,214 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Ubuntu:wght@300&display=swap');
-.section{
-	border:none;
+@import url("https://fonts.googleapis.com/css2?family=Raleway&family=Ubuntu:wght@300&display=swap");
+.section {
+  border: none;
+  margin-top: 80px;
+  overflow: initial;
 }
-.section:hover{
-	box-shadow: none;
+.section:hover {
+  box-shadow: none;
 }
-.section .view-add{
-	padding: 20px;
+.section .view-add {
+  padding: 20px;
 }
-.section .view-add .row1{
-	margin:20px 0;
+.section .view-add .row1 {
+  margin: 20px 0;
 }
-.section .view-add .row2{
-	overflow: auto;
+.section .view-add .row2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fill, 410px);
+  grid-column-gap: 50px;
+  grid-row-gap: 60px;
+  justify-content: center;
+  align-items: center;
 }
-.section .view-add .row2 .column a{
-	text-decoration: none;
-	cursor: default;
+.section .view-add .row2 .column {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  justify-self: center;
+  padding: 15px 0 0px;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease;
 }
-.section .view-add .row2 .column{
-	border: 1px solid #ddd;
-	width: 300px;
-	height: 410px;
-	float: left;
-	text-align: center;
-	margin: 35px 25px;
-	overflow: hidden;
-	cursor: default;
-	padding: 6px;
-	transition: 0.3s;
+.section .view-add .row2 .column:hover {
+  box-shadow: 0px 0px 9px 6px #eeeeeef5;
 }
-.section .view-add .row2 .column:hover{
-	box-shadow: 0px 0px 17px 5px #ddd;
-	transform: scale(1.03);
-	transition: 0.8s ease 0s;
+.section .view-add .row2 .column .option {
+  position: absolute;
+  top: 6px;
+  right: 5px;
+  height: 25px;
+  text-align: right;
+  margin-bottom: 10px;
 }
-.section .view-add .row2 .column .img-set{
-	width: 100px;
-	height: 100px;
-	overflow: hidden;
-	margin: 45px auto 25px;
-	border-radius: 50%;
+.section .view-add .row2 .column .option button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
 }
-.section .view-add .row2 .column .img-set img{
-	width: 100px;
-	height: 100px;
+.section .view-add .row2 .column .option .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 120px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8ad;
+  opacity: 95%;
+  transition: 0.3s;
 }
-.section .view-add .row2 .column .ad-content .ad-title{
-	margin: 15px 0;
-	font-size: 24px;
-	text-transform: capitalize;
-
+.section .view-add .row2 .column .option .dropdown-content a {
+  display: block;
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 600;
 }
-.section .view-add .row2 .column .ad-content .ad-title h4{
-	color: #000000ad;
-	font-weight: 600;
-	font-family: 'Raleway', sans-serif;
-
+.section .column .option .dropdown .dropdown-content a:hover {
+  color: white;
+  background-color: #f96700ba;
+  transition: 0.5s;
 }
-.section .view-add .row2 .column .ad-content .ad-company{
-	margin: 8px 0;
-	font-size: 16px;
-	text-transform: capitalize;
-	color: #f96700;
-	font-family: 'Ubuntu', sans-serif;
-
+.section .view-add .row2 .column .option .dropdown:hover .dropdown-content {
+  display: block;
 }
-.section .view-add .row2 .column .ad-content .ad-salary{
-	margin: 12px 0;
-	font-size: 15px;
-	text-transform: capitalize;
-	color: #77797bc4;
-	font-family: 'Ubuntu', sans-serif;
-
+.section .view-add .row2 .column .img-column {
+  height: auto;
+  padding: 15px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.section .view-add .row2 .column .ad-content .ad-location{
-	margin: 12px 0;
-	font-size: 14px;
-	text-transform: capitalize;
-	color: #77797bc4;
-	font-family: 'Ubuntu', sans-serif;
-
+.section .view-add .row2 .column .img-set {
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 3px solid #dedddd;
+  overflow: hidden;
 }
-.section .view-add .row2 .column .ad-content i{
-	margin-right: 5px;
-	font-size: 10px;
-
+.section .view-add .row2 .column .img-set img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
-.section .view-add .row2 .column .ad-content .ad-catogery{
-	margin: 10px 0;
-	font-size: 14px;
-	text-transform: capitalize;
-	color: #77797bc4;
-	font-family: 'Ubuntu', sans-serif;
-
+.section .view-add .row2 .column .ad-content {
+  height: 220px;
+  padding: 8px;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
 }
-.section .view-add .row2 .column .ad-content .ad-type{
-	margin: 15px 0;
-	font-size: 14px;
-	text-transform: capitalize;
-	color: #00b900;
-	font-family: 'Ubuntu', sans-serif;
-
+.section .view-add .row2 .column .ad-content .ad-title {
+  width: 100%;
+  margin-bottom: 17px;
+  text-align: center;
 }
-.section .view-add .row2 .column .ad-content .hr{
-	border:0.5px solid #ddd;
-	margin-top: 5px;
+.section .view-add .row2 .column .ad-content .ad-title h4 {
+  margin-bottom: 10px;
+  font-size: 23px;
 }
-.section .view-add .row2 .column .ad-content .ad-time{
-	text-align: right;
-	margin: 15px 0;
-	font-size: 14px;
-	text-transform: capitalize;
-	color: #838383;
-	font-family: 'Ubuntu', sans-serif;
-
+.section .view-add .row2 .column .ad-content .ad-company {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.section .view-add .row2 .column .ad-content .ad-company h4,
+.ad-salary h4,
+.ad-location h4,
+.ad-catogery h4,
+.ad-type h4 {
+  margin-bottom: 9px;
+  font-size: 13px;
+  width: 100%;
+  color: #77797bc4;
+}
+.section .view-add .row2 .column .ad-content .ad-company h4 {
+  font-size: 16px;
+  color: #f96700;
+}
+.section .view-add .row2 .column .ad-content .ad-location h4 {
+  font-size: 13px;
+}
+.section .view-add .row2 .column .ad-content .ad-type h4 {
+  color: #00b900;
+}
+.section .view-add .row2 .column .ad-content i {
+  margin-right: 8px;
+  display: inline;
+}
+.section .view-add .row2 .column .ad-time {
+  height: 35px;
+  padding: 5px;
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f5f5f5a1;
+  border-top: 1px solid #eee;
+  color: #a2a0a0;
+  font-size: 13px;
+  font-weight: 300;
+}
+.section .view-add .row2 .column .ad-time h4 {
+  font-weight: 300;
+}
+.section .view-add .row2 .column .ad-time h4 i {
+  margin-right: 5px;
 }
 /*next link*/
-.section .row .next-link{
-	margin: 25px;
-	overflow: auto;
-}
-.section .row .next-link .next-content{
-	text-align: center;
-}
-.section .row .next-link .next-content ul{
-	width: 767px;
-	margin: 0 auto;
-	padding: 5px;
-	border: 2px solid #eeeeee;
-}
-.section .row .next-link .next-content ul li{
-	display: inline-block;
-	list-style: none;
-	margin:0 45px;
-	cursor: pointer;
-	padding: 5px 13px;
-	border-radius: 5px;
-}
-.section .row .next-link .next-content ul li:nth-child(3){
-	cursor: default;
-	font-family:sans-serif;
-	font-weight: 600;
-	font-size: 13px;
-	background-color: #ff8a00;
-	color: #fff;
-}
-.section .row .next-link .next-content ul li a{
-	font-size: 13px;
-	text-decoration: none;
-	font-family: 'Raleway', sans-serif;
-	font-weight: 600;
-	text-transform: capitalize;
-	color: black;
-}
-.section .row .next-link .next-content ul li:hover{
-	background-color: #ff8a00;
-	transition: 0.9s ease 0s;
-}
-.section .row .next-link .next-content ul li:hover a{
-	color: white;
-	transition: 0.9s ease 0s;
-}
-.section .row .next-link .next-content ul li.active{
-	background-color: #ff8a00;
-	transition: 0.9s ease 0s;
-}
-.section .row .next-link .next-content ul li.active a{
-	color: white;
-	transition: 0.9s ease 0s;
-}
-.section .row .next-link .next-content .empty{
-	font-family: 'Raleway', sans-serif;
-	font-size: 25px;
-	margin-bottom: 25px;
-}
 
-/*option field*/
-.section .column .option .dropdown{
-	float: right;
+.section .row .next-link {
+  margin: 50px 0 15px;
 }
-.section .column .option .dropdown .dropbtn{
-	padding: 5px;
-	background: none;
-	border: none;
-	outline: none;
+.section .row .next-link .next-content {
+  width: 700px;
+  margin: 0 auto;
+  border: 1px solid #ccc7c7;
+  padding: 8px;
 }
-.section .column .option .dropdown .dropdown-content{
-	position: absolute;
-	display: none;
-	right: 0;
-	width: 120px;
-	border:1px solid #ddd;
-	background-color: #f8f8f8ad;
-	opacity: 95%;
-	transition:0.3s;
+.section .row .next-link .next-content ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
 }
-.section .column .option .dropdown .dropdown-content a{
-	display: block;
-	font-size: 15px;
-	text-decoration: none;
-	color: black;
-	margin-bottom: 12px;
-	padding: 10px 14px;
-	font-family: 'Ubuntu', sans-serif;
-	font-weight: 600;
+.section .row .next-link .next-content ul li {
+  font-family: "Raleway", sans-serif;
+  padding: 5px 10px;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.5s ease;
 }
-.section .column .option .dropdown .dropdown-content a:hover{
-	color: white;
-	background-color: #f96700ba;
-	transition: 0.5s;
+.section .row .next-link .next-content ul li:nth-child(3) {
+  font-family: sans-serif;
+  background-color: #ff8a00;
+  border-radius: 5px;
+  color: #fff;
 }
-.section .column .option .dropdown:hover .dropdown-content{
-	display: block;
-	transition: 0.9s;
+.section .row .next-link .next-content ul li a {
+  font-family: "Raleway", sans-serif;
+  color: #000;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+}
+.section .row .next-link .next-content ul li:hover {
+  border-radius: 5px;
+  background-color: #ff8a00;
+  color: #fff;
+}
+.section .row .next-link .next-content ul li:hover a {
+  color: #fff;
 }

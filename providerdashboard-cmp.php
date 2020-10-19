@@ -88,23 +88,23 @@
 </head>
 <body>
 	
-	<header>
+	<header>	
 		<div class="main">
 			<div class="row">
 				<div class="column">
 					<div class="seeker-pic">
-						<?php 
+					<?php 
 
-							if ($_SESSION["is_image_pro"]==1) {
-								echo "<img src=\"imj/profile_pictures/providers/" . $_SESSION["company_registration_number"] . ".jpg\"> ";
-							}
-							else{
-								echo "<img src=\"imj/profile_pictures/default.jpg\">";
-							}
+						if ($_SESSION["is_image_pro"]==1) {
+							echo "<img src=\"imj/profile_pictures/providers/" . $_SESSION["company_registration_number"] . ".jpg\"> ";
+						}
+						else{
+							echo "<img src=\"imj/profile_pictures/default.jpg\">";
+						}
 
-						 ?>
+						?>
 					</div>
-					<div class="pro-pic-edit">
+					<div class="upload-pro-pic">
 						<a href="providerdashboard-ema.php"><button><i class="fas fa-pencil-alt"></i></button></a>
 					</div>
 				</div>

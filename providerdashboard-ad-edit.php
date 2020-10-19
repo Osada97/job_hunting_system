@@ -182,11 +182,11 @@
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/media-queries/providerDashboard-header-media.css"><!--media query-->
-	<link rel="stylesheet" href="css/media-queries/providerDashboard-main-media.css"><!--media query-->
+	<link rel="stylesheet" href="css/media-queries/providerDashboard-add-media.css"><!--media query-->
 </head>
 <body>
 	
-	<header>
+	<header>	
 		<div class="main">
 			<div class="row">
 				<div class="column">
@@ -202,7 +202,7 @@
 
 						 ?>
 					</div>
-					<div class="pro-pic-edit">
+					<div class="upload-pro-pic">
 						<a href="providerdashboard-ema.php"><button><i class="fas fa-pencil-alt"></i></button></a>
 					</div>
 				</div>
@@ -257,14 +257,135 @@
 						<label for="">Job Title</label>
 						<input type="text" name="job_title" value="<?php echo $job_title; ?>">
 					</p>
-					<p>
-						<label for="">Email</label>
-						<input type="email" name="email" value="<?php echo $email; ?>">
-					</p>
-					<p>
-						<label for="">Company URL</label>
-						<input type="text" name="company_url" value="<?php echo $company_url; ?>">
-					</p>
+					<div class="sect">
+						<p>
+							<label for="">Email</label>
+							<input type="email" name="email" value="<?php echo $email; ?>">
+						</p>
+						<p>
+							<label for="">Company URL</label>
+							<input type="text" name="company_url" value="<?php echo $company_url; ?>">
+						</p>
+					</div>
+					<div class="sect">
+						<p>
+							<label for="">JOb Category</label>
+							<select name="job_category" id="">
+								<option value="<?php echo $job_category; ?>" hidden><?php echo $job_category; ?></option>
+								<option value="Choose category…">Choose category…</option>
+								<option value="Accounting/Finance/Auditing">Accounting/Finance/Auditing</option>
+								<option value="Admin/Clerk/Office Assistant">Admin/Clerk/Office Assistant</option>
+								<option value="Agriculture/Dairy/Fisheries">Agriculture/Dairy/Fisheries</option>
+								<option value="Apparel/Garment/Clothing">Apparel/Garment/Clothing</option>
+								<option value="Architecture/Interior/Design">Architecture/Interior/Design</option>
+								<option value="Automotive/Aviation">Automotive/Aviation</option>
+								<option value="Banking/Finance">Banking/Finance</option>
+								<option value="BPO/KPO">BPO/KPO</option>
+								<option value="Business Development/Strategy/Corporate Planning">Business Development/Strategy/Corporate Planning</option>
+								<option value="Carpentry/Woodwork/Furniture">Carpentry/Woodwork/Furniture</option>
+								<option value="Cashier">Cashier</option>
+								<option value="Cleaning/Maintenance">Cleaning/Maintenance</option>
+								<option value="Construction/Civil Engineering/QS">Construction/Civil Engineering/QS</option>
+								<option value="Consultancy/Coordination">Consultancy/Coordination</option>
+								<option value="Customer Relations/Public Relations">Customer Relations/Public Relations</option>
+								<option value="Customer Support/Call Centre">Customer Support/Call Centre</option>
+								<option value="Data Entry/Data Formatting/Type Setting">Data Entry/Data Formatting/Type Setting</option>
+								<option value="Data Entry/Payroll">Data Entry/Payroll</option>
+								<option value="Design/Art/Photography">Design/Art/Photography</option>
+								<option value="Driver/Chauffeur/Transport">Driver/Chauffeur/Transport</option>
+								<option value="Education/Teaching/Academic">Education/Teaching/Academic</option>
+								<option value="Electronics/Electrical">Electronics/Electrical</option>
+								<option value="Energy/Utilities">Energy/Utilities</option>
+								<option value="Engineering">Engineering</option>
+								<option value="Entertainment/Modeling/Acting">Entertainment/Modeling/Acting</option>
+								<option value="Fashion/Design/Beauty">Fashion/Design/Beauty</option>
+								<option value="Food/Beverage/Catering">Food/Beverage/Catering</option>
+								<option value="General labor/Other">General labor/Other</option>
+								<option value="Government/Civil service">Government/Civil service</option>
+								<option value="Hospitality/Tourism">Hospitality/Tourism</option>
+								<option value="Hotels/Restaurants">Hotels/Restaurants</option>
+								<option value="Housemaid/Caregiver">Housemaid/Caregiver</option>
+								<option value="HR/Recruitment/Training">HR/Recruitment/Training</option>
+								<option value="Imports/Exports/Trading">Imports/Exports/Trading</option>
+								<option value="Insurance">Insurance</option>
+								<option value="International">International</option>
+								<option value="IT/Hardware/Network/System Admin">IT/Hardware/Network/System Admin</option>
+								<option value="IT/Programming">IT/Programming</option>
+								<option value="IT/Software/Web/Database/QA">IT/Software/Web/Database/QA</option>
+								<option value="Legal/Law/Risk/Compliance">Legal/Law/Risk/Compliance</option>
+								<option value="Leisure/Tourism/Travel">Leisure/Tourism/Travel</option>
+								<option value="Lifeguard/Safety/First Aid">Lifeguard/Safety/First Aid</option>
+								<option value="Logistics/Warehouse/Transport">Logistics/Warehouse/Transport</option>
+								<option value="Maintenance/Technical/Repair">Maintenance/Technical/Repair</option>
+								<option value="Management/Analysts">Management/Analysts</option>
+								<option value="Manufacturing/Industrial/Operations">Manufacturing/Industrial/Operations</option>
+								<option value="Mason/Plumber/Helper">Mason/Plumber/Helper</option>
+								<option value="Media/Advertising/PR/Communications">Media/Advertising/PR/Communications</option>
+								<option value="Medical/Health/Pharmaceutical">Medical/Health/Pharmaceutical</option>
+								<option value="Mobile Apps/Android/IOS/Windows">Mobile Apps/Android/IOS/Windows</option>
+								<option value="Motor Mechanics">Motor Mechanics</option>
+								<option value="Multimedia/Animations/Graphic Designing">Multimedia/Animations/Graphic Designing</option>
+								<option value="Music/Composing/Entertainment">Music/Composing/Entertainment</option>
+								<option value="NGO/Charity">NGO/Charity</option>
+								<option value="Office Admin/Secretarial/Receptionist">Office Admin/Secretarial/Receptionist</option>
+								<option value="Other">Other</option>
+								<option value="Procurement/Supply Chain">Procurement/Supply Chain</option>
+								<option value="Project Management">Project Management</option>
+								<option value="Property/Housing/Real Estate">Property/Housing/Real Estate</option>
+								<option value="Psychology/Counseling">Psychology/Counseling</option>
+								<option value="Quality Control & Assurance">Quality Control & Assurance</option>
+								<option value="R & D/Science/Research">R & D/Science/Research</option>
+								<option value="Retail/Trading/Services">Retail/Trading/Services</option>
+								<option value="Sales/Marketing/Merchandising">Sales/Marketing/Merchandising</option>
+								<option value="Seaman/Sailor/Marine">Seaman/Sailor/Marine</option>
+								<option value="Security">Security</option>
+								<option value="Sound & Visual Engineering">Sound & Visual Engineering</option>
+								<option value="Sports/Fitness/Recreational">Sports/Fitness/Recreational</option>
+								<option value="Supervision/Quality Control">Supervision/Quality Control</option>
+								<option value="Tailor/Clothing/Design">Tailor/Clothing/Design</option>
+								<option value="Telecommunication/Network">Telecommunication/Network</option>
+								<option value="Ticketing/Airline/Marine">Ticketing/Airline/Marine</option>
+								<option value="Training/Development/Coaching">Training/Development/Coaching</option>
+								<option value="Transport/Logistics">Transport/Logistics</option>
+								<option value="Veterinary/Animal Care">Veterinary/Animal Care</option>
+								<option value="Welder/Painter/Helper">Welder/Painter/Helper</option>
+							</select>
+						</p>
+						<p>
+							<label for="">Job Type</label>
+							<select name="job_type" id=" ">
+								<option value="<?php echo $job_type ?>"> <?php  echo $job_type; ?></option>
+								<option value="Full Time">Full Time</option>
+								<option value="Part Time">Part Time</option>
+								<option value="Government">Government</option>
+								<option value="Contract">Contract</option>
+								<option value="Internship">Internship</option>
+								
+
+							</select>
+						</p>
+					</div>
+					<div class="sect">
+						<p>
+							<label for="">Phone Number</label>
+							<input type="text" name="phone_number" value="<?php echo $phone_number ?>">
+						</p>
+						<p>
+							<label for="">Monthly Salary(RS)</label>
+							<select name="monthly_salary" id="">
+								<option value="<?php echo $monthly_salary ?>" hidden> <?php  echo $monthly_salary; ?></option>
+								<option value="not_spacified">Not Spacified</option>
+								<option value="Up to 25000">Up to 25000</option>
+								<option value="25000 - 50000">25000 - 50000</option>
+								<option value="50000 - 100000">50000 - 100000</option>
+								<option value="100000 - 200000">100000 - 200000</option>
+								<option value="200000 - 300000">200000 - 300000</option>
+								<option value="300000 - 400000">300000 - 400000</option>
+								<option value="400000 - 500000">400000 - 500000</option>
+								<option value="Above 500000">Above 500000</option>
+							</select>
+						</p>
+					</div>
 					<p>
 						<label for="">Location</label>
 						<!--<span class="sow_town" style="margin-left: 15px; font-size: 15px; color:#706c6c">
@@ -645,264 +766,165 @@
 						</select>
 						
 					</p>
-					<p>
-						<label for="">Job Type</label>
-						<select name="job_type" id=" ">
-							<option value="<?php echo $job_type ?>"> <?php  echo $job_type; ?></option>
-							<option value="Full Time">Full Time</option>
-							<option value="Part Time">Part Time</option>
-							<option value="Government">Government</option>
-							<option value="Contract">Contract</option>
-							<option value="Internship">Internship</option>
+					<div class="sect">
+
+						<div class="radiom">
+							<p>
+								<label for="">SUITABLE CANDIDATE DETAILS</label>
+								
+							</p>
+								<div class="radio">
+									<p>
+										<label for="male">Male</label>
+										<input type="radio" name="gender" id=""value="male" <?php if ($gender == "male"){ echo "checked='checked'";}?>>
+									</p>
+									<p>
+										<label for="female">Female</label>
+										<input type="radio" name="gender" id=""value="female" <?php if ($gender == "female"){ echo "checked='checked'";}?>>
+									</p>
+									<p>
+										<label for="male">Any</label>
+										<input type="radio" name="gender" id="" value="any" <?php if ($gender == "any"){ echo "checked='checked'";}?>>
+									</p>
+								</div>
+						</div>	
+						<p>
+							<label for="">Maximum Years Of Age</label>
+							<select name="maximum_age" id="">
+								<option value="<?php echo $maximum_age; ?>" hidden ><?php echo $maximum_age; ?></option>
+								<option value="No Maximum Age">No Maximum Age</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="35">35</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="39">39</option>
+								<option value="40">40</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="49">49</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="49">49</option>
+								<option value="50">50</option>
+	
+							</select>
+						</p>
+					</div>
+					<div class="sect">
+
+						<p>
+							<label for="">Minimum years Of Age</label>
+							<select name="minimum_age" id="">
+								<option value="<?php echo $minimum_age; ?>" hidden><?php echo $minimum_age; ?></option>
+								<option value="No Minimum Age">No Minimum Age</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="35">35</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="39">39</option>
+								<option value="40">40</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="49">49</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="49">49</option>
+								<option value="50">50</option>								
+	
+							</select>
+						</p>
+						<p>
+							<label for="">Minimum Years Of Qualification</label>
+							<select name="minimum_qualification" id="">
+								<option value="<?php echo $minimum_qualification; ?>" hidden><?php echo $minimum_qualification; ?></option>
+								<option value="no">No Minimum Qualificatin Year</option>
+								<option value="1 Year">1 Year</option>
+								<option value="2 Years">2 Years</option>
+								<option value="3 Years">3 Years</option>
+								<option value="4 Years">4 Years</option>
+								<option value="5 Years">5 Years</option>
+								<option value="9 Years">9 Years</option>
+								<option value="6 Years">6 Years</option>
+								<option value="7 Years">7 Years</option>
+								<option value="8 Years">8 Years</option>
+								<option value="10 Years">10 Years</option>
+	
+							</select>
+						</p>
+					</div>
+					<div class="sect">
+						<div class="radiom">
 							
-
-						</select>
-					</p>
-					<p>
-						<label for="">Phone Number</label>
-						<input type="text" name="phone_number" value="<?php echo $phone_number ?>">
-					</p>
-					<p>
-						<label for="">Monthly Salary(RS)</label>
-						<select name="monthly_salary" id="">
-							<option value="<?php echo $monthly_salary ?>" hidden> <?php  echo $monthly_salary; ?></option>
-							<option value="not_spacified">Not Spacified</option>
-							<option value="Up to 25000">Up to 25000</option>
-							<option value="25000 - 50000">25000 - 50000</option>
-							<option value="50000 - 100000">50000 - 100000</option>
-							<option value="100000 - 200000">100000 - 200000</option>
-							<option value="200000 - 300000">200000 - 300000</option>
-							<option value="300000 - 400000">300000 - 400000</option>
-							<option value="400000 - 500000">400000 - 500000</option>
-							<option value="Above 500000">Above 500000</option>
-						</select>
-					</p>
-					<p>
-						<label for="">JOb Category</label>
-						<select name="job_category" id="">
-							<option value="<?php echo $job_category; ?>" hidden><?php echo $job_category; ?></option>
-				            <option value="Choose category…">Choose category…</option>
-				            <option value="Accounting/Finance/Auditing">Accounting/Finance/Auditing</option>
-				            <option value="Admin/Clerk/Office Assistant">Admin/Clerk/Office Assistant</option>
-				            <option value="Agriculture/Dairy/Fisheries">Agriculture/Dairy/Fisheries</option>
-				            <option value="Apparel/Garment/Clothing">Apparel/Garment/Clothing</option>
-				            <option value="Architecture/Interior/Design">Architecture/Interior/Design</option>
-				            <option value="Automotive/Aviation">Automotive/Aviation</option>
-				            <option value="Banking/Finance">Banking/Finance</option>
-				            <option value="BPO/KPO">BPO/KPO</option>
-				            <option value="Business Development/Strategy/Corporate Planning">Business Development/Strategy/Corporate Planning</option>
-				            <option value="Carpentry/Woodwork/Furniture">Carpentry/Woodwork/Furniture</option>
-				           	<option value="Cashier">Cashier</option>
-				           	<option value="Cleaning/Maintenance">Cleaning/Maintenance</option>
-				           	<option value="Construction/Civil Engineering/QS">Construction/Civil Engineering/QS</option>
-				            <option value="Consultancy/Coordination">Consultancy/Coordination</option>
-				            <option value="Customer Relations/Public Relations">Customer Relations/Public Relations</option>
-				            <option value="Customer Support/Call Centre">Customer Support/Call Centre</option>
-				            <option value="Data Entry/Data Formatting/Type Setting">Data Entry/Data Formatting/Type Setting</option>
-				            <option value="Data Entry/Payroll">Data Entry/Payroll</option>
-				            <option value="Design/Art/Photography">Design/Art/Photography</option>
-				            <option value="Driver/Chauffeur/Transport">Driver/Chauffeur/Transport</option>
-				            <option value="Education/Teaching/Academic">Education/Teaching/Academic</option>
-				            <option value="Electronics/Electrical">Electronics/Electrical</option>
-				            <option value="Energy/Utilities">Energy/Utilities</option>
-				            <option value="Engineering">Engineering</option>
-				            <option value="Entertainment/Modeling/Acting">Entertainment/Modeling/Acting</option>
-				           	<option value="Fashion/Design/Beauty">Fashion/Design/Beauty</option>
-				            <option value="Food/Beverage/Catering">Food/Beverage/Catering</option>
-				            <option value="General labor/Other">General labor/Other</option>
-				            <option value="Government/Civil service">Government/Civil service</option>
-				            <option value="Hospitality/Tourism">Hospitality/Tourism</option>
-				            <option value="Hotels/Restaurants">Hotels/Restaurants</option>
-				           	<option value="Housemaid/Caregiver">Housemaid/Caregiver</option>
-				            <option value="HR/Recruitment/Training">HR/Recruitment/Training</option>
-				           	<option value="Imports/Exports/Trading">Imports/Exports/Trading</option>
-				            <option value="Insurance">Insurance</option>
-				            <option value="International">International</option>
-				            <option value="IT/Hardware/Network/System Admin">IT/Hardware/Network/System Admin</option>
-				            <option value="IT/Programming">IT/Programming</option>
-				            <option value="IT/Software/Web/Database/QA">IT/Software/Web/Database/QA</option>
-				            <option value="Legal/Law/Risk/Compliance">Legal/Law/Risk/Compliance</option>
-				            <option value="Leisure/Tourism/Travel">Leisure/Tourism/Travel</option>
-				            <option value="Lifeguard/Safety/First Aid">Lifeguard/Safety/First Aid</option>
-				            <option value="Logistics/Warehouse/Transport">Logistics/Warehouse/Transport</option>
-				            <option value="Maintenance/Technical/Repair">Maintenance/Technical/Repair</option>
-				            <option value="Management/Analysts">Management/Analysts</option>
-				            <option value="Manufacturing/Industrial/Operations">Manufacturing/Industrial/Operations</option>
-				            <option value="Mason/Plumber/Helper">Mason/Plumber/Helper</option>
-				            <option value="Media/Advertising/PR/Communications">Media/Advertising/PR/Communications</option>
-				            <option value="Medical/Health/Pharmaceutical">Medical/Health/Pharmaceutical</option>
-				            <option value="Mobile Apps/Android/IOS/Windows">Mobile Apps/Android/IOS/Windows</option>
-				            <option value="Motor Mechanics">Motor Mechanics</option>
-				            <option value="Multimedia/Animations/Graphic Designing">Multimedia/Animations/Graphic Designing</option>
-				            <option value="Music/Composing/Entertainment">Music/Composing/Entertainment</option>
-				            <option value="NGO/Charity">NGO/Charity</option>
-				            <option value="Office Admin/Secretarial/Receptionist">Office Admin/Secretarial/Receptionist</option>
-				            <option value="Other">Other</option>
-				            <option value="Procurement/Supply Chain">Procurement/Supply Chain</option>
-				            <option value="Project Management">Project Management</option>
-				            <option value="Property/Housing/Real Estate">Property/Housing/Real Estate</option>
-				            <option value="Psychology/Counseling">Psychology/Counseling</option>
-				            <option value="Quality Control & Assurance">Quality Control & Assurance</option>
-				          	<option value="R & D/Science/Research">R & D/Science/Research</option>
-				          	<option value="Retail/Trading/Services">Retail/Trading/Services</option>
-				          	<option value="Sales/Marketing/Merchandising">Sales/Marketing/Merchandising</option>
-				          	<option value="Seaman/Sailor/Marine">Seaman/Sailor/Marine</option>
-				            <option value="Security">Security</option>
-				          	<option value="Sound & Visual Engineering">Sound & Visual Engineering</option>
-				          	<option value="Sports/Fitness/Recreational">Sports/Fitness/Recreational</option>
-				          	<option value="Supervision/Quality Control">Supervision/Quality Control</option>
-				          	<option value="Tailor/Clothing/Design">Tailor/Clothing/Design</option>
-				          	<option value="Telecommunication/Network">Telecommunication/Network</option>
-				          	<option value="Ticketing/Airline/Marine">Ticketing/Airline/Marine</option>
-				          	<option value="Training/Development/Coaching">Training/Development/Coaching</option>
-				          	<option value="Transport/Logistics">Transport/Logistics</option>
-				          	<option value="Veterinary/Animal Care">Veterinary/Animal Care</option>
-				            <option value="Welder/Painter/Helper">Welder/Painter/Helper</option>
-						</select>
-					</p>
-					
-					<p>
-						<label for="">SUITABLE CANDIDATE DETAILS</label>
-						
-					</p>
-						<div class="radio">
 							<p>
-								<label for="male">Male</label>
-								<input type="radio" name="gender" id=""value="male" <?php if ($gender == "male"){ echo "checked='checked'";}?>>
+								<label for="">Minimum qualification Level</label>
 							</p>
+								<div class="radio">
+									<p>
+										<label for="O/L">O/L</label>
+										<input type="radio" name="qulification" id="" value="o/l" <?php if ($qulification_level == "o/l"){ echo "checked='checked'";}?>>
+									</p>
+									<p>
+										<label for="A/l">A/L</label>
+										<input type="radio" name="qulification" id="" value="a/l" <?php if ($qulification_level == "a/l"){ echo "checked='checked'";}?>>
+									</p>
+									<p>
+										<label for="degree">Degree</label>
+										<input type="radio" name="qulification" id="" value="degree" <?php if ($qulification_level == "degree"){ echo "checked='checked'";}?>>
+									</p>
+									<p>
+										<label for="no">No Minimum Qulification</label>
+										<input type="radio" name="qulification" id="" value="no minimum qualification" <?php if ($qulification_level == "no minimum qualification"){ echo "checked='checked'";}?>>
+									</p>
+								</div>
 							<p>
-								<label for="female">Female</label>
-								<input type="radio" name="gender" id=""value="female" <?php if ($gender == "female"){ echo "checked='checked'";}?>>
-							</p>
-							<p>
-								<label for="male">Any</label>
-								<input type="radio" name="gender" id="" value="any" <?php if ($gender == "any"){ echo "checked='checked'";}?>>
-							</p>
 						</div>
-					<p>
-						<label for="">Maximum Years Of Age</label>
-						<select name="maximum_age" id="">
-							<option value="<?php echo $maximum_age; ?>" hidden ><?php echo $maximum_age; ?></option>
-							<option value="No Maximum Age">No Maximum Age</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30">30</option>
-							<option value="31">31</option>
-							<option value="32">32</option>
-							<option value="33">33</option>
-							<option value="34">34</option>
-							<option value="35">35</option>
-							<option value="36">36</option>
-							<option value="37">37</option>
-							<option value="38">38</option>
-							<option value="39">39</option>
-							<option value="40">40</option>
-							<option value="41">41</option>
-							<option value="42">42</option>
-							<option value="43">43</option>
-							<option value="49">49</option>
-							<option value="44">44</option>
-							<option value="45">45</option>
-							<option value="46">46</option>
-							<option value="47">47</option>
-							<option value="48">48</option>
-							<option value="49">49</option>
-							<option value="50">50</option>
-
-						</select>
-					</p>
-					<p>
-						<label for="">Minimum years Of Age</label>
-						<select name="minimum_age" id="">
-							<option value="<?php echo $minimum_age; ?>" hidden><?php echo $minimum_age; ?></option>
-							<option value="No Minimum Age">No Minimum Age</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30">30</option>
-							<option value="31">31</option>
-							<option value="32">32</option>
-							<option value="33">33</option>
-							<option value="34">34</option>
-							<option value="35">35</option>
-							<option value="36">36</option>
-							<option value="37">37</option>
-							<option value="38">38</option>
-							<option value="39">39</option>
-							<option value="40">40</option>
-							<option value="41">41</option>
-							<option value="42">42</option>
-							<option value="43">43</option>
-							<option value="49">49</option>
-							<option value="44">44</option>
-							<option value="45">45</option>
-							<option value="46">46</option>
-							<option value="47">47</option>
-							<option value="48">48</option>
-							<option value="49">49</option>
-							<option value="50">50</option>								
-
-						</select>
-					</p>
-					<p>
-						<label for="">Minimum Years Of Qualification</label>
-						<select name="minimum_qualification" id="">
-							<option value="<?php echo $minimum_qualification; ?>" hidden><?php echo $minimum_qualification; ?></option>
-							<option value="no">No Minimum Qualificatin Year</option>
-							<option value="1 Year">1 Year</option>
-							<option value="2 Years">2 Years</option>
-							<option value="3 Years">3 Years</option>
-							<option value="4 Years">4 Years</option>
-							<option value="5 Years">5 Years</option>
-							<option value="9 Years">9 Years</option>
-							<option value="6 Years">6 Years</option>
-							<option value="7 Years">7 Years</option>
-							<option value="8 Years">8 Years</option>
-							<option value="10 Years">10 Years</option>
-
-						</select>
-					</p>
-					<p>
-						<label for="">Minimum qualification Level</label>
-					</p>
-						<div class="radio">
-							<p>
-								<label for="O/L">O/L</label>
-								<input type="radio" name="qulification" id="" value="o/l" <?php if ($qulification_level == "o/l"){ echo "checked='checked'";}?>>
-							</p>
-							<p>
-								<label for="A/l">A/L</label>
-								<input type="radio" name="qulification" id="" value="a/l" <?php if ($qulification_level == "a/l"){ echo "checked='checked'";}?>>
-							</p>
-							<p>
-								<label for="degree">Degree</label>
-								<input type="radio" name="qulification" id="" value="degree" <?php if ($qulification_level == "degree"){ echo "checked='checked'";}?>>
-							</p>
-							<p>
-								<label for="no">No Minimum Qulification</label>
-								<input type="radio" name="qulification" id="" value="no minimum qualification" <?php if ($qulification_level == "no minimum qualification"){ echo "checked='checked'";}?>>
-							</p>
-						</div>
-					<p>
+						<p>
+										<label for="datetime">Ad Expire Time</label>
+										<input type="datetime-local" name="" id="datetime">
+									</p>
+					</div>
 						<label for="">Description</label>
 						<textarea name="description" id="xx" cols="30" rows="10"><?php echo $description; ?></textarea>
 					</p>		
@@ -911,10 +933,6 @@
 					<p>
 						<input type="submit" name="submit" value="Edit Advertisement">
 					</p>
-					<p>
-						<input type="reset" name="reset" value="Reset" id="b">
-					</p>
-
 				</div>
 			</form>
 		</div>
