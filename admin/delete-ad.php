@@ -14,7 +14,7 @@
 		$provider_delete_result = mysqli_query($connection,$provider_delete_query);
 
 		if ($provider_delete_result) {
-			header("location:admin-index-ad.php?p=" . $page_number);
+			header("location:index.php?p=" . $page_number);
 		}
 		else{
 			header("location:../index.php?err=admin-query-error");

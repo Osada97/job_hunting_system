@@ -211,7 +211,7 @@
 }
 .section-content .content table tr td:nth-child(4) i{
 	font-size: 18px;
-	margin: 0 10px;
+	margin: 0 6px;
 	color: #726c66;
 }
 .section-content .content table tr td:nth-child(4) i:hover{
@@ -235,7 +235,7 @@
 			</div>
 			<div class="nav">
 				<ul>
-					<li><a href="admin-index-ad.php">job Advertisement</a></li>
+					<li><a href="index.php">job Advertisement</a></li>
 					<li><a href="admin-index-seeker.php">seekers</a></li>
 					<li class="active"><a href="admin-index-provider.php">providers</a></li>
 				</ul>
@@ -244,7 +244,7 @@
 				<div class="mob-nav">
 					<h3 id="bars"><i class="fas fa-bars"></i></h3>
 					<ul id="barul">
-						<li><a href="admin-index-ad.php">job Advertisement</a></li>
+						<li><a href="index.php">job Advertisement</a></li>
 						<li><a href="admin-index-seeker.php">seekers</a></li>
 						<li class="active"><a href="admin-index-provider.php">providers</a></li>
 					</ul>
