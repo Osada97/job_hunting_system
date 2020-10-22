@@ -125,8 +125,6 @@ section .navi ul li .drop-down-content {
   border-bottom: 1px solid #aaa;
   font-size: 14px;
 }
-.drop-down-content a:hover {
-}
 section .navi ul li:last-child {
   float: right;
   margin-right: 0;

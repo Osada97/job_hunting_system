@@ -80,6 +80,7 @@
 				$user_name=$_POST["username"];
 				$email=$_POST["email"];
 				$phone_number=$_POST["phone_number"];
+				$qualification=$_POST["qualifi"];
 
 				$dob=$_POST["dob"];
 				$address=$_POST["address"];
@@ -219,7 +220,7 @@
 
 		if (empty($errors)) {
 			
-			$query1 = "UPDATE seeker SET first_name = '{$first_name}',last_name='{$last_name}',username='{$user_name}',email='{$email}',phone_number='{$phone_number}' WHERE seeker_id = '{$seeker_id}'";
+			$query1 = "UPDATE seeker SET first_name = '{$first_name}',last_name='{$last_name}',username='{$user_name}',qualification='{$qualification}',email='{$email}',phone_number='{$phone_number}' WHERE seeker_id = '{$seeker_id}'";
 
 			$query2 = "UPDATE cv SET address='{$address}',birth_day='{$dob}' WHERE user_id = '{$seeker_id}'";
 
@@ -232,6 +233,9 @@
 			$result_set3 = mysqli_query($connection,$query3);
 
 			if ($result_set1 && $result_set2 && $result_set3) {
+
+				//set session again 
+				$_SESSION["qualifi"] = $qualification;
 				
 				//cheking is have a cv
 

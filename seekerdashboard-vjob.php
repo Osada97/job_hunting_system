@@ -43,6 +43,8 @@
 				$minimum_age=$ad_details["minimum_age"];
 				$qulification_level=$ad_details["qulification_level"];
 				$experience=$ad_details["minimum_qualification"];
+				$expire_time=$ad_details["expire_time"];
+				$is_expire=$ad_details["is_expire"];
 				$description=$ad_details["description"];
 				
 				
@@ -373,7 +375,9 @@
 			<div class="company_details">
 				<div class="extime">
 					<i class="far fa-clock"></i>
-					<h3>33 Days</h3>
+					<h3 id="replace">33 Days</h3>
+					<input type="hidden" id="date" value="<?php echo $expire_time ?>">
+					<input type="hidden" id="is_expire" value="<?php echo $is_expire ?>">
 				</div>
 				<div class="company_conte">
 					<div class="csect"><h3><i class="fas fa-signature"></i><?php echo $company_name; ?></h3></div>
@@ -419,6 +423,64 @@
 </footer>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script	script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f86a661f4413dde"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+	let addate = document.querySelectorAll('#date');
+	let expiresection = document.querySelector('#replace');
+	
+	function caldate(){
+		
+		let currentdate = Math.abs((new Date().getTime()/1000).toFixed(0));
+		for(let i =0;i<addate.length;i++){
+			
+			let date = addate[i].value;
+			let futurevalue = Math.abs((new Date(date).getTime()/1000).toFixed(0));
+
+			let diifdate = futurevalue - currentdate;
+
+			let days = Math.floor(diifdate/86400);
+			let hours = Math.floor(diifdate/3600)%24;
+			let minutes = Math.floor(diifdate/60)%60;
+			let seconds = diifdate%60;
+
+			if(hours<10){
+				hours = "0"+hours;
+			}
+			if(minutes<10){
+				minutes = "0"+minutes;
+			}
+			if(seconds<10){
+				seconds = "0"+seconds;
+			}
+
+			if(diifdate>0){
+				expiresection.innerHTML = days+" Days And "+hours+":"+minutes+":"+seconds;
+			}
+			else{
+				expiresection.innerHTML ="Ad Expired";
+				let is_expire = document.querySelector('#is_expire').value;
+				
+				if(is_expire==0){
+					let ad_no = <?php echo $ad_no ?>;
+					$.post('ajax/expire_ad.php',{
+						ad_no: ad_no
+					});
+				}
+
+				//redirecting to seeker dashboard
+				window.location.href = "seekerdashboard.php?ad=expired";
+			}
+		}
+	}
+
+	
+	setInterval(() => {
+		caldate();
+	}, 1000);
+
+</script>
+
 </body>
 <?php mysqli_close($connection); ?>
 </html>

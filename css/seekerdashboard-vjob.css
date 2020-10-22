@@ -196,6 +196,7 @@
   line-height: 23px;
   color: #615e5e;
   font-size: 16px;
+  word-break: break-all;
 }
 .job-content .job_main_content .company_details .extime {
   display: flex;

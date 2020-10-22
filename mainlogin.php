@@ -38,7 +38,8 @@
 					$seeker=mysqli_fetch_assoc($result);
 					$_SESSION["seeker_id"]=$seeker["seeker_id"];
 					$_SESSION["username"]=$seeker["username"];
-					$_SESSION["is_image"]=$seeker["is_image"];
+                    $_SESSION["is_image"]=$seeker["is_image"];
+                    $_SESSION["qualifi"]=$seeker["qualification"];
 
 					header("Location:seekerdashboard.php");
 				}

@@ -4,6 +4,7 @@
 <?php  
 	
 	$seeker_username=$_SESSION["username"];
+	$seeker_qualification =$_SESSION["qualifi"];
 
 	if (!isset($_SESSION["seeker_id"])) {
 		header("Location:index.php");
@@ -32,7 +33,8 @@
 			}
 
 		
-		$query_search = "SELECT * FROM job_ad WHERE is_delete=0 AND  location LIKE '%$where%' AND  job_title LIKE '%$what%' AND company_name LIKE '%$company_name%' ORDER BY ad_no DESC";
+		$query_search = "SELECT * FROM job_ad WHERE is_delete=0 AND active!=0 AND is_expire =0 AND qulification_level ='{$seeker_qualification}' AND location LIKE '%$where%' AND  job_title LIKE '%$what%' AND company_name LIKE '%$company_name%' ORDER BY ad_no DESC";
+
 
 		$search_result = mysqli_query($connection,$query_search);
 

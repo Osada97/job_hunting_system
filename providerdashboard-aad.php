@@ -2,6 +2,8 @@
 <?php require_once("inc/connection.php"); ?>
 
 <?php 
+
+	date_default_timezone_set('Asia/colombo');
 	
 	$company_name = $_SESSION["company_name"];
 
@@ -62,7 +64,7 @@
 			$gender=$_POST["gender"];
 			$qulification_level=$_POST["qulification"];
 			$description=$_POST["description"];
-
+			$expire_tiem =$_POST["datetime"];
 
 	 		if (empty(trim($_POST["job_title"]))) {
 	 			$error[] = "Please Enter Job Title";
@@ -78,7 +80,12 @@
 	 		}
 	 		if ($_POST["job_category"] == "Choose category…") {
 	 			$error[] = "Please Enter Job Category";
-	 		}
+			 }
+			 if(empty($expire_tiem)){
+				 $nextmonth = strtotime('+1 Months');
+
+				 $expire_tiem = date('m-d-y h:i:s',$nextmonth);
+			 }
 
 
 	 		$max_len_fields = array("job_title" =>200 ,"email" =>100 ,"phone_number" =>20);
@@ -109,7 +116,7 @@
 	 			$qulification_level=mysqli_real_escape_string($connection,$_POST["qulification"]);
 	 			$description=mysqli_real_escape_string($connection,$_POST["description"]);
 	 			
-	 			$query = "INSERT INTO job_ad (company_registration_number,company_name,job_title,email,company_url,location,job_type,phone_number,monthly_salary,job_category,gender,maximum_age,minimum_age,minimum_qualification,qulification_level,description,ad_time,is_delete) VALUES ('{$company_registration_number}','{$company_name}','{$job_title}','{$email}','{$company_url}','{$location}','{$job_type}','{$phone_number}','{$monthly_salary}','{$job_category}','{$gender}','{$maximum_age}','{$minimum_age}','{$minimum_qualification}','{$qulification_level}','{$description}',NOW(),0)";
+	 			$query = "INSERT INTO job_ad (company_registration_number,company_name,job_title,email,company_url,location,job_type,phone_number,monthly_salary,job_category,gender,maximum_age,minimum_age,minimum_qualification,qulification_level,description,ad_time,expire_time,is_delete) VALUES ('{$company_registration_number}','{$company_name}','{$job_title}','{$email}','{$company_url}','{$location}','{$job_type}','{$phone_number}','{$monthly_salary}','{$job_category}','{$gender}','{$maximum_age}','{$minimum_age}','{$minimum_qualification}','{$qulification_level}','{$description}',NOW(),'{$expire_tiem}',0)";
 
 	 			$result = mysqli_query($connection,$query);
 
@@ -878,7 +885,7 @@
 							</div>
 									<p>
 										<label for="datetime">Ad Expire Time</label>
-										<input type="datetime-local" name="" id="datetime">
+										<input type="datetime-local" name="datetime" id="datetime" min="<?php echo date('Y-m-d').'T'.date('h:i:s') ?>">
 									</p>
 					</div>
 					<p>

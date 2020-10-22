@@ -8,12 +8,13 @@
 	}
 
 	$seeker_username = $_SESSION["username"];
+	$seeker_qualification =$_SESSION["qualifi"];
 
 ?>
 
 <?php  
 
-	$query = "SELECT count(ad_no) AS total_number_of_rows FROM job_ad WHERE is_delete != 1";
+	$query = "SELECT count(ad_no) AS total_number_of_rows FROM job_ad WHERE is_delete != 1 AND active !=0 AND qulification_level ='{$seeker_qualification}'  AND is_expire =0";
 
 	$result_Set = mysqli_query($connection,$query);
 
@@ -32,7 +33,7 @@
 
 	$start = ($page_number-1)*$rows_per_page;
 
-	$query = "SELECT * FROM job_ad WHERE is_delete != 1 ORDER BY ad_no DESC LIMIT {$start},{$rows_per_page} ";
+	$query = "SELECT * FROM job_ad WHERE is_delete != 1 AND active!=0 AND is_expire =0 AND qulification_level ='{$seeker_qualification}' ORDER BY ad_no DESC LIMIT {$start},{$rows_per_page} ";
 
 	$result_Set = mysqli_query($connection,$query);
 
@@ -194,7 +195,7 @@
  }
 //function for appliy and cancel button
 
- 	function apply_cancel_button($con,$seeker_id,$ad_no,$company_registration_number,$page_number){
+ 	/*function apply_cancel_button($con,$seeker_id,$ad_no,$company_registration_number,$page_number){
 
 		$connection = $con;
 
@@ -211,13 +212,13 @@
 			}
 			else{
 
-				echo  "<a href=\"seekerdashboard-apply-ad.php?ad-no={$ad_no}&crn={$company_registration_number}&p={$page_number}\" ><button id='button'>apply</button></a>";
+				echo  "<a href=\"seekerdashboard-vjob.php?ad-no={$ad_no}&p={$page_number}\" ><button id='button'>View Ad</button></a>";
 			}
 		}
 		else{
 			printf(mysqli_error($connection));
 		}
- 	}
+ 	}*/
 ?>
 
 
@@ -327,13 +328,15 @@
 	<div class="add-list">
 		<div class="sort_row">
 			<div class="sort_column">
-				<h3>Showing <?php echo $start+1 ."-".$rows_per_page*$page_number?> Of <span><?php echo $total_number_of_rows ?> Jobs</span></h3>
+				<?php if(mysqli_num_rows($result_Set)!=0){
+					echo '<h3>Showing '.++$start .'-'.$rows_per_page*$page_number.' Of <span> '.$total_number_of_rows.' Jobs</span></h3>';
+				} ?>
 			</div>
 		</div>
 		<div class="all-ads">
 
 			<?php  
-					if ($result_Set) {
+					if (mysqli_num_rows($result_Set)!=0) {
 						while ($ad=mysqli_fetch_assoc($result_Set)) {
 
 							echo '<div class="row">';
@@ -356,7 +359,8 @@
 										echo '</div>';
 										echo '<div class="column3">';
 											echo '<div class="row1">';
-												 apply_cancel_button($connection,$_SESSION["seeker_id"],$ad["ad_no"],$ad["company_registration_number"],$page_number);
+												 //apply_cancel_button($connection,$_SESSION["seeker_id"],$ad["ad_no"],$ad["company_registration_number"],$page_number);
+												 echo "<a href=\"seekerdashboard-vjob.php?ad-no={$ad["ad_no"]}&p={$page_number}\" ><button id='button'>View Ad</button></a>";
 											echo '</div>';
 											echo '<div class="row2">';
 												echo '<h2><i class="fas fa-briefcase"></i>' . $ad["job_type"] . '</h2>';
@@ -369,40 +373,14 @@
 						}
 					}
 					else{
-						printf(mysqli_error($connection));
+							echo "<div class ='empty'>";
+								echo "<h1>no any suitable ads for you</h1>";
+								echo "<div class ='svg'>";
+									require_once('imj/svg/noads.svg');
+								echo "</div>";
+							echo "</div>";
 					}
 			?>
-			
-
-			<!--<div class="row">
-				<a href="#">
-					<div class="column1">
-						<div class="image">
-							<img src="imj/logo1.png" alt="">
-						</div>
-					</div>
-					<div class="column2">
-						<div class="row1">
-							<h1>job title</h1>
-						</div>
-						<div class="row2">
-							<h2><i class='fas fa-home'></i>company name</h2>
-							<h2><i class='fas fa-map-marker-alt'></i>location</h2>
-							<h2>category</h2>
-							<h2><i class='fas fa-coins'></i>RS:salary</h2>
-						</div>
-					</div>
-					<div class="column3">
-						<div class="row1">
-							<a href="sdfksdf" onclick="<?php //iscv($connection); ?>" ><button>apply</button></a>
-						</div>
-						<div class="row2">
-							<h2><i class='fas fa-briefcase'></i>job type</h2>
-							<h2><i class='far fa-clock'></i>time</h2>
-						</div>
-					</div>
-				</a>
-			</div>-->
 
 		</div>
 		<div class="row">
@@ -416,11 +394,6 @@
 							</div>
 						<?php
 						}
-						else{
-							echo "<div class ='empty'>";
-							echo "You have not posted any ads yet";
-							echo "</div>";
-						} 
 				?>
 			</div>
 		</div>

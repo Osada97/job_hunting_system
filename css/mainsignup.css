@@ -36,7 +36,7 @@ section .main_row:nth-child(2) .con_pannel fieldset .ac_type {
 section .main_row:nth-child(2) .con_pannel fieldset .ac_type .type_column {
   flex: 1;
   overflow: hidden;
-  border: 2px solid #afafaf;
+  border: 1px solid #afafaf;
   border-radius: 2px;
   margin: 0px 9px;
   padding: 20px 15px;

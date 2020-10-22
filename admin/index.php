@@ -498,7 +498,7 @@
 				<div class="next-link">
 					<div class="next-content">
 						<?php 
-							if (mysqli_num_rows($result_Set)!=0) {
+							if (mysqli_num_rows($ads_result)!=0) {
 								echo $page_nav_inc;
 							}
 
@@ -659,8 +659,6 @@
 			if(event.target.checked){
 				$.post('../ajax/admin-active-ad.php',{
 					ad_no:companyNumber
-				},function(data){
-					console.log(data);
 				});
 
 				let row = event.target.parentElement.parentElement;

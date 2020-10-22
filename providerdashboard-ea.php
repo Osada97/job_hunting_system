@@ -264,7 +264,19 @@
 
 					while ($add = mysqli_fetch_assoc($result_set)) {
 
- 							echo "<div class='column'>";
+							 echo "<div class='column'>";
+									echo "<div class='active'>";
+										if($add['active']==0){
+											$color ='red';
+											$title='Inactive Add';
+										}
+										else{
+											$color = '#16c516';
+											$title='Active Add';
+										}
+										echo "<div class='act-op' style='background-color:".$color."' title='".$title."'>";
+										echo "</div>";
+									echo "</div>";
  									echo "<div class='option'>";
  										echo "<div class='dropdown'>";
  											echo "<button class='dropbtn'><i class='fas fa-ellipsis-v'></i></button>";
@@ -301,9 +313,12 @@
  										echo "</div>";
 										 echo "</div>";
  										echo "<div class='ad-time'>";
-										 	echo "<h4 title='expiry time'><i class='fas fa-history'></i>00:00:00</h4>";
+										 	echo "<h4 class='expire' title='expiry time'>00:00:00</h4>";
 											 echo "<h4 title='Ad Posted Date'><i class='far fa-clock'></i>" . facebook_time_ago($add["ad_time"]) ."</h4>";
- 										echo "</div>";
+										 echo "</div>";
+										 
+										 //getting expire date and time of ad
+										 echo "<input type='hidden' class='date' name='datetime' value='".$add['expire_time']." '> ";
  								//echo "</a>";
  							echo "</div>";
  						
@@ -335,6 +350,55 @@
 <footer>
 	<?php require_once("inc/dashboard-small-footer.php"); ?>
 </footer>
+<script>
+
+	let addate = document.querySelectorAll('.date');
+	let expiresection = document.querySelectorAll('.expire');
+	
+	function caldate(){
+		
+		let currentdate = Math.abs((new Date().getTime()/1000).toFixed(0));
+		for(let i =0;i<addate.length;i++){
+			
+			let date = addate[i].value;
+			let futurevalue = Math.abs((new Date(date).getTime()/1000).toFixed(0));
+
+			let diifdate = futurevalue - currentdate;
+
+			let days = Math.floor(diifdate/86400);
+			let hours = Math.floor(diifdate/3600)%24;
+			let minutes = Math.floor(diifdate/60)%60;
+			let seconds = diifdate%60;
+
+			if(hours<10){
+				hours = "0"+hours;
+			}
+			if(minutes<10){
+				minutes = "0"+minutes;
+			}
+			if(seconds<10){
+				seconds = "0"+seconds;
+			}
+
+			if(diifdate>0){
+				expiresection[i].innerHTML = "<i class='fas fa-history'></i>"+days+" Days And "+hours+":"+minutes+":"+seconds;
+			}
+			else{
+				expiresection[i].innerHTML ="Ad Expired";
+			}
+
+
+			/*console.log(days+" Days And "+hours+":"+minutes+":"+seconds);
+			console.log("\n");*/
+		}
+	}
+
+	
+	setInterval(() => {
+		caldate();
+	}, 1000);
+
+</script>
 
 </body>
 <?php mysqli_close($connection); ?>

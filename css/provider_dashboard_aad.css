@@ -18,7 +18,7 @@
   margin-bottom: 20px;
   font-size: 15px;
   font-weight: 600;
-  color: #000000;
+  color: #000;
 }
 .section .add-content .row2 p input,
 select {
@@ -26,8 +26,8 @@ select {
   padding: 14px 8px;
   margin-bottom: 10px;
   outline: none;
-  font-size: 13px;
-  color: #716d6d;
+  font-size: 15px;
+  color: #716f6d;
   border-radius: 3px;
   font-family: sans-serif;
   border: 1px solid #d4d4d4;

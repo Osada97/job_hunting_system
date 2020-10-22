@@ -65,7 +65,7 @@
 			 	$result=mysqli_query($connection,$query);
 
 			 		if ($result) {
-
+						$cv_table ="";
 						if(mysqli_num_rows($result)!=0){
 							
 							$cv_table = "<table>";
@@ -96,7 +96,7 @@
 							$cv_table .= "</table>";
 						}
 						else{
-							$cv_table .= "<div class ='empty'>";
+							$cv_table .= "<div class ='empty' style='height:30vh;display:flex;justify-content:center;align-items:center'>";
 								$cv_table .= "You have not received the application";
 							$cv_table .= "</div>";
 						}
@@ -219,18 +219,13 @@
 
 				<div class="row">
 					<div class="next-link">
-						<div class="next-content">
 							<?php 
-								if (mysqli_num_rows($result_set)!=0) {
+								if (mysqli_num_rows($result)!=0) {
+									echo '<div class="next-content">';
 									echo $page_nav;
+									echo '</div>';
 								}
-								else{
-									echo "<div class ='empty'>";
-									echo "You have not Recived any cv yet";
-									echo "</div>";
-								} 
 							?>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -240,6 +235,7 @@
 <footer>
 	<?php require_once("inc/dashboard-small-footer.php"); ?>
 </footer>
+
 </body>
 <?php mysqli_close($connection); ?>
 </html>

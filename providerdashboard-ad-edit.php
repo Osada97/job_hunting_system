@@ -3,6 +3,8 @@
 
 <?php 
 	
+	date_default_timezone_set('Asia/colombo');
+	
 	$company_name = $_SESSION["company_name"];
 	$company_registration_number=$_SESSION["company_registration_number"];
 
@@ -61,8 +63,9 @@
 	 			$maximum_age=$ad_result["maximum_age"];
 	 			$minimum_age=$ad_result["minimum_age"];
 	 			$minimum_qualification=$ad_result["minimum_qualification"];
-	 			$qulification_level=$ad_result["qulification_level"];
-	 			$description=$ad_result["description"];
+				$qulification_level=$ad_result["qulification_level"];
+				$expire_time =$ad_result["expire_time"];
+				 $description=$ad_result["description"];
 
 
  		}
@@ -81,7 +84,8 @@
 	 			$maximum_age="";
 	 			$minimum_age="";
 	 			$minimum_qualification="";
-	 			$qulification_level="";
+				$qulification_level="";
+				$expire_time="";
 	 			$description="";	
 
 	 			header('Refresh: 5; URL=providerdashboard-ea.php');//make delay
@@ -145,10 +149,20 @@
 	 			$maximum_age=mysqli_real_escape_string($connection,$_POST["maximum_age"]);
 	 			$minimum_age=mysqli_real_escape_string($connection,$_POST["minimum_age"]);
 	 			$minimum_qualification=mysqli_real_escape_string($connection,$_POST["minimum_qualification"]);
-	 			$qulification_level=mysqli_real_escape_string($connection,$_POST["qulification"]);
+				$qulification_level=mysqli_real_escape_string($connection,$_POST["qulification"]);
+				$expire_new_time = mysqli_real_escape_string($connection,$_POST["ex_time"]);
 	 			$description=mysqli_real_escape_string($connection,$_POST["description"]);
 
-	 			$query="UPDATE job_ad SET job_title='{$job_title}',email='{$email}',company_url='{$company_url}',location='{$location}',job_type='{$job_type}',phone_number={$phone_number},monthly_salary='{$monthly_salary}',job_category='{$job_category}',gender='{$gender}',maximum_age='{$maximum_age}',minimum_age='{$minimum_age}',minimum_qualification='{$minimum_qualification}',qulification_level='{$qulification_level}',description='{$description}' WHERE ad_no='{$ad_no}' AND company_registration_number = '{$company_registration_number}' ";
+				 //checking new expire time and previous one before updating
+
+				 if(strtotime($expire_new_time)>strtotime($expire_time)){
+					$is_bool = 0;
+				 }
+				 else{
+					$is_bool = 1;
+				 }
+
+	 			$query="UPDATE job_ad SET job_title='{$job_title}',email='{$email}',company_url='{$company_url}',location='{$location}',job_type='{$job_type}',phone_number={$phone_number},monthly_salary='{$monthly_salary}',job_category='{$job_category}',gender='{$gender}',maximum_age='{$maximum_age}',minimum_age='{$minimum_age}',minimum_qualification='{$minimum_qualification}',qulification_level='{$qulification_level}',expire_time='{$expire_new_time}',is_expire={$is_bool} ,description='{$description}' WHERE ad_no='{$ad_no}' AND company_registration_number = '{$company_registration_number}' ";
 
 	 			$result=mysqli_query($connection,$query);
 
@@ -920,10 +934,16 @@
 								</div>
 							<p>
 						</div>
+						<?php
+							if($expire_time!=""){
+								$arr = explode('.',str_replace(" ","T",$expire_time));
+							}
+
+						?>
 						<p>
-										<label for="datetime">Ad Expire Time</label>
-										<input type="datetime-local" name="" id="datetime">
-									</p>
+							<label for="datetime">Ad Expire Time</label>
+							<input type="datetime-local" name="ex_time" id="datetime" value="<?php if(isset($arr)){echo $arr[0];} ?>">
+						</p>
 					</div>
 						<label for="">Description</label>
 						<textarea name="description" id="xx" cols="30" rows="10"><?php echo $description; ?></textarea>
@@ -953,8 +973,7 @@
                 		$('#location').chosen();
 
                 	});
-                </script>
-
+                </script>	
 </body>
 <?php mysqli_close($connection); ?>
 </html>
