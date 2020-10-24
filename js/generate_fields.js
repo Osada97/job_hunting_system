@@ -363,3 +363,99 @@
 			});
 
 		}
+
+		const addAdditional = document.querySelector('#addAdditional');
+			const additionalForm = document.querySelector('.additional_form');
+			let additionalcount = 0;
+
+			addAdditional.addEventListener('click',()=>{
+
+				if(additionalcount<2){
+
+					let formhold =document.createElement('div');
+					formhold.classList.add('formhold');
+					
+					let rempve_row = document.createElement('div');
+					rempve_row.classList.add('rempve_row');
+	
+					let trash = document.createElement('button');
+					trash.setAttribute('type','button');
+					trash.setAttribute('id','trash');
+					trash.setAttribute('onclick','trash_fr(event)');
+					trash.innerHTML = '<i class="fas fa-trash"></i>';
+	
+					rempve_row.appendChild(trash);
+	
+					let p1 =document.createElement('p');
+					let label1 = document.createElement('label');
+					label1.innerText ="Heading";
+					let input1 = document.createElement('input');
+					input1.setAttribute('type','text');
+					input1.setAttribute('name','heading[]');
+					input1.setAttribute('placeholder','Ex: Extra Curricular Activities');
+	
+					p1.appendChild(label1);
+					p1.appendChild(input1);
+	
+					let p2 =document.createElement('p');
+					let label2 = document.createElement('label');
+					label2.innerText ="Title";
+					let input2 = document.createElement('input');
+					input2.setAttribute('type','text');
+					input2.setAttribute('name','title[]');
+					input2.setAttribute('placeholder','Ex: Student Leadership');
+	
+					p2.appendChild(label2);
+					p2.appendChild(input2);
+	
+					let p3 =document.createElement('p');
+					let label3 = document.createElement('label');
+					label3.innerText ="Date";
+					let input3 = document.createElement('input');
+					input3.setAttribute('type','month');
+					input3.setAttribute('name','date[]');
+	
+					p3.appendChild(label3);
+					p3.appendChild(input3);
+	
+					let p4 =document.createElement('p');
+					let label4 = document.createElement('label');
+					label4.innerText ="Association";
+					let input4 = document.createElement('input');
+					input4.setAttribute('type','text');
+					input4.setAttribute('name','association[]');
+					input4.setAttribute('placeholder','Ex: shool name');
+	
+					p4.appendChild(label4);
+					p4.appendChild(input4);
+	
+					let p5 =document.createElement('p');
+					let label5 = document.createElement('label');
+					label5.innerText ="Description";
+					let input5 = document.createElement('textarea');
+					input5.setAttribute('name','description[]');
+					input5.setAttribute('id','dis');
+					input5.setAttribute('maxlength','500');
+	
+					p5.appendChild(label5);
+					p5.appendChild(input5);
+	
+					formhold.appendChild(rempve_row);
+					formhold.appendChild(p1);
+					formhold.appendChild(p2);
+					formhold.appendChild(p3);
+					formhold.appendChild(p4);
+					formhold.appendChild(p5);
+
+					additionalForm.appendChild(formhold);
+
+					additionalcount++;
+				}
+
+
+			});
+			//remove additional form
+			function trash_fr(event){
+				event.target.parentElement.parentElement.parentElement.style.display ='none';
+				additionalcount--;
+			}

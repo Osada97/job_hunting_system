@@ -409,7 +409,7 @@
 									<label for="deg">Degree</label>
 									<input type="radio" name="qualifi" id="deg" value="degree" <?php if($qua=='degree'){echo 'checked';} ?>>
 									<label for="no">No Minimum Qualification</label>
-									<input type="radio" name="qualifi" id="no" value="no" <?php if($qua=='no'){echo 'checked';} ?> >
+									<input type="radio" name="qualifi" id="no" value="no minimum qualification" <?php if($qua=='no'){echo 'checked';} ?> >
 								</div>	
 							</div>
 							<p>

@@ -38,6 +38,7 @@
 	$we_pr="";
 	$aw_pr="";
 	$sk_pr="";
+	$addi_pr="";
 
 	$email="";
 			$phonenumber="";
@@ -54,6 +55,7 @@
 	$query_ed = "SELECT * FROM education WHERE user_id='{$seeker_id}'";
 	$query_we = "SELECT * FROM work_experience WHERE user_id='{$seeker_id}'";
 	$query_sk = "SELECT * FROM professional_skills WHERE user_id='{$seeker_id}'";
+	$query_addi = "SELECT * FROM additional_cv WHERE user_id='{$seeker_id}'";
 
 	$result_set = mysqli_query($connection,$query);
 	$result_set_sh = mysqli_query($connection,$query_sh);
@@ -61,6 +63,7 @@
 	$result_set_ed = mysqli_query($connection,$query_ed);
 	$result_set_we = mysqli_query($connection,$query_we);
 	$result_set_sk = mysqli_query($connection,$query_sk);
+	$result_set_addicv = mysqli_query($connection,$query_addi);
 
 	if (mysqli_num_rows($result_set)==1) {
 		
@@ -268,6 +271,62 @@
 					$aw_pr .= '</form>';
 					$aw_pr .= '</div>';
 					$aw_pr .= '</div>';
+				}
+			}
+
+			if(mysqli_num_rows($result_set_addicv)>0){
+
+				while ($addi_result = mysqli_fetch_assoc($result_set_addicv)) {
+
+					$chs_heading = $addi_result['chs_headings'];
+					$chs_title=$addi_result["chs_title"];
+					$chs_company=$addi_result["chs_company"];
+					$chs_date=$addi_result["chs_date"];
+					$chs_description=$addi_result["chs_description"];
+					$no = $addi_result["no"];
+
+					$addi_pr .= '<div class="addi_fl_row">';
+					
+					$addi_pr .= '<div class="buttoned">';
+					$addi_pr .= '<button type="button" id="sh_sddi" onclick="showform(event)"><i class="fas fa-pencil-alt"></i></button>';
+					$addi_pr .= '<button type="button" id="dl_addi" onclick="dl_addi(event);deletefr('.$no.',\'addi\')"><i class="far fa-trash-alt"></i></button>';
+					$addi_pr .= '</div>';
+					
+					$addi_pr .= '<div class="content">';
+					$addi_pr .= '<h1 id="addi_heading" style="margin-bottom:10px;font-size:22px">'.$chs_heading.'</h1>';
+					$addi_pr .='<h5>'.$chs_date.'</h5>';
+					$addi_pr .= '<h2>'.$chs_title.'</h2>';
+					$addi_pr .= '<h3>'.$chs_company.'</h3>';
+					$addi_pr .= '<h4>'.$chs_description.'</h4>';
+					$addi_pr .= '</div>';
+
+					$addi_pr .= '<div class="aw_form e_form">';
+					$addi_pr .= '<form action="seekerdashboard-ecv.php" method="POST">';
+					$addi_pr .= '<input type="hidden" name="addino" value="'.$no.'"';
+					$addi_pr .= '<p>';
+					$addi_pr .= '<label for="">Heading</label>';
+					$addi_pr .= '<input type="text" name="chs_heading" value="'.$chs_heading.'">';
+					$addi_pr .= '</p>';
+					$addi_pr .= '<p>';
+					$addi_pr .= '<label for="">Title</label>';
+					$addi_pr .= '<input type="text" name="chs_title" value="'.$chs_title.'">';
+					$addi_pr .= '</p>';
+					$addi_pr .= '<p>';
+					$addi_pr .= '<label for="">Institute</label>';
+					$addi_pr .= '<input type="text" name="chs_company" value="'.$chs_company.'">';
+					$addi_pr .= '</p>';
+					$addi_pr .= '<p>';
+					$addi_pr .= '<label for="">Year</label>';
+					$addi_pr .= '<input type="month" name="chs_date" value="'.$chs_date.'">';
+					$addi_pr .= '</p>';
+					$addi_pr .= '<p>';
+					$addi_pr .= '<label for="">Description</label>';
+					$addi_pr .= '<textarea name="chs_description" maxlength="500">'.$chs_description.'</textarea>';
+					$addi_pr .= '</p>';
+					$addi_pr .= '<input type="submit" name="addi_su" value="Add">';
+					$addi_pr .= '</form>';
+					$addi_pr .= '</div>';
+					$addi_pr .= '</div>';
 				}
 			}
 
@@ -651,6 +710,39 @@
 				}
 			}
 		}
+
+		
+	}
+	//update additional cv information
+	if(isset($_POST['addi_su'])){
+		//validation additional Information
+		$addi_heading = $_POST['chs_heading'];
+		$addi_title = $_POST['chs_title'];
+		
+		if(empty($addi_heading)){
+			$errors[] = "Please Add Additional Information Heading";
+		}
+		if(empty($addi_title)){
+			$errors[] = "Please Add Awards Title";
+		}
+		
+		if(empty($errors)){
+			$addino = mysqli_real_escape_string($connection,$_POST['addino']);
+			$addi_heading = mysqli_real_escape_string($connection,$_POST['chs_heading']);
+			$addi_title = mysqli_real_escape_string($connection,$_POST['chs_title']);
+			$addI_date = mysqli_real_escape_string($connection,$_POST['chs_date']);
+			$addi_company = mysqli_real_escape_string($connection,$_POST['chs_company']);
+			$addi_description = mysqli_real_escape_string($connection,$_POST['chs_description']);
+
+			//update education query
+			$query_up_addi = "UPDATE additional_cv SET chs_headings ='{$addi_heading}',chs_title='{$addi_title}',chs_date='{$addI_date}',chs_company='{$addi_company}',chs_description='{$addi_description}' WHERE no={$addino} AND user_id={$seeker_id}";
+			$result_up_addi = mysqli_query($connection,$query_up_addi);
+
+			if($result_up_addi){
+				header('Location:seekerdashboard-ecv.php?true');
+			}
+		}
+
 	}
 
 	//add new education
@@ -721,6 +813,38 @@
 
 				if($result_in_aw){
 					header("Location:seekerdashboard-ecv.php");
+				}
+			}
+		}
+	}
+
+	//add new additional information
+	if(isset($_POST['submit_addi'])){
+
+		$chs_heading = $_POST['addI_heading'];
+		$chs_title = $_POST['addi_title'];
+		$chs_date = $_POST['addi_date'];
+		$chs_company = $_POST['addi_asc'];
+		$chas_description = $_POST['addi_description'];
+
+		for($i=0;$i<count($chs_heading);$i++){
+			if(empty($chs_heading[$i])){
+				$errors[] = "Please Enter Additional Information Heading";
+			}
+			if(empty($chs_title[$i])){
+				$errors[] = "Please Enter Additional Information Title";
+			}
+			else{
+				$query_ad_additional = "INSERT INTO additional_cv(user_id,chs_headings,chs_title,chs_date,chs_company,chs_description) VALUES({$seeker_id},'".mysqli_real_escape_string($connection,$chs_heading["$i"])."','".mysqli_real_escape_string($connection,$chs_title["$i"])."','".mysqli_real_escape_string($connection,$chs_date["$i"])."','".
+				mysqli_real_escape_string($connection,$chs_company["$i"])."','".mysqli_real_escape_string($connection,$chas_description["$i"])."')";	
+
+				$result_in_additional = mysqli_query($connection,$query_ad_additional);
+
+				if($result_in_additional){
+					header("Location:seekerdashboard-ecv.php");
+				}
+				else{
+					print_r(mysqli_error($connection));
 				}
 			}
 		}
@@ -959,6 +1083,18 @@
 									<?php  echo $aw_pr;?>	
 							</div>
 						</div>	
+						<div class="row">
+							<div class="rowsec">
+								<div class="add_row">
+									<h1>Additional Informaion</h1>
+									<button style="width:220px" type="button" id="addaddi" onclick="checkaddi();genaddi();">Add Additional Information</button>
+								</div>
+								<form action="seekerdashboard-ecv.php" method="POST" class="addif">
+									<div class="addi"><!-- for dynamically add form --></div>
+								</form>	
+									<?php  echo $addi_pr;?>	
+							</div>	
+						</div>	
 				</div>
 		</div>
 	</div><!--section-->
@@ -981,9 +1117,12 @@
 		const formw = document.querySelector('.wef');
 		const aw = document.querySelector('.aw');
 		const form = document.querySelector('.awf');
+		const addi = document.querySelector('.addi');
+		const formaddi = document.querySelector('.addif');
 
 		function checked(){
-			if(ed.children.length==0){
+			const ed_fl_row = document.querySelectorAll('.ed_fl_row');
+			if(ed.children.length==0 && ed_fl_row.length<3){
 				let input = document.createElement('input');
 				input.setAttribute('type','submit');
 				input.setAttribute('name','submit_ed');
@@ -994,7 +1133,8 @@
 			}
 		}
 		function checkwe(){
-			if(we.children.length==0){
+			const we_fl_row = document.querySelectorAll('.we_fl_row');
+			if(we.children.length==0 && we_fl_row.length<3){
 				let input = document.createElement('input');
 				input.setAttribute('type','submit');
 				input.setAttribute('name','submit_we');
@@ -1005,7 +1145,8 @@
 			}
 		}
 		function checkaw(){
-			if(aw.children.length==0){
+			const aw_fl_row = document.querySelectorAll('.aw_fl_row');
+			if(aw.children.length==0 && aw_fl_row.length<3 ){
 				let input = document.createElement('input');
 				input.setAttribute('type','submit');
 				input.setAttribute('name','submit_aw');
@@ -1013,6 +1154,18 @@
 				input.classList.add('forminput');
 
 				form.appendChild(input);
+			}
+		}
+		function checkaddi(){	
+			let addi_fl_row = document.querySelectorAll('.addi_fl_row');
+			if(addi.children.length==0 && addi_fl_row.length<2 ){
+				let input = document.createElement('input');
+				input.setAttribute('type','submit');
+				input.setAttribute('name','submit_addi');
+				input.setAttribute('value','Add');
+				input.classList.add('forminput');
+
+				formaddi.appendChild(input);
 			}
 		}
 	</script>
@@ -1048,6 +1201,11 @@
 			event.target.parentElement.parentElement.parentElement.remove();
 			countforms--;
 		}
+		/*For remove additional cv row*/
+		function dl_addi(event){
+			event.target.parentElement.parentElement.parentElement.remove();
+			contaddiform--;
+		}
 
 	</script>	
 
@@ -1059,6 +1217,7 @@
 			const ed = document.querySelector('.ed');
 			const we = document.querySelector('.we');
 			const aw = document.querySelector('.aw');
+			const addi = document.querySelector('.addi');
 			let input = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.children[1];
 
 			event.target.parentElement.parentElement.parentElement.remove();//remove form
@@ -1081,6 +1240,12 @@
 				}
 				countforms--;
 			}
+			if(fo=='addidl'){
+				if(addi.children.length==0){
+					input.remove();
+				}
+				contaddiform--;
+			}
 			
 
 
@@ -1093,6 +1258,92 @@
 		let countweforms = <?php echo mysqli_num_rows($result_set_we); ?>;
 		let countsk = <?php echo mysqli_num_rows($result_set_sk); ?>;
 		let countforms = <?php echo mysqli_num_rows($result_set_aw); ?>;
+		let contaddiform = <?php echo mysqli_num_rows($result_set_addicv); ?>;
+
+
+		//generate additional informauin form
+		function genaddi(){
+			const addi = document.querySelector('.addi');
+
+			if(contaddiform<2){
+
+				let addi_fl_row = document.createElement('div');
+				addi_fl_row.classList.add('addi_fl_row');
+
+				let dl_row_ed = document.createElement('div');
+				dl_row_ed.classList.add('dl_row_ed');
+				let dl_row_ed_but = document.createElement('button');
+				dl_row_ed_but.setAttribute('type','button');
+				dl_row_ed_but.classList.add('dl_row_ed_but');
+				dl_row_ed_but.innerHTML='<i class="fas fa-trash"></i>';
+				dl_row_ed_but.setAttribute('onclick','dl_row_fr(event,"addidl")');
+
+				dl_row_ed.appendChild(dl_row_ed_but);
+				addi_fl_row.appendChild(dl_row_ed);
+
+				let p1 = document.createElement('p');
+
+				let labelT0 = document.createElement('label');
+				labelT0.innerText='Heading';
+				let input0 = document.createElement('input');
+				input0.setAttribute('type','text');
+				input0.setAttribute('name','addI_heading[]');
+
+				let labelTl = document.createElement('label');
+				labelTl.innerText='Title';
+				let input1 = document.createElement('input');
+				input1.setAttribute('type','text');
+				input1.setAttribute('name','addi_title[]');
+
+				p1.appendChild(labelT0);
+				p1.appendChild(input0);
+				p1.appendChild(labelTl);
+				p1.appendChild(input1);
+
+				let p2 = document.createElement('p');
+
+				let labelY2 = document.createElement('label');
+				labelY2.innerText='Date';
+				let input2 = document.createElement('input');
+				input2.setAttribute('type','month');
+				input2.setAttribute('name','addi_date[]');
+
+				p2.appendChild(labelY2);
+				p2.appendChild(input2);
+
+				let p3 = document.createElement('p');
+
+				let labelI3 = document.createElement('label');
+				labelI3.innerText='Association';
+				let input3 = document.createElement('input');
+				input3.setAttribute('type','text');
+				input3.setAttribute('name','addi_asc[]');
+
+				p3.appendChild(labelI3);
+				p3.appendChild(input3);
+
+				let p4 = document.createElement('p');
+
+				let description1 = document.createElement('label');
+				description1.innerText='Description';
+				let textarea1 = document.createElement('textarea');
+				textarea1.setAttribute('name','addi_description[]');
+				textarea1.setAttribute('maxlength','500');
+
+				p4.appendChild(description1);
+				p4.appendChild(textarea1);
+
+				addi_fl_row.appendChild(p1);
+				addi_fl_row.appendChild(p2);
+				addi_fl_row.appendChild(p3);
+				addi_fl_row.appendChild(p4);
+
+				addi.appendChild(addi_fl_row);
+
+				contaddiform++;
+			}
+
+		}
 		
 		//generate education fields
 		function gened(){
@@ -1408,9 +1659,6 @@
 				sno:skill_number,
 				user_id:user_id,
 				form:'sk'
-			},function(data){
-				console.log(data);
-
 			});
 		}
 
@@ -1424,7 +1672,6 @@
 				user_id:user_id,
 				form_name:form_name
 			},function(data){
-				console.log(data);
 
 			});
 		}

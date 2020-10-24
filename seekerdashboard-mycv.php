@@ -29,6 +29,7 @@
 		$awpr ='';
 		$edpr ='';
 		$wdpr = '';
+		$adipr ='';
 
 		$first_name="";
 		$last_name="";
@@ -65,115 +66,145 @@
 
 		if ($is_deleted==0) {
 
-		$first_name = $pcv["first_name"];
-		$last_name = $pcv["last_name"];
-		$title = $pcv["title"];
-		$des=$pcv["description"];
-		$email=$pcv["email"];
-		$phone=$pcv["phone_number"];
-		$address=$pcv["address"];
-		$dob=$pcv["birth_day"];
+			$first_name = $pcv["first_name"];
+			$last_name = $pcv["last_name"];
+			$title = $pcv["title"];
+			$des=$pcv["description"];
+			$email=$pcv["email"];
+			$phone=$pcv["phone_number"];
+			$address=$pcv["address"];
+			$dob=$pcv["birth_day"];
 
-		//fetching data from sh_media
-		$sh_query = "SELECT * FROM sh_media WHERE user_id = {$pcv['user_id']}";
-		$sh_result = mysqli_query($connection,$sh_query);
+			//fetching data from sh_media
+			$sh_query = "SELECT * FROM sh_media WHERE user_id = {$pcv['user_id']}";
+			$sh_result = mysqli_query($connection,$sh_query);
 
-		if(mysqli_num_rows($sh_result)>0){
+			if(mysqli_num_rows($sh_result)>0){
 
-			while($proRs=mysqli_fetch_assoc($sh_result)){
+				while($proRs=mysqli_fetch_assoc($sh_result)){
 
-				$in=$proRs["linked_in"];
-				$fa=$proRs["facebook"];
-				$twitter=$proRs["twitter"];
-				$git=$proRs["git_hub"];
-				
-			}
-		}
-
-
-		//fetching data from cv tables
-		//fetching data to awads fields
-		$award_query = "SELECT * FROM awards WHERE user_id = {$pcv['user_id']}";
-		$award_result = mysqli_query($connection,$award_query);
-
-		if(mysqli_num_rows($award_result)>0){
-
-			while($awaRs=mysqli_fetch_assoc($award_result)){
-
-				$awpr .= '<div class="content">';
-				$awpr .='<h5>'.$awaRs['aw_year'].'</h5>';
-				$awpr .= '<h2>'.$awaRs['aw_title'].'</h2>';
-				$awpr .= '<h3>'.$awaRs['aw_institute'].'</h3>';
-				$awpr .= '<h4>'.$awaRs['aw_description'].'</h4>';
-				$awpr .= '</div>';
+					$in=$proRs["linked_in"];
+					$fa=$proRs["facebook"];
+					$twitter=$proRs["twitter"];
+					$git=$proRs["git_hub"];
+					
+				}
 			}
 
-		}
-		//fetching data from education
-		$education_query = "SELECT * FROM education WHERE user_id = {$pcv['user_id']}";
-		$education_result = mysqli_query($connection,$education_query);
 
-		if(mysqli_num_rows($education_result)>0){
+			//fetching data from cv tables
+			//fetching data to awards fields
+			$award_query = "SELECT * FROM awards WHERE user_id = {$pcv['user_id']}";
+			$award_result = mysqli_query($connection,$award_query);
 
-			while ($eduRs=mysqli_fetch_assoc($education_result)) {
-				
-				$eyear=$eduRs["edu_year"];
-				$einstitute=$eduRs["edu_institute"];
-				$etitle=$eduRs["edu_title"];
-				$edes=$eduRs["edu_description"];
+			if(mysqli_num_rows($award_result)>0){
 
-				$edpr .= '<div class="content">';
-				$edpr .='<h5>'.$eyear.'</h5>';
-				$edpr .= '<h2>'.$etitle.'</h2>';
-				$edpr .= '<h3>'.$einstitute.'</h3>';
-				$edpr .= '<h4>'.$edes.'</h4>';
-				$edpr .= '</div>';
-			}
-		}
-		//fetching data from professional skills
-		$professional_query = "SELECT * FROM professional_skills WHERE user_id = {$pcv['user_id']}";
-		$professional_result = mysqli_query($connection,$professional_query);
+				while($awaRs=mysqli_fetch_assoc($award_result)){
 
-		if(mysqli_num_rows($professional_result)>0){
-
-			while($proRs=mysqli_fetch_assoc($professional_result)){
-
-				$stitle=$proRs["title"];
-				$presentage=$proRs["percentage"];
-
-				$sk_prece .= '<div class="content">';
-				$sk_prece .= '<h3>'.$stitle.'</h3>';
-				$sk_prece .= '<h4><span>'.$presentage.'%</span></h4>';
-				$sk_prece .='<div class="presentagebar">';
-				$sk_prece .='<div class="bar" style="width:'.$presentage.'%">';
-				$sk_prece .='</div>';
-				$sk_prece .= '</div>';					
-				$sk_prece .= '</div>';					
-									
-			}
-		}
-		//fetching data from work experience
-		$wk_query = "SELECT * FROM work_experience WHERE user_id = {$pcv['user_id']}";
-		$wk_media = mysqli_query($connection,$wk_query);
-
-		if(mysqli_num_rows($wk_media)>0){
-
-			while($wkRs=mysqli_fetch_assoc($wk_media)){
-				
-				$wyear=$wkRs["wk_years"];
-				$wtitle=$wkRs["wk_title"];
-				$winstitute=$wkRs["wk_company"];
-				$wdes=$wkRs["wk_description"];
-
-				$wdpr .= '<div class="content">';
-				$wdpr .='<h5>'.$wyear.'</h5>';
-				$wdpr .= '<h2>'.$wtitle.'</h2>';
-				$wdpr .= '<h3>'.$winstitute.'</h3>';
-				$wdpr .= '<h4>'.$wdes.'</h4>';
-				$wdpr .= '</div>';	
+					$awpr .= '<div class="content">';
+					$awpr .='<h5>'.$awaRs['aw_year'].'</h5>';
+					$awpr .= '<h2>'.$awaRs['aw_title'].'</h2>';
+					$awpr .= '<h3>'.$awaRs['aw_institute'].'</h3>';
+					$awpr .= '<h4>'.$awaRs['aw_description'].'</h4>';
+					$awpr .= '</div>';
+				}
 
 			}
-		}
+			//fetching data from education
+			$education_query = "SELECT * FROM education WHERE user_id = {$pcv['user_id']}";
+			$education_result = mysqli_query($connection,$education_query);
+
+			if(mysqli_num_rows($education_result)>0){
+
+				while ($eduRs=mysqli_fetch_assoc($education_result)) {
+					
+					$eyear=$eduRs["edu_year"];
+					$einstitute=$eduRs["edu_institute"];
+					$etitle=$eduRs["edu_title"];
+					$edes=$eduRs["edu_description"];
+
+					$edpr .= '<div class="content">';
+					$edpr .='<h5>'.$eyear.'</h5>';
+					$edpr .= '<h2>'.$etitle.'</h2>';
+					$edpr .= '<h3>'.$einstitute.'</h3>';
+					$edpr .= '<h4>'.$edes.'</h4>';
+					$edpr .= '</div>';
+				}
+			}
+			//fetching data from professional skills
+			$professional_query = "SELECT * FROM professional_skills WHERE user_id = {$pcv['user_id']}";
+			$professional_result = mysqli_query($connection,$professional_query);
+
+			if(mysqli_num_rows($professional_result)>0){
+
+				while($proRs=mysqli_fetch_assoc($professional_result)){
+
+					$stitle=$proRs["title"];
+					$presentage=$proRs["percentage"];
+
+					$sk_prece .= '<div class="content">';
+					$sk_prece .= '<h3>'.$stitle.'</h3>';
+					$sk_prece .= '<h4><span>'.$presentage.'%</span></h4>';
+					$sk_prece .='<div class="presentagebar">';
+					$sk_prece .='<div class="bar" style="width:'.$presentage.'%">';
+					$sk_prece .='</div>';
+					$sk_prece .= '</div>';					
+					$sk_prece .= '</div>';					
+										
+				}
+			}
+			//fetching data from work experience
+			$wk_query = "SELECT * FROM work_experience WHERE user_id = {$pcv['user_id']}";
+			$wk_media = mysqli_query($connection,$wk_query);
+
+			if(mysqli_num_rows($wk_media)>0){
+
+				while($wkRs=mysqli_fetch_assoc($wk_media)){
+					
+					$wyear=$wkRs["wk_years"];
+					$wtitle=$wkRs["wk_title"];
+					$winstitute=$wkRs["wk_company"];
+					$wdes=$wkRs["wk_description"];
+
+					$wdpr .= '<div class="content">';
+					$wdpr .='<h5>'.$wyear.'</h5>';
+					$wdpr .= '<h2>'.$wtitle.'</h2>';
+					$wdpr .= '<h3>'.$winstitute.'</h3>';
+					$wdpr .= '<h4>'.$wdes.'</h4>';
+					$wdpr .= '</div>';	
+
+				}
+			}
+
+			//fetching data from additional cv 
+			$addi_query = "SELECT * FROM additional_cv WHERE user_id = {$pcv['user_id']}";
+			$addi_result = mysqli_query($connection,$addi_query);
+
+			if(mysqli_num_rows($addi_result)>0){
+
+				while($addirs=mysqli_fetch_assoc($addi_result)){
+
+					$addiHeader = $addirs["chs_headings"];
+					$addiTitle = $addirs["chs_title"];
+					$addiDate = $addirs["chs_date"];
+					$addiCompany = $addirs["chs_company"];
+					$addiDescription = $addirs["chs_description"];
+
+					$adipr .= '<div class="row">';
+					$adipr .= '<h1>'.$addiHeader.'</h1>';
+					$adipr .= '<div class="rowco">';
+					$adipr .= '<div class="content">';
+					$adipr .='<h5>'.$addiDate.'</h5>';
+					$adipr .= '<h2>'.$addiTitle.'</h2>';
+					$adipr .= '<h3>'.$addiCompany.'</h3>';
+					$adipr .= '<h4>'.$addiDescription.'</h4>';
+					$adipr .= '</div>';	
+					$adipr .= '</div>';	
+					$adipr .= '</div>';	
+					
+					
+				}
+			}
 
 		}
 	}
@@ -358,6 +389,9 @@
 										<?php if(!empty($awpr)){echo $awpr;} ?>
 									</div>	
 							</div>
+						</div>
+						<div class="row">
+							<?php if(!empty($adipr)){echo $adipr;} ?>
 						</div>
 				</div>
 			</div>

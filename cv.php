@@ -96,6 +96,11 @@
 		$award_institute=$_POST["award_institute"];
 		$awards_year=$_POST["awards_year"];
 		$award_description=$_POST["award_description"];
+		$additional_heading=$_POST["heading"];
+		$additional_title=$_POST["title"];
+		$additional_date=$_POST["date"];
+		$additional_associ=$_POST["association"];
+		$additional_discription=$_POST["description"];
 
 
 		foreach ($professional_precenage1 as $key => $value) {
@@ -234,8 +239,21 @@
 					}
 				}
 
-				header('Location:userlogin.php');
+				//checking additional information heading title isset
 
+				for($i=0;$i<count($additional_heading);$i++){
+
+					if(!empty($additional_heading[$i])){
+						if(!empty($additional_title[$i])){
+							$query_addi = "INSERT INTO additional_cv(user_id,chs_headings,chs_title,chs_date,chs_company,chs_description) VALUES ({$seeker_id},'".mysqli_real_escape_string($connection,$additional_heading["$i"])."','".mysqli_real_escape_string($connection,$additional_title["$i"])."','".mysqli_real_escape_string($connection,$additional_date["$i"])."','".mysqli_real_escape_string($connection,$additional_associ["$i"])."','".mysqli_real_escape_string($connection,$additional_discription["$i"])."' )";
+							$result_addi = mysqli_query($connection,$query_addi);
+						}
+					}
+
+				}
+				
+				header('Location:mainlogin.php');
+				
 			}
 		}
 		
@@ -259,7 +277,6 @@
 	<link rel="stylesheet" href="css/media-queries/cv-media.css"><!--media query -->
 </head>
 <body>
-
 	<?php require_once("inc/header.php") ?>
 
 	<div class="model_page">
@@ -349,6 +366,7 @@
 					</p>
 				</div>
 			</div>
+			
 					<?php 
 						if (!empty($errors)) {
 							echo "<div class=\"errors\">";
@@ -358,6 +376,17 @@
 							echo "</div>";
 						}
 					 ?>
+			<!-- additional section -->
+			<div class="additional_sect">
+				<div class="additional_row">
+					<button type="button" id="addAdditional">Add Additional Information</button>
+				</div>
+
+				<div class="additional_form">
+					<!-- dynamically loaded -->
+				</div>
+
+			</div>
 			<div class="row2">
 					<div class="row">
 						<fieldset class="ed_fl">
@@ -380,7 +409,7 @@
 								</p>
 								<p>
 									<label for="">Description</label>
-									<textarea name="education_description[]" class="des" maxlength="200"></textarea>
+									<textarea name="education_description[]" class="des" maxlength="500"></textarea>
 								</p>	
 							</div>
 
@@ -408,7 +437,7 @@
 								
 								<p>
 									<label for="">Description</label>
-									<textarea name="description[]" cols="30" rows="10" maxlength="200"></textarea>
+									<textarea name="description[]" cols="30" rows="10" maxlength="500"></textarea>
 								</p>
 							</div>
 
@@ -466,19 +495,21 @@
 								</p>
 								<p>
 									<label for="">Description</label>
-									<textarea name="award_description[]" cols="30" rows="10" maxlength="200"></textarea>
+									<textarea name="award_description[]" cols="30" rows="10" maxlength="500"></textarea>
 								</p>	
 							</div>
 
 						</fieldset>
-					</div>	
+					</div>
 			</div>
+			
 			<div class="row3">
 				<div class="cvbut">
 					<input type="submit" name="submit" value="Submit CV">
 				</div>
 				<a href="index.php" class="skip">Skip<i class="fas fa-arrow-right"></i></a>
 			</div>
+			
 
 		</div>
 		</form>

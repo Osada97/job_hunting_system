@@ -140,11 +140,11 @@
 				</div>
 
 
-				<div class="pic_on_text">
+				<div class="pic_on_text" >
 
-						<h2><span>Upload</span> CV & Get Your <span>Job</span> </h2>
+						<h2 data-aos="fade-right"><span>Upload</span> CV & Get Your <span>Job</span> </h2>
 
-						<p>Find Jobs, Employment & Career Opportunities</p>
+						<p data-aos="fade-left">Find Jobs, Employment & Career Opportunities</p>
 					
 				</div>	<!--pic_on_text-->
 
@@ -162,7 +162,7 @@
 					<h3>Burger KING</h3>
 					<p><i class="fas fa-map-marker-alt"></i>1st Floor, 00300 Colombo, Sri Lanka</p>
 				</div>
-				<div class="column">
+				<div class="column" >
 					<img src="imj/Dialog.jpg" alt="COMPANY">
 					<h3>Dialog Axiata PLC</h3>
 					<p><i class="fas fa-map-marker-alt"></i>475 Union Pl, Colombo 00200</p>

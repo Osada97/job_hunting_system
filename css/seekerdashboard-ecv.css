@@ -224,6 +224,44 @@
   height: 150px;
 }
 
+.section .ed-main .row2 .row .rowsec .addi .addi_fl_row {
+  margin: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f6f6f6c2;
+}
+.section .ed-main .row2 .row .rowsec .addi .addi_fl_row .dl_row_ed {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.section .ed-main .row2 .row .rowsec .addi .addi_fl_row .dl_row_ed button {
+  background: none;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  color: #f06060;
+}
+.section .ed-main .row2 .row .rowsec .addi .addi_fl_row label {
+  display: block;
+  font-size: 14px;
+  font-size: 13px;
+}
+.section .ed-main .row2 .row .rowsec .addi .addi_fl_row input,
+.addi_fl_row textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0px;
+  outline: none;
+  box-sizing: border-box;
+  border: none;
+  transition: 0.3s;
+}
+.addi_fl_row textarea {
+  height: 150px;
+}
+
 .section .ed-main .row2 .row .rowsec .we .we_fl_row {
   margin: 15px;
   padding: 20px;

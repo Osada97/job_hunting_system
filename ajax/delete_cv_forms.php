@@ -27,5 +27,9 @@
 		$query_dl = "DELETE FROM awards WHERE user_id = {$user_id} AND no={$fno} LIMIT 1";
 		$result_dl = mysqli_query($connection,$query_dl);
 	}
+	if($form_name==='addi'){
+		$query_dl = "DELETE FROM additional_cv WHERE user_id = {$user_id} AND no={$fno} LIMIT 1";
+		$result_dl = mysqli_query($connection,$query_dl);
+	}
 
 ?>
