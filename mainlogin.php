@@ -175,7 +175,7 @@
                             <input type="submit" value="Login" name="ussubmit">
                         </div>
                         <div class="subcolumn">
-                            <p><a href="#">Forget Your Password?</a></p>
+                            <p><a href="resetpassword.php?actype=sk">Forget Your Password?</a></p>
                             <p>Don't You Have Account? <a href="mainsignup.php">Sign Up Here</a></p>
                         </div>
                     </div>
@@ -204,7 +204,7 @@
                             <input type="submit" value="Login" name="prsubmit">
                         </div>
                         <div class="subcolumn">
-                            <p><a href="#">Forget Your Password?</a></p>
+                            <p><a href="resetpassword.php?actype=pr">Forget Your Password?</a></p>
                             <p>Don't You Have Account? <a href="mainsignup.php">Sign Up Here</a></p>
                         </div>
                     </div>

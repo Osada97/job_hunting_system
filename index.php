@@ -58,6 +58,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="theme-color" content="#fff" />
 	<title>Jobber</title>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/media-queries/index-media.css"><!--media query-->
