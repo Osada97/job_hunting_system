@@ -232,6 +232,10 @@
   background-color: #ec7f02;
   color: #fff;
 }
+.add-list .all-ads .row .column3 .row1 button.al:hover {
+  background-color: #00b900;
+  color: #fff !important;
+}
 .add-list .all-ads .row .column3 h2:first-child {
   color: #00b900;
 }

@@ -195,7 +195,7 @@
  }
 //function for appliy and cancel button
 
- 	/*function apply_cancel_button($con,$seeker_id,$ad_no,$company_registration_number,$page_number){
+ 	function buttonColor($con,$seeker_id,$ad_no,$company_registration_number,$page_number){
 
 		$connection = $con;
 
@@ -205,37 +205,19 @@
 
 		if ($button_result) {
 			if (mysqli_num_rows($button_result)==1) {
-				echo "<form action=\"seekerdashboard.php?p=$page_number\" method=\"POST\" >";
-				echo "<input type=\"text\" name=\"ad_no\" value=\"{$ad_no}\" hidden>";
-				echo  "<a><button id='button' class=\"cancel\" name=\"cancel\">Cancel</button></a>";
-				echo "</form>";
+				echo  "<a href=\"seekerdashboard-vjob.php?ad-no={$ad_no}&p={$page_number}\" ><button id='button' style='border-color:#15b715;color:#15b715' class='al' title='Applied Add'>View Ad</button></a>";
 			}
 			else{
 
-				echo  "<a href=\"seekerdashboard-vjob.php?ad-no={$ad_no}&p={$page_number}\" ><button id='button'>View Ad</button></a>";
+				echo  "<a href=\"seekerdashboard-vjob.php?ad-no={$ad_no}&p={$page_number}\" ><button id='button' title='Not Applied Add'>View Ad</button></a>";
 			}
 		}
 		else{
 			printf(mysqli_error($connection));
 		}
- 	}*/
+ 	}
 ?>
 
-
-<?php //for cancel button 
-
-	if (isset($_POST["cancel"])) {
-		
-		$ad_no =$_POST["ad_no"];
-
-		$cancel_query = "DELETE FROM job_apply WHERE seeker_id = '{$_SESSION["seeker_id"]}' AND ad_no = {$ad_no} ";
-
-		$cancel_result =mysqli_query($connection,$cancel_query);
-
-
-	}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -329,7 +311,7 @@
 		<div class="sort_row">
 			<div class="sort_column">
 				<?php if(mysqli_num_rows($result_Set)!=0){
-					echo '<h3>Showing '.++$start .'-'.$rows_per_page*$page_number.' Of <span> '.$total_number_of_rows.' Jobs</span></h3>';
+					echo '<h3>Showing '.++$start .'-'.mysqli_num_rows($result_Set).' Of <span> '.$total_number_of_rows.' Jobs</span></h3>';
 				} ?>
 			</div>
 		</div>
@@ -359,8 +341,7 @@
 										echo '</div>';
 										echo '<div class="column3">';
 											echo '<div class="row1">';
-												 //apply_cancel_button($connection,$_SESSION["seeker_id"],$ad["ad_no"],$ad["company_registration_number"],$page_number);
-												 echo "<a href=\"seekerdashboard-vjob.php?ad-no={$ad["ad_no"]}&p={$page_number}\" ><button id='button'>View Ad</button></a>";
+												 buttonColor($connection,$_SESSION["seeker_id"],$ad["ad_no"],$ad["company_registration_number"],$page_number);
 											echo '</div>';
 											echo '<div class="row2">';
 												echo '<h2><i class="fas fa-briefcase"></i>' . $ad["job_type"] . '</h2>';
@@ -404,18 +385,7 @@
 </footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-	<script>
-		//for chang apply button content
-		$(function(){
-			$('#button').click(function(){
-				$('#button').html('Applying');
-			})
-		});
-
-	</script>
 	
-
 </body>
 <?php mysqli_close($connection); ?>
 </html>

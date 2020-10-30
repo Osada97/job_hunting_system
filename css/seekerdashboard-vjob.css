@@ -86,6 +86,7 @@
   cursor: pointer;
   color: #fff;
   background-color: #ff8a00;
+  transition: 0.9s ease;
 }
 .job-content .job_row .job_column:nth-child(3) .apply_but button:hover {
   animation: clo 1.5s linear infinite alternate;
@@ -96,6 +97,17 @@
   }
   100% {
     background-color: #e97e03;
+  }
+}
+.job-content .job_row .job_column:nth-child(3) .apply_but button:hover i {
+  animation: rotplane 1s ease alternate;
+}
+@keyframes rotplane {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
   }
 }
 .job-content .job_row .job_column:nth-child(3) .apply_but p {
@@ -316,4 +328,11 @@
   background-color: #fff !important;
   border: 2px solid #ff8a00 !important;
   color: #ff8a00 !important;
+  transition: 0.9s ease;
+}
+.cancel:hover {
+  /*for cancel button*/
+  background-color: #ff8a00 !important;
+  border: 2px solid #ff8a00 !important;
+  color: #fff !important;
 }

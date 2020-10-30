@@ -5,7 +5,7 @@
 	$p=$_GET["p"];
 
 	//checking ad no is available
-	$query_ad_av="SELECT * FROM job_ad WHERE ad_no = {$_GET['ad-no']} AND is_delete =1";
+	$query_ad_av="SELECT * FROM job_ad WHERE ad_no = {$_GET['ad-no']} AND is_delete =1 AND is_expire = 0";
 	$result_ad_av=mysqli_query($connection,$query_ad_av);
 
 	if (mysqli_num_rows($result_ad_av)==1) {
@@ -69,9 +69,9 @@
 				if(mysqli_num_rows($result_skills)>0){
 					$hw_mn++;
 				}
-
+				echo $hw_mn;
 				//if one of extra forms are not empty
-				if($hw_mn>0){
+				if($hw_mn>1){
 					//applying for jobs
 					$provider_id = $_GET['crn'];
 					$ad_no = $_GET['ad-no'];
