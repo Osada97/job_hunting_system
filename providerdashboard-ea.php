@@ -196,6 +196,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Company DashBoard</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/provider_dashboard.css">
 	<link rel="stylesheet" href="css/provider_dashboard-ea.css">
 	<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
@@ -254,80 +255,76 @@
 	</section>
 
 	<div class="section">
-		<div class="view-add">
-			<!--<div class="row1">
-				<h5>button</h5>
-			</div>-->
-			<div class="row2">
+				<?php
+					if(mysqli_num_rows($result_set) > 0){
+						echo "<div class='view-add'>";
+							echo "<div class='row2'>";
 
-				<?php 
+							while ($add = mysqli_fetch_assoc($result_set)) {
 
-					while ($add = mysqli_fetch_assoc($result_set)) {
-
-							 echo "<div class='column'>";
-									echo "<div class='active'>";
-										if($add['active']==0){
-											$color ='red';
-											$title='Inactive Add';
-										}
-										else{
-											$color = '#16c516';
-											$title='Active Add';
-										}
-										echo "<div class='act-op' style='background-color:".$color."' title='".$title."'>";
-										echo "</div>";
-									echo "</div>";
- 									echo "<div class='option'>";
- 										echo "<div class='dropdown'>";
- 											echo "<button class='dropbtn'><i class='fas fa-ellipsis-v'></i></button>";
- 												echo "<div class='dropdown-content'>";
- 													echo "<a href=\"providerdashboard-ad-edit.php?crn={$company_registration_number}&ad-no={$add['ad_no']}&p={$page_number}\">Edit ad</a>";
- 													echo "<a href=\"providerdashboard-ad-delete.php?crn={$company_registration_number}&ad-no={$add['ad_no']}&p={$page_number}\" onclick=\"return confirm('Are You Sure?');\">Delete ad</a>";
- 												echo "</div>";
- 										echo "</div>";
- 									echo "</div>";
-								 //echo "<a href=\"index.php\">";
-								 	echo "<div class='img-column'>";
- 										echo "<div class='img-set'>";
- 											echo provider_profile_picture($company_registration_number,$connection);
- 										echo "</div>";
- 									echo "</div>";
- 									echo "<div class='ad-content'>";
- 										echo "<div class='ad-title'>";
- 											echo "<h4>" . $add["job_title"] ."</h4>";
- 										echo "</div>";
- 										echo "<div class='ad-company'>";
- 											echo "<h4><i class='fas fa-home'></i>" . $company_name ."</h4>";
- 										echo "</div>";
- 										echo "<div class='ad-salary'>";
- 											echo "<h4><i class='fas fa-coins'></i>RS: " . $add["monthly_salary"] ."</h4>";
- 										echo "</div>";
- 										echo "<div class='ad-location'>";
- 											echo "<h4><i class='fas fa-map-marker-alt'></i>" . $add["location"] ."</h4>";
- 										echo "</div>";
- 										echo "<div class='ad-catogery'>";
- 											echo "<h4><i class='far fa-building'></i>" . $add["job_category"]. "</h4>";
- 										echo "</div>";
- 										echo "<div class='ad-type'>";
- 											echo "<h4><i class='fas fa-briefcase'></i>" . $add["job_type"] . "</h4>";
- 										echo "</div>";
-										 echo "</div>";
- 										echo "<div class='ad-time'>";
-										 	echo "<h4 class='expire' title='expiry time'>00:00:00</h4>";
-											 echo "<h4 title='Ad Posted Date'><i class='far fa-clock'></i>" . facebook_time_ago($add["ad_time"]) ."</h4>";
-										 echo "</div>";
-										 
-										 //getting expire date and time of ad
-										 echo "<input type='hidden' class='date' name='datetime' value='".$add['expire_time']." '> ";
- 								//echo "</a>";
- 							echo "</div>";
- 						
- 					}
-
-
+									 echo "<div class='column'>";
+											echo "<div class='active'>";
+												if($add['active']==0){
+													$color ='red';
+													$title='Inactive Add';
+												}
+												else{
+													$color = '#16c516';
+													$title='Active Add';
+												}
+												echo "<div class='act-op' style='background-color:".$color."' title='".$title."'>";
+												echo "</div>";
+											echo "</div>";
+		 									echo "<div class='option'>";
+		 										echo "<div class='dropdown'>";
+		 											echo "<button class='dropbtn'><i class='fas fa-ellipsis-v'></i></button>";
+		 												echo "<div class='dropdown-content'>";
+		 													echo "<a href=\"providerdashboard-ad-edit.php?crn={$company_registration_number}&ad-no={$add['ad_no']}&p={$page_number}\">Edit ad</a>";
+		 													echo "<a href=\"providerdashboard-ad-delete.php?crn={$company_registration_number}&ad-no={$add['ad_no']}&p={$page_number}\" onclick=\"return confirm('Are You Sure?');\">Delete ad</a>";
+		 												echo "</div>";
+		 										echo "</div>";
+		 									echo "</div>";
+										 //echo "<a href=\"index.php\">";
+										 	echo "<div class='img-column'>";
+		 										echo "<div class='img-set'>";
+		 											echo provider_profile_picture($company_registration_number,$connection);
+		 										echo "</div>";
+		 									echo "</div>";
+		 									echo "<div class='ad-content'>";
+		 										echo "<div class='ad-title'>";
+		 											echo "<h4>" . $add["job_title"] ."</h4>";
+		 										echo "</div>";
+		 										echo "<div class='ad-company'>";
+		 											echo "<h4><i class='fas fa-home'></i>" . $company_name ."</h4>";
+		 										echo "</div>";
+		 										echo "<div class='ad-salary'>";
+		 											echo "<h4><i class='fas fa-coins'></i>RS: " . $add["monthly_salary"] ."</h4>";
+		 										echo "</div>";
+		 										echo "<div class='ad-location'>";
+		 											echo "<h4><i class='fas fa-map-marker-alt'></i>" . $add["location"] ."</h4>";
+		 										echo "</div>";
+		 										echo "<div class='ad-catogery'>";
+		 											echo "<h4><i class='far fa-building'></i>" . $add["job_category"]. "</h4>";
+		 										echo "</div>";
+		 										echo "<div class='ad-type'>";
+		 											echo "<h4><i class='fas fa-briefcase'></i>" . $add["job_type"] . "</h4>";
+		 										echo "</div>";
+												 echo "</div>";
+		 										echo "<div class='ad-time'>";
+												 	echo "<h4 class='expire' title='expiry time'>00:00:00</h4>";
+													 echo "<h4 title='Ad Posted Date'><i class='far fa-clock'></i>" . facebook_time_ago($add["ad_time"]) ."</h4>";
+												 echo "</div>";
+												 
+												 //getting expire date and time of ad
+												 echo "<input type='hidden' class='date' name='datetime' value='".$add['expire_time']." '> ";
+		 								//echo "</a>";
+		 							echo "</div>";
+		 						
+		 					}
+		 				echo "</div>";
+		 			echo "</div>";
+					}
 				?>
-			</div>
-		</div>
 		<div class="row">
 			<div class="next-link">
 				<div class="next-content">
@@ -336,8 +333,10 @@
 							echo $page_nav;
 						}
 						else{
+							echo "<div class='next-em'>";
 							echo "<div class ='empty'>";
 							echo "You have not posted any ads yet";
+							echo "</div>";
 							echo "</div>";
 						} 
 					?>

@@ -1,6 +1,12 @@
 <?php
+    // Import PHPMailer classes into the global namespace
+		// These must be at the top of your script, not inside a function
+		use PHPMailer\PHPMailer\PHPMailer;
+		use PHPMailer\PHPMailer\SMTP;
+		use PHPMailer\PHPMailer\Exception;
     ob_start();
     require_once("inc/connection.php");
+
 
     if(!isset($_GET['actype']) || empty($_GET['actype'])){
         header('Location:mainlogin.php');
@@ -45,7 +51,7 @@
             }
         }
         
-        $url = "/php/job_hunting_system/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token) . "&actype=" . $cat_user;
+        $url = "127.0.0.1/php/job_hunting_system/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token) . "&actype=" . $cat_user;
         
         //delete existing emails in token table in database
         $query_delete = "DELETE FROM pwdReset WHERE pwdResetEmail=?";
@@ -75,7 +81,7 @@
         }
 
         mysqli_stmt_close($stmt);
-        mysqli_close();
+        mysqli_close($connection);
         
         $to = $userEmail;
         $subject = "Reset Your Password For Jobberlk";
@@ -87,15 +93,61 @@
         $headers .="Reply-To: Jobberlk.com <jobberjobs@gail.com>\r\n";
         $headers .="Content-type: text/html\r\n";
 
-        if(mail($to,$subject,$message,$headers)){
+        /*if(mail($to,$subject,$message,$headers)){
             header('Location:resetpassword.php?reset=success&actype='.$actype);
         }
         else{
             header('Location:resetpassword.php?reset=unsuccess&actype='.$actype);
-        }
+        }*/
 
+        // Load Composer's autoloader
+        //require 'vendor/autoload.php';
+        //PHP Mailer Start From Here
+		require 'inc/phpMailer/src/Exception.php';
+		require 'inc/phpMailer/src/PHPMailer.php';
+		require 'inc/phpMailer/src/SMTP.php';
 
-        echo $message;
+		// Instantiation and passing `true` enables exceptions
+		$mail = new PHPMailer(true);
+
+		try {
+			//Server settings
+			$mail->SMTPDebug = 0;                      // Enable verbose debug output
+			$mail->isSMTP();                                            // Send using SMTP
+			$mail->Host       = 'guccikitchen.com';                    // Set the SMTP server to send through
+			$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+			$mail->Username   = 'jobberlk@guccikitchen.com';                     // SMTP username
+			$mail->Password   = 'jobberlk123';                               // SMTP password
+			$mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+			$mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+			//Recipients
+			$mail->setFrom('jobberlk@guccikitchen.com', 'Jobberlk');
+			$mail->addAddress($to);     // Add a recipient
+			//$mail->addAddress('ellen@example.com');               // Name is optional
+			$mail->addReplyTo('jobberlk@guccikitchen.com', 'Jobberlk');
+			//$mail->addCC('cc@example.com');
+			//$mail->addBCC('bcc@example.com');
+
+			// Attachments
+			//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+			//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+			// Content
+			$mail->isHTML(true);                                  // Set email format to HTML
+			$mail->Subject = $subject;
+			$mail->Body    = $message;
+			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients' . $url;
+
+			$mail->send();
+    			//echo 'Message has been sent';
+                echo '<script>';
+                    echo 'alert("Email Has Been Sent Please Cheack Your Email")';
+                echo '</script>';
+			} catch (Exception $e) {
+				//echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+
+				}
     }
 
 ?>
@@ -110,6 +162,7 @@
 	<link rel="stylesheet" href="css/media-queries/index-media.css"><!--media query-->
     <script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
     <title>Reset Your Password</title>
+    <link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 </head>
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap");

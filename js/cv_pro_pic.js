@@ -6,7 +6,7 @@
 			});
 
 			$('#close').click(function(){
-				$('.model_page').slideUp(600);
+				$('.model_page').fadeOut(600);
 			});	
 
 			var $canvas = $('#canvas');
@@ -20,6 +20,7 @@
 
 						$('#cv_pic_name').attr('value',this.files[0].name);
 						$('#cv_pic_size').attr('value',this.files[0].size);
+						$('#cv_pic_type').attr('value',this.files[0].type);
 
 						var reader = new FileReader();
 
@@ -39,7 +40,7 @@
 						};
 
 						$('#crop').click(function(){
-							$('.model_page').hide(500);
+							$('.model_page').fadeOut(600);
 
 							var croppedImage = $canvas.cropper('getCroppedCanvas').toDataURL('img/jpg');
 							$('.cv-pic img').attr('src',croppedImage);

@@ -136,6 +136,7 @@
 	<link rel="stylesheet" href="css/media-queries/index-media.css"><!--media query-->
     <script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
     <title>Document</title>
+    <link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 </head>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap");

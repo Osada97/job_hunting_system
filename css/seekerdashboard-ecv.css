@@ -20,7 +20,7 @@
   padding-left: 10px;
   font-size: 18px;
   color: #9c6e6e;
-  margin-bottom: 15px;
+  margin: 15px 0;
 }
 .section .ed-main .cv .row1 {
   overflow: auto;
@@ -451,7 +451,7 @@
   display: flex;
 }
 .section .ed-main .row2 .row .rowsec .skills .sk_row .prc .twopcs input {
-  width: 23px;
+  width: 24px;
   border: none;
   background: none;
   font-size: 10px;

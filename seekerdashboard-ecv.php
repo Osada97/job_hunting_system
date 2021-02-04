@@ -41,13 +41,13 @@
 	$addi_pr="";
 
 	$email="";
-			$phonenumber="";
-			$address="";
-			$birthday="";
-			$linkedIN="";
-			$facebook="";
-			$twitter="";
-			$git="";
+	$phonenumber="";
+	$address="";
+	$birthday="";
+	$linkedIN="";
+	$facebook="";
+	$twitter="";
+	$git="";
 
 	$query="SELECT * FROM cv WHERE user_id='{$seeker_id}' LIMIT 1";
 	$query_sh="SELECT * FROM sh_media WHERE user_id='{$seeker_id}' LIMIT 1";
@@ -460,7 +460,7 @@
 
 		if(mysqli_num_rows($result_email_set)>0){
 			$errors[] = "Email Is Already Entered";
-			$email = "";
+			//$email = "";
 		}
 
 
@@ -514,24 +514,30 @@
 			if($_POST['cv_pic_size'] != null){
 
 				$size = $_POST['cv_pic_size']/1024;
+				$type = $_POST['cv_pic_type'];
 				$upload_to = "imj/profile_pictures/seekers/";
 
 				if($size <= 500){
-					$file_name = explode('.',$_POST['cv_pic_name']);
-					$new_file_name = $seeker_id ."." . array_pop($file_name);
+					if($type === 'image/jpeg' || $type === 'image/jpg'){
+						$file_name = explode('.',$_POST['cv_pic_name']);
+						$new_file_name = $seeker_id ."." . array_pop($file_name);
 
-					$pro_pic = explode(',',$_POST['cv_pic']);
-					$new_pro_pic = base64_decode($pro_pic[1]);
+						$pro_pic = explode(',',$_POST['cv_pic']);
+						$new_pro_pic = base64_decode($pro_pic[1]);
 
-					$is_upload = file_put_contents($upload_to . $new_file_name, $new_pro_pic);
+						$is_upload = file_put_contents($upload_to . $new_file_name, $new_pro_pic);
 
-					if($is_upload){
+						if($is_upload){
 
-						$query_to_is_image="UPDATE seeker SET is_image=1 WHERE seeker_id = {$seeker_id}";
+							$query_to_is_image="UPDATE seeker SET is_image=1 WHERE seeker_id = {$seeker_id}";
 
-						$result_is_image = mysqli_query($connection,$query_to_is_image);
+							$result_is_image = mysqli_query($connection,$query_to_is_image);
 
-						$_SESSION["is_image"]=1;
+							$_SESSION["is_image"]=1;
+						}
+					}
+					else{
+						$errors[] = "Invalied File Type";
 					}
 				}
 				else{
@@ -559,20 +565,46 @@
 			$twitter = mysqli_real_escape_string($connection,$_POST['twitter']);
 			$git = mysqli_real_escape_string($connection,$_POST['git']);
 
-			//inserting values to cv table
-			$query_up_cv = "UPDATE cv SET first_name = '{$firstname}', last_name = '{$lastname}', title='{$title}',description='{$summery}', email='{$email}', phone_number='{$phonenumber}', address='{$address}', birth_day='{$birthday}' WHERE user_id = {$seeker_id} ";
+			//checking Cv is alerady exits
+			$al_query = "SELECT * FROM cv WHERE user_id = {$seeker_id}";
+			$al_result = mysqli_query($connection,$al_query);
 
-			$query_up_sh = "UPDATE sh_media SET linked_in = '{$linkedIN}', facebook = '{$facebook}', twitter='{$twitter}',git_hub='{$git}' WHERE user_id = {$seeker_id} ";
+			if($al_result){
+				if(mysqli_num_rows($al_result) > 0){
+					//inserting values to cv table
+					$query_up_cv = "UPDATE cv SET first_name = '{$firstname}', last_name = '{$lastname}', title='{$title}',description='{$summery}', email='{$email}', phone_number='{$phonenumber}', address='{$address}', birth_day='{$birthday}' WHERE user_id = {$seeker_id} ";
 
-			$result_set_cv = mysqli_query($connection,$query_up_cv);
-			$result_set_sh = mysqli_query($connection,$query_up_sh);
+					$query_up_sh = "UPDATE sh_media SET linked_in = '{$linkedIN}', facebook = '{$facebook}', twitter='{$twitter}',git_hub='{$git}' WHERE user_id = {$seeker_id} ";
 
-			if($result_set_cv){
-				header('Location:seekerdashboard-ecv.php');
+					$result_set_cv = mysqli_query($connection,$query_up_cv);
+					$result_set_sh = mysqli_query($connection,$query_up_sh);
+
+					if($result_set_cv){
+						header('Location:seekerdashboard-ecv.php');
+					}
+					if(!$result_set_sh){
+						print_r(mysqli_error($connection));
+					}
+				}
+				else{
+					//insert new cv
+					$newIns = "INSERT INTO cv(user_id,first_name,last_name,title,description,email,phone_number,address,birth_day) VALUES({$seeker_id},'{$firstname}','{$lastname}','{$title}','{$summery}','{$email}','{$phonenumber}','{$address}','{$birthday}')";
+
+					$newslIns = "INSERT INTO sh_media(user_id,linked_in,facebook,twitter,git_hub) VALUES({$seeker_id},'{$linkedIN}','{$facebook}','{$twitter}','{$git}')";
+
+					$resnewIns = mysqli_query($connection,$newIns);
+					$resnewslIns = mysqli_query($connection,$newslIns);
+
+					if($resnewIns){
+						header('Location:seekerdashboard-ecv.php');
+					}
+					else{
+						print_r(mysqli_error($connection));
+					}
+				}
 			}
-			if(!$result_set_sh){
-				print_r(mysqli_error($connection));
-			}
+
+			
 			
 		}
 	}
@@ -679,7 +711,9 @@
 			//checking values
 			$professional_title1=$_POST['professional_title1'];
 			$professional_precenage1=$_POST['professional_precenage1'];
-			$skno = $_POST['skno'];
+			if(isset($_POST['skno'])){
+				$skno = $_POST['skno'];
+			}
 
 			for ($i=0; $i < count($professional_title1); $i++) { 
 				
@@ -704,7 +738,11 @@
 						$result_in = mysqli_query($connection,$in_query);
 
 						if(!$result_in){
-							print_r(mysqli_error($connection));
+								echo "<script>";
+									echo "alert('Please Update Cv Profile Details First')";
+								echo "</script>";
+						}else{
+							header("Location:seekerdashboard-ecv.php");
 						}
 					}	
 				}
@@ -766,6 +804,11 @@
 				if($result_in_ed){
 					header("Location:seekerdashboard-ecv.php");
 				}
+				else{
+					echo "<script>";
+						echo "alert('Please Update Cv Profile Details First')";
+					echo "</script>";
+				}
 			}
 		}
 	}
@@ -790,6 +833,11 @@
 				if($result_in_we){
 					header("Location:seekerdashboard-ecv.php");
 				}
+				else{
+					echo "<script>";
+						echo "alert('Please Update Cv Profile Details First')";
+					echo "</script>";
+				}
 			}
 		}
 	}
@@ -813,6 +861,11 @@
 
 				if($result_in_aw){
 					header("Location:seekerdashboard-ecv.php");
+				}
+				else{
+					echo "<script>";
+						echo "alert('Please Update Cv Profile Details First')";
+					echo "</script>";
 				}
 			}
 		}
@@ -844,7 +897,9 @@
 					header("Location:seekerdashboard-ecv.php");
 				}
 				else{
-					print_r(mysqli_error($connection));
+					echo "<script>";
+						echo "alert('Please Update Cv Profile Details First')";
+					echo "</script>";
 				}
 			}
 		}
@@ -858,6 +913,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Seeker DashBoard</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/seekerdashboard.css">
 	<link rel="stylesheet" href="css/seekerdashboard-ecv.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.1.0/cropper.min.css"><!--croper style-->
@@ -982,6 +1038,7 @@
 								<div class="croped_pic">
 									<input type="hidden" name="cv_pic_name" id="cv_pic_name">
 									<input type="hidden" name="cv_pic_size" id="cv_pic_size">
+									<input type="hidden" name="cv_pic_type" id="cv_pic_type">
 									<input type="hidden" name="cv_pic" id="cv_pic">
 								</div>
 								
@@ -1593,8 +1650,13 @@
 					skin.setAttribute('type','text');
 					skin.setAttribute('name','professional_title1[]');
 
+					let skhid = document.createElement('input');
+					skhid.setAttribute('type','hidden');
+					skhid.setAttribute('name','skno[]');
+
 					skp.appendChild(sklb);
 					skp.appendChild(skin);
+					skp.appendChild(skhid);
 
 					let skp1 = document.createElement('div');
 					skp1.classList.add('prc');

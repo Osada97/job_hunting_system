@@ -82,9 +82,8 @@
 	 			$error[] = "Please Enter Job Category";
 			 }
 			 if(empty($expire_tiem)){
-				 $nextmonth = strtotime('+1 Months');
-
-				 $expire_tiem = date('m-d-y h:i:s',$nextmonth);
+			 	$nextmonth = strtotime('+1 Months');
+				$expire_tiem = date('y-m-d- h:i:s',$nextmonth);
 			 }
 
 
@@ -122,9 +121,10 @@
 
 	 			if ($result) {
 	 				echo "<script> alert('Sucessfully Add Job Advertiestment'); </script>";
+	 				header('Location:providerdashboard-ea.php');
 	 			}
 	 			else{
-	 				$error[]="query error";
+	 				$error[]="Query Error";
 	 				echo mysqli_error($connection);
 	 			}
 	 		}
@@ -138,6 +138,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Company DashBoard</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/provider_dashboard.css">
 	<link rel="stylesheet" href="css/provider_dashboard_aad.css">
 	<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
@@ -885,7 +886,7 @@
 							</div>
 									<p>
 										<label for="datetime">Ad Expire Time</label>
-										<input type="datetime-local" name="datetime" id="datetime" min="<?php echo date('Y-m-d').'T'.date('h:i:s') ?>">
+										<input type="datetime-local" name="datetime" id="datetime" >
 									</p>
 					</div>
 					<p>

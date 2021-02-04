@@ -194,6 +194,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>VIEW CV</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/previewcv.css">
 	<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
 

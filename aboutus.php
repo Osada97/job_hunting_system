@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ABOUT US</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/aboutus.css">

@@ -96,10 +96,19 @@
 		$award_institute=$_POST["award_institute"];
 		$awards_year=$_POST["awards_year"];
 		$award_description=$_POST["award_description"];
-		$additional_heading=$_POST["heading"];
-		$additional_title=$_POST["title"];
-		$additional_date=$_POST["date"];
-		$additional_associ=$_POST["association"];
+
+		if(isset($_POST["heading"])){
+			$additional_heading=$_POST["heading"];
+		}
+		if(isset($_POST["title"])){
+			$additional_title=$_POST["title"];
+		}
+		if(isset($_POST["date"])){
+			$$additional_date=$_POST["date"];
+		}
+		if(isset($_POST["association"])){
+			$additional_associ=$_POST["association"];
+		}
 		$additional_discription=$_POST["description"];
 
 
@@ -221,13 +230,14 @@
 				//checking pofessional Skills isset?
 				if(!empty($professional_title1)){
 
-					for ($i=0; $i <count($professional_title1) ; $i++) { 
+					for ($i=0; $i <count($professional_title1) ; $i++) {
+
+						if(!empty($professional_title1[$i])){
+							$query_pt ="INSERT INTO professional_skills(user_id,title,percentage) VALUES({$seeker_id},'{$professional_title1["$i"]}','{$professional_precenage1["$i"]}')";
+							$result_pt=mysqli_query($connection,$query_pt);
+						}
 						
-						$query_pt ="INSERT INTO professional_skills(user_id,title,percentage) VALUES({$seeker_id},'{$professional_title1["$i"]}','{$professional_precenage1["$i"]}')";
-						$result_pt=mysqli_query($connection,$query_pt);
 					}
-
-
 				}
 				//checking worrl isset title?
 
@@ -240,16 +250,17 @@
 				}
 
 				//checking additional information heading title isset
+				if(isset($additional_heading)){
+					for($i=0;$i<count($additional_heading);$i++){
 
-				for($i=0;$i<count($additional_heading);$i++){
-
-					if(!empty($additional_heading[$i])){
-						if(!empty($additional_title[$i])){
-							$query_addi = "INSERT INTO additional_cv(user_id,chs_headings,chs_title,chs_date,chs_company,chs_description) VALUES ({$seeker_id},'".mysqli_real_escape_string($connection,$additional_heading["$i"])."','".mysqli_real_escape_string($connection,$additional_title["$i"])."','".mysqli_real_escape_string($connection,$additional_date["$i"])."','".mysqli_real_escape_string($connection,$additional_associ["$i"])."','".mysqli_real_escape_string($connection,$additional_discription["$i"])."' )";
-							$result_addi = mysqli_query($connection,$query_addi);
+						if(!empty($additional_heading[$i])){
+							if(!empty($additional_title[$i])){
+								$query_addi = "INSERT INTO additional_cv(user_id,chs_headings,chs_title,chs_date,chs_company,chs_description) VALUES ({$seeker_id},'".mysqli_real_escape_string($connection,$additional_heading["$i"])."','".mysqli_real_escape_string($connection,$additional_title["$i"])."','".mysqli_real_escape_string($connection,$additional_date["$i"])."','".mysqli_real_escape_string($connection,$additional_associ["$i"])."','".mysqli_real_escape_string($connection,$additional_discription["$i"])."' )";
+								$result_addi = mysqli_query($connection,$query_addi);
+							}
 						}
-					}
 
+					}
 				}
 				
 				header('Location:mainlogin.php');
@@ -265,6 +276,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Create CV</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/cv.css">
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /><!--style sheet for scroll animation-->
@@ -507,7 +519,7 @@
 				<div class="cvbut">
 					<input type="submit" name="submit" value="Submit CV">
 				</div>
-				<a href="index.php" class="skip">Skip<i class="fas fa-arrow-right"></i></a>
+				<a href="mainlogin.php?ac=se" class="skip">Skip<i class="fas fa-arrow-right"></i></a>
 			</div>
 			
 

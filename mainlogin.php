@@ -101,6 +101,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Seeker LogIn</title>
+    <link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/mainlogin.css">
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /><!--style sheet for scroll animation-->
@@ -163,7 +164,7 @@
                     </div>
                     <p>
 						<label for="">Seeker Username</label>
-						<input type="text" name="username_email" placeholder="Enter Username/Email" autofocus>
+						<input type="text" name="username_email" placeholder="Enter Email" autofocus>
 					</p>
 					<p>
 						<label for="">Seeker Password</label>
@@ -192,7 +193,7 @@
                     </div>
                     <p>
 						<label for="">Company Email</label>
-						<input type="text" name="company_email" placeholder="Enter Username/Email" autofocus>
+						<input type="text" name="company_email" placeholder="Enter Email" autofocus>
 					</p>
 					<p>
 						<label for="">Provider Password</label>

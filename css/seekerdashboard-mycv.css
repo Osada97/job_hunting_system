@@ -41,6 +41,7 @@
 }
 .cv-main .cv_col:first-child .row .cv-pic img {
   width: 100%;
+  height: 100%;
 }
 .cv-main .cv_col:first-child .row .content h3 {
   font-size: 19px;

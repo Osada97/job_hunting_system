@@ -29,20 +29,23 @@ const mobnav2 = document.querySelector(".mob-nav2 ul");
 let status2 = false;
 
 tobut2.addEventListener('click', () => {
-    if (status2 == false) {
-        mobnav2.style.display = "Block";
+
+    if(status2 == false){
+        mobnav2.style.display = "block";
         mobnav2.classList.add('anshow');
         status2 = true;
     }
-    else {
+    else{
         mobnav2.classList.remove('anshow');
         mobnav2.classList.add('anihide');
-        document.querySelector(".mob-nav ul li").addEventListener('transitionend', () => {
+        document.querySelector(".mob-nav2 ul").addEventListener('transitionend', (event) => {
+
             if (event.propertyName === 'transform') {
                 mobnav2.style.display = "none";
             }
+
         });
         status2 = false;
-
     }
+
 });

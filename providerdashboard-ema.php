@@ -161,29 +161,34 @@
  		}*/
 
  		if(isset($_POST['up_file_name'])!= null){
-
  			if ($_POST['up_file_size'] != null) {
  				
  				$file_size = $_POST['up_file_size']/1024;
+ 				$file_type = $_POST['up_file_type'];
  				$upload_to = "imj/profile_pictures/providers/";
 
  				if($file_size <= 500){
+ 					if($file_type === 'image/jpeg' || $file_type === 'image/jpg'){
+ 						$file_name = explode('.', $_POST['up_file_name']);
+	 					$new_file_name = $company_registration_number . "." . array_pop($file_name);
 
- 					$file_name = explode('.', $_POST['up_file_name']);
- 					$new_file_name = $company_registration_number . "." . array_pop($file_name);
+	 					$upload_image = explode(',', $_POST['up_pic']);
+	 					$upload_ima = base64_decode($upload_image[1]);
 
- 					$upload_image = explode(',', $_POST['up_pic']);
- 					$upload_ima = base64_decode($upload_image[1]);
+	 					$is_image = file_put_contents($upload_to . $new_file_name, $upload_ima);
 
- 					$is_image = file_put_contents($upload_to . $new_file_name, $upload_ima);
+	 					if($is_image){
+	 						$provider_pic = "UPDATE provider SET is_image=1 WHERE company_registration_number='{$company_registration_number}'";
 
- 					if($is_image){
- 						$provider_pic = "UPDATE provider SET is_image=1 WHERE company_registration_number='{$company_registration_number}'";
+		 					$result_provider_pic=mysqli_query($connection,$provider_pic);
 
-	 					$result_provider_pic=mysqli_query($connection,$provider_pic);
-
-	 					$_SESSION["is_image_pro"]=1;
+		 					$_SESSION["is_image_pro"]=1;
+	 					}
  					}
+ 					else{
+ 						$errors[] = "Please Select JPG File";
+ 					}
+ 					
  				}
  				else{
  					$errors[] = "File Is Too Large";
@@ -218,6 +223,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Company DashBoard</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/provider_dashboard.css">
 	<link rel="stylesheet" href="css/provider_dashboard_ema.css">
 	<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
@@ -315,6 +321,7 @@
 						<!-- input for get value -->
 						<input type="hidden" name="up_file_name" id="up_file_name">
 						<input type="hidden" name="up_file_size" id="up_file_size">
+						<input type="hidden" name="up_file_type" id="up_file_type">
 						<input type="hidden" name="up_pic" id="up_pic">
 
 					</div><!-- pro_img_cropper -->

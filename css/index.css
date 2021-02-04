@@ -194,11 +194,12 @@ header .mob-nav2 ul li a {
 }
 header .mob-nav2 ul li:nth-child(4) a,
 ul li:nth-child(5) a {
-  color: #eb8005 !important;
+  color: #1db90c !important;
+  font-weight: 600;
 }
 header .mob-nav2 ul li:nth-child(4) i,
 ul li:nth-child(5) i {
-  color: #eb8005 !important;
+  color: #1db90c !important;
 }
 
 .anihide {
@@ -222,6 +223,9 @@ ul li:nth-child(5) i {
 .slider .slide_show {
   width: 100%;
   overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   background-image: linear-gradient(45deg, #010e1d, #000);
   animation: zo linear infinite 5s;
 }
@@ -246,7 +250,7 @@ ul li:nth-child(5) i {
   font-family: "Montserrat", sans-serif;
 }
 .slider .pic_on_text h2 {
-  font-size: 55px;
+  font-size: 58px;
   font-weight: 500;
   color: #e0e0e0;
   margin-bottom: 20px;
@@ -425,6 +429,8 @@ ul li:nth-child(5) i {
 .preview_some .main_column .row .column:nth-child(2) .job-row1 h1 {
   margin: 13px 0;
   font-size: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
   text-transform: capitalize;
 }
 .preview_some .main_column .row .column:nth-child(3) {

@@ -38,7 +38,6 @@
 				$email=$resultseeker["email"];
 				$phone_number=$resultseeker["phone_number"];
 				$qua = $resultseeker['qualification'];
-
 				$dob=$resultcv["birth_day"];
 				$address=$resultcv["address"];
 
@@ -186,25 +185,30 @@
 
 				$fileSize = $_POST['up_pic_size']/1024;
 				$upload_to = "imj/profile_pictures/seekers/";
+				$type = $_POST['up_pic_type'];
 
 				if($fileSize <= 500){
+					if($type == 'image/jpeg' || $type == 'image/jpg'){
 
+						$file_name = explode('.', $_POST['up_pic_nmae']);
+						$lastString = array_pop($file_name);
+						$newFilename =$seeker_id . "." . $lastString;
+						
+						$upload_image = explode(',', $_POST['up_pic']);
 
-					$file_name = explode('.', $_POST['up_pic_nmae']);
-					$lastString = array_pop($file_name);
-					$newFilename =$seeker_id . "." . $lastString;
-					
-					$upload_image = explode(',', $_POST['up_pic']);
+						$upload_ima = base64_decode($upload_image[1]);
 
-					$upload_ima = base64_decode($upload_image[1]);
+						$is_upload = file_put_contents($upload_to . $newFilename, $upload_ima);
 
-					$is_upload = file_put_contents($upload_to . $newFilename, $upload_ima);
+						if($is_upload){
+							$query = "UPDATE seeker SET is_image=1 WHERE seeker_id={$seeker_id}";
+							$image=mysqli_query($connection,$query); 
 
-					if($is_upload){
-						$query = "UPDATE seeker SET is_image=1 WHERE seeker_id={$seeker_id}";
-						$image=mysqli_query($connection,$query); 
-
-						$_SESSION["is_image"] = 1;
+							$_SESSION["is_image"] = 1;
+						}
+					}
+					else{
+						$errors[] = "Invalied File Type";
 					}
 
 				}
@@ -279,6 +283,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Seeker DashBoard</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/seekerdashboard.css">
 	<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
 
@@ -379,6 +384,7 @@
 							<input type="hidden" name="up_pic_nmae" id="up_pic_nmae">
 							<input type="hidden" name="up_pic" id="up_pic">
 							<input type="hidden" name="up_pic_size" id="up_pic_size">
+							<input type="hidden" name="up_pic_type" id="up_pic_type">
 	
 						</div><!-- update_pic -->
 	
@@ -409,7 +415,7 @@
 									<label for="deg">Degree</label>
 									<input type="radio" name="qualifi" id="deg" value="degree" <?php if($qua=='degree'){echo 'checked';} ?>>
 									<label for="no">No Minimum Qualification</label>
-									<input type="radio" name="qualifi" id="no" value="no minimum qualification" <?php if($qua=='no'){echo 'checked';} ?> >
+									<input type="radio" name="qualifi" id="no" value="no minimum qualification" <?php if($qua=='no' || $qua=='no minimum qualification'){echo 'checked';} ?> >
 								</div>	
 							</div>
 							<p>

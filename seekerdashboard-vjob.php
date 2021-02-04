@@ -70,6 +70,9 @@
 				}
 				
 			}
+			else{
+				header("location:seekerdashboard.php?err=add deleted");
+			}
 		}
 		else{
 			printf(mysqli_error($connection));
@@ -235,6 +238,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Seeker DashBoard</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/seekerdashboard.css">
 	<link rel="stylesheet" href="css/seekerdashboard-vjob.css">
 	<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>

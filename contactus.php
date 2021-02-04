@@ -3,6 +3,12 @@
 
 <?php 
 
+	// Import PHPMailer classes into the global namespace
+		// These must be at the top of your script, not inside a function
+		use PHPMailer\PHPMailer\PHPMailer;
+		use PHPMailer\PHPMailer\SMTP;
+		use PHPMailer\PHPMailer\Exception;
+
 	if (isset($_POST["send"])) {
 		
 		$name = mysqli_real_escape_string($connection,$_POST["name"]);
@@ -26,19 +32,57 @@
 
 		//$mail_is = mail($to, $subject,$email_body,$header);
 
-		if($mail_is == true){
-			echo "<script>";
-				echo "alert('Successfully  Send The Message ')";
-			echo "</script>";
-		}
-		else{
-			echo "<script>";
-				echo "alert('Please Try Again')";
-			echo "</script>";
-		}
 
+
+		// Load Composer's autoloader
+		//require 'vendor/autoload.php';
+		require 'inc/phpMailer/src/Exception.php';
+		require 'inc/phpMailer/src/PHPMailer.php';
+		require 'inc/phpMailer/src/SMTP.php';
+
+		// Instantiation and passing `true` enables exceptions
+		$mail = new PHPMailer(true);
+
+
+		try {
+			//Server settings
+			$mail->SMTPDebug = 0;                      // Enable verbose debug output
+			$mail->isSMTP();                                            // Send using SMTP
+			$mail->Host       = 'guccikitchen.com';                    // Set the SMTP server to send through
+			$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+			$mail->Username   = 'jobberlk@guccikitchen.com';                     // SMTP username
+			$mail->Password   = 'jobberlk123';                               // SMTP password
+			$mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+			$mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+			//Recipients
+			$mail->setFrom('jobberlk@guccikitchen.com', 'Jobberlk');
+			$mail->addAddress('osadamanohara55@gmail.com', 'Jobberlk');     // Add a recipient
+			//$mail->addAddress('ellen@example.com');               // Name is optional
+			$mail->addReplyTo('jobberlk@guccikitchen.com', 'Jobberlk');
+			//$mail->addCC('cc@example.com');
+			//$mail->addBCC('bcc@example.com');
+
+			// Attachments
+			//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+			//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+			// Content
+			$mail->isHTML(true);                                  // Set email format to HTML
+			$mail->Subject = $subject;
+			$mail->Body    = $email_body;
+			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients' . $msg;
+
+			$mail->send();
+    			//echo 'Message has been sent';
+				echo '<script>';
+					echo 'alert("Message Sent Successfully")';
+				echo '</script>';
+			} catch (Exception $e) {
+				//echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+
+				}
 	}
-
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +98,7 @@
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>CONTACT US</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>
 
 

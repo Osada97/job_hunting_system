@@ -11,7 +11,7 @@
 									<h4>Jobseeker</h4>
 									<h1>Looking For Job?</h1>
 								</div>
-								<a href="userlogin.php">Find A Job<i class="fas fa-arrow-right"></i></a>
+								<a href="mainlogin.php?ac=se">Find A Job<i class="fas fa-arrow-right"></i></a>
 							</div>
 						</div>
 						<div class="column">
@@ -23,7 +23,7 @@
 									<h4>Recruiter</h4>
 									<h1>Are You Recruiting?</h1>
 								</div>
-								<a href="providersignin.php">Post A Job<i class="fas fa-arrow-right"></i></a>
+								<a href="mainlogin.php?ac=pr">Post A Job<i class="fas fa-arrow-right"></i></a>
 							</div>
 						</div>
 					</div>

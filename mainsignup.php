@@ -58,7 +58,7 @@
 		//Checkin Password is correct
 
 		if (! ($_POST["Password"] == $_POST["con_password"])) {
-			$errors[]="Password Invalid";
+			$errors[]="Confirm Password Invalid";
 		}
 
 		//Checking if email address is alredy Exsits
@@ -82,10 +82,11 @@
 			$Username = mysqli_real_escape_string($connection, $_POST["Username"]);
 			$email_address = mysqli_real_escape_string($connection, $_POST["email_address"]);
 			$phone_number = mysqli_real_escape_string($connection, $_POST["phone_number"]);
+			$qua = $_POST['qua'];
 
 			$hashed_pasword =sha1($_POST["con_password"]);
 
-			$query = "INSERT INTO seeker (first_name, last_name, username, email, phone_number, password,is_image, is_deleted) VALUES ('{$Firstname}','{$Lastname}','{$Username}','{$email_address}','{$phone_number}','{$hashed_pasword}',0,0)";
+			$query = "INSERT INTO seeker (first_name, last_name, username,qualification,email, phone_number, password,is_image, is_deleted) VALUES ('{$Firstname}','{$Lastname}','{$Username}','{$qua}','{$email_address}','{$phone_number}','{$hashed_pasword}',0,0)";
 
 			$result = mysqli_query($connection ,$query);
 
@@ -212,6 +213,7 @@ if (isset($_POST["cosubmit"])) {
 <head>
 	<meta charset="UTF-8">
 	<title>Sign Up</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/mainsignup.css">
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /><!--style sheet for scroll animation-->
@@ -307,7 +309,7 @@ if (isset($_POST["cosubmit"])) {
                                     <label for="degree">Degree</label>
                                     <input type="radio" name='qua' value="degree" id="degree">
                                     <label for="no">No Minimum Qualification</label>
-                                    <input type="radio" name='qua' value="no" id="no" checked>
+                                    <input type="radio" name='qua' value="no minimum qualification" id="no" checked>
                                 </div>
                             </p>   
 						</div>
@@ -324,7 +326,7 @@ if (isset($_POST["cosubmit"])) {
 						</div>
                     <div class="subbut">
                         <div class="subcolumn">
-                            <input type="submit" value="Login" name="ussubmit">
+                            <input type="submit" value="Sign Up" name="ussubmit">
                         </div>
                         <div class="subcolumn">
                             <p>Already Have An Account? <a href="mainlogin.php">LogIn Here</a></p>
@@ -373,7 +375,7 @@ if (isset($_POST["cosubmit"])) {
 						</div>
                     <div class="subbut">
                         <div class="subcolumn">
-                            <input type="submit" value="Login" name="cosubmit">
+                            <input type="submit" value="Sign Up" name="cosubmit">
                         </div>
                         <div class="subcolumn">
                             <p>Already Have An Account? <a href="mainlogin.php">LogIn Up Here</a></p>
@@ -383,66 +385,6 @@ if (isset($_POST["cosubmit"])) {
             </div>
         </div>
     </section>
-
-	<!-- <section>
-		<div class="main">
-			<div class="row1">
-				<h2>Create Your Account</h2>
-			</div>
-			
-			
-			<?php 
-				/**if (!empty($errors)) {
-					echo "<div class='errmsg'>";
-					foreach ($errors as $value) {
-						echo "<p>" . $value . "</p>";
-					}
-					echo "</div>";
-				}*/
-
-			?>
-			
-
-			<div class="row2">
-				<div class="signup_form">
-					<form action="seekersignup.php" method="post">
-						<p>
-							<label for="">First Name</label>
-							<input type="text" name="Firstname" id="" placeholder="Enter First Name" value="<?php echo $Firstname ?>">
-						</p>
-						<p>
-							<label for="">Last Name</label>
-							<input type="text" name="Lastname" id="" placeholder="Enter Last Name" value="<?php echo $Lastname ?>">
-						</p>
-						<p>
-							<label for="">Username</label>
-							<input type="text" name="Username" id="" placeholder="Enter Username" value="<?php echo $Username ?>">
-						</p>
-						<p>
-							<label for="">Email Address</label>
-							<input type="Email" name="email_address" id="" placeholder="Enter Email address" value="<?php echo $email_address ?>">
-						</p>
-						<p>
-							<label for="">Phone number</label>
-							<input type="text" name="phone_number" id="" placeholder="Enter Phone Number" value="<?php echo $phone_number ?>">
-						</p>
-						<p>
-							<label for="">Password</label>
-							<input type="password" name="Password" id="" placeholder="Enter Password">
-						</p>
-						<p>
-							<label for="">Confirm Password</label>
-							<input type="password" name="con_password" id="" placeholder="Reenter Password">
-						</p>
-						<p>
-							<button type="submit" name="submit">Sign Up</button>
-							<span>Already registered?<a href="userlogin.php">Log in Here</a></span>
-						</p>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section> -->
 
 	<footer>
 		<?php require_once("inc/footer.php"); ?>

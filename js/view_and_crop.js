@@ -22,6 +22,7 @@ $(document).ready(function(){
 
 				$('#up_pic_nmae').attr('value',this.files[0].name);
 				$('#up_pic_size').attr('value',this.files[0].size);
+				$('#up_pic_type').attr('value',this.files[0].type);
 
 					var reader = new FileReader();
 

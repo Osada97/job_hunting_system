@@ -31,12 +31,17 @@
 
 			$result = mysqli_query($connection,$query);
 
-			if (mydwli_num_rows($result)==1) {
+			if (mysqli_num_rows($result)==1) {
 				
 				$query = "DELETE FROM seeker WHERE seeker_id='{$seeker_id}' AND password='{$hased_password}' ";
 
 				if (mysqli_query($connection,$query)) {
-					header("location:index.php?seeker_account_deleted=true");
+					$querydel = "DELETE FROM cv WHERE user_id = '{$seeker_id}'";
+					$resultdel = mysqli_query($connection,$querydel);
+
+					if($resultdel){
+						header("location:index.php?seeker_account_deleted=true");
+					}
 				}
 			}
 			else{
@@ -53,6 +58,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Seeker DashBoard</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/seekerdashboard.css">
 	<link rel="stylesheet" href="css/seekerdashboard-dma.css">
 	<script src="https://kit.fontawesome.com/4f6c585cf2.js" crossorigin="anonymous"></script>

@@ -69,9 +69,8 @@
 				if(mysqli_num_rows($result_skills)>0){
 					$hw_mn++;
 				}
-				echo $hw_mn;
 				//if one of extra forms are not empty
-				if($hw_mn>1){
+				if($hw_mn>2){
 					//applying for jobs
 					$provider_id = $_GET['crn'];
 					$ad_no = $_GET['ad-no'];

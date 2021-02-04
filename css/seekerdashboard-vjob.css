@@ -190,6 +190,7 @@
 }
 .job-content .job_main_content .job_details .q_job_details .sect .sect_con h4 {
   font-size: 12px;
+  text-transform: capitalize;
 }
 .job-content .job_main_content .job_details .overview,
 .comdis {

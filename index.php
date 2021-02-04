@@ -60,6 +60,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta name="theme-color" content="#fff" />
 	<title>Jobber</title>
+	<link rel="shortcut icon" type="image/jpg" href="imj/icon/fav.png"/>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/media-queries/index-media.css"><!--media query-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
@@ -106,7 +107,7 @@
 						<li><a href="index.php" class="active">Home</a><i class="fas fa-chevron-down"></i></li>
 						<li><a href="aboutus.php">About Us</a><i class="fas fa-chevron-down"></i></li>
 						<li><a href="contactus.php">Contact</a><i class="fas fa-chevron-down"></i></li>
-						<li><a href="userlogin.php"></i>Sign In</a><i class="far fa-user"></i></li>
+						<li><a href="mainlogin.php"></i>Sign In</a><i class="far fa-user"></i></li>
 						<li><a href="mainsignup.php">Sign Up</a><i class="fas fa-user-plus"></i></li>
 					</ul>
 
@@ -129,7 +130,7 @@
 							<img class="img" src="imj/job8.jpg" alt="finr_job">-->
 					<picture>
 						<source media="(max-width:375px),(max-width:414px)" srcset="imj/mobile.jpg">
-							<img class="img" src="imj/job11.jpg" alt="finr_job">
+							<img class="img" src="imj/job12.jpg" alt="finr_job">
 					</picture>
 
 				</div>
@@ -188,6 +189,10 @@
 		<div class="preview_some">
 			<div class="content">
 				<div class="main_column">
+					<?php 
+					if ($result_job) { 
+						if(mysqli_num_rows($result_job) >0){
+						?>
 					<div class="heading">
 						<h1>Browsing Listing</h1>
 						<p>
@@ -197,7 +202,6 @@
 					</div>
 					<?php  
 
-						if ($result_job) {
 							while ($job = mysqli_fetch_assoc($result_job)) {
 
 								echo "<div class=\"row\">";
@@ -222,7 +226,7 @@
 								echo "<div class=\"column\">";
 								echo "<div class=\"job-but\">";
 								echo "<div class=\"job-row\">";
-								echo "<a href =\"userlogin.php\"><button>Apply</button></a>";
+								echo "<a href =\"mainlogin.php?ac=se\"><button>Apply</button></a>";
 								echo "</div>";
 								echo "<div class=\"job-row2\">";
 								echo "<h4><i class=\"fas fa-briefcase\"></i>" . $job["job_type"] . "</h4>";
@@ -233,42 +237,11 @@
 								echo "</div>";
 
 							}
-						}
-
-
 					?>
-					<!--<div class="row">
-						<div class="column">
-							<div class="picture_bo">
-								<div class="logo">
-									<img src="imj/logo1.png" alt="">
-									<h2>osada</h2>
-								</div>
-							</div>
-						</div>
-						<div class="column">
-							<div class="job-row1">
-								<h1>Job title</h1>
-							</div>
-							<div class="job-row2">
-								<h2><i class="fas fa-home"></i>Company Name</h2>
-								<h2><i class="fas fa-map-marker-alt"></i>location</h2>
-								<h2>job catogery</h2>
-								<h2><i class="fas fa-coins"></i>Salary</h2>
-							</div>
-						</div>
-						<div class="column">
-							<div class="job-but">
-								<div class="job-row">
-									<button>Apply</button>
-								</div>
-								<div class="job-row2">
-									<h4><i class="fas fa-briefcase"></i>job type</h4>
-									<h4><i class="far fa-clock"></i>Upload Time</h4>
-								</div>
-							</div>
-						</div>
-					</div>-->
+				<?php 
+					}
+					} 
+			?>
 				</div>
 			</div>
 		</div><!--prevview some jobs-->
@@ -358,8 +331,8 @@
 				<h3  data-aos="fade-right">Post OR Get a job</h3>
 				<h1  data-aos="fade-right">Looking for Post OR Get a job? We have end-to-end solutions that can keep up with your criteria.</h1>
 				<p>
-					<a href="providersignin.php"><button  data-aos="zoom-in">Post a Job</button></a>
-					<a href="userlogin.php"><button  data-aos="zoom-in">Browse A job</button></a>
+					<a href="mainlogin.php?ac=pr"><button  data-aos="zoom-in">Post a Job</button></a>
+					<a href="mainlogin.php?ac=se"><button  data-aos="zoom-in">Browse A job</button></a>
 				</p>
 			</div>
 		</div><!--pic_get_job-->
@@ -444,7 +417,7 @@
 									<h4>Jobseeker</h4>
 									<h1>Looking For Job?</h1>
 								</div>
-								<a href="userlogin.php">Find A Job<i class="fas fa-arrow-right"></i></a>
+								<a href="mainlogin.php?ac=se">Find A Job<i class="fas fa-arrow-right"></i></a>
 							</div>
 						</div>
 						<div class="column">
@@ -456,7 +429,7 @@
 									<h4>Recruiter</h4>
 									<h1>Are You Recruiting?</h1>
 								</div>
-								<a href="providersignin.php">Post A Job<i class="fas fa-arrow-right"></i></a>
+								<a href="mainlogin.php?ac=pr">Post A Job<i class="fas fa-arrow-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -580,28 +553,6 @@
 		});
 	</script>
 
-	<script>
-		//slide show
-
-		/*const slideshowImages =document.querySelectorAll(".slide_show img");
-
-		const nextImageDelay =3000;
-		let currentImageCounter =0;
-
-		//slideshowImages[currentImageCounter].style.display ="block";
-		slideshowImages[currentImageCounter].style.opacity = 1;
-
-		setInterval(nextImage, nextImageDelay);
-
-
-		function nextImage() {
-			//slideshowImages[currentImageCounter].style.display ="none";
-			slideshowImages[currentImageCounter].style.opacity =0;
-			currentImageCounter =(currentImageCounter+1)%slideshowImages.length;
-			//slideshowImages[currentImageCounter].style.display ="block";
-			slideshowImages[currentImageCounter].style.opacity =1;
-		}*/
-	</script>
 	<script>
 		//sticky nav
 		$(document).ready(function(){
